@@ -1,62 +1,62 @@
 [
   {
     "feature": "behs",
-    "importance": 0.15611082218783265,
+    "importance": 0.15545442978117943,
     "label": "Engagement health"
   },
   {
     "feature": "client_feedback_health",
-    "importance": 0.11578772277392722,
+    "importance": 0.11532816014248806,
     "label": "Client feedback"
   },
   {
     "feature": "feedback_rating",
-    "importance": 0.10170187886366745,
+    "importance": 0.09976353902334445,
     "label": "Feedback rating"
   },
   {
     "feature": "overall_score",
-    "importance": 0.08976329707728921,
+    "importance": 0.09012548116613657,
     "label": "Overall performance"
   },
   {
     "feature": "performance_health",
-    "importance": 0.08644604715301976,
+    "importance": 0.08699369595532232,
     "label": "Performance"
   },
   {
     "feature": "sentiment_health",
-    "importance": 0.06955144551752297,
+    "importance": 0.07021992920641677,
     "label": "Sentiment"
   },
   {
     "feature": "communication_score",
-    "importance": 0.048856864367054956,
+    "importance": 0.049018339418919615,
     "label": "Communication score"
   },
   {
-    "feature": "client_feedback_health_delta",
-    "importance": 0.043494782091907255,
-    "label": "client_feedback_health_delta"
-  },
-  {
     "feature": "behs_delta",
-    "importance": 0.042505030780295286,
+    "importance": 0.04326825201364207,
     "label": "behs_delta"
   },
   {
+    "feature": "client_feedback_health_delta",
+    "importance": 0.0431611031669444,
+    "label": "client_feedback_health_delta"
+  },
+  {
     "feature": "delivery_score",
-    "importance": 0.03891680130336252,
+    "importance": 0.039407291842473775,
     "label": "Delivery score"
   },
   {
     "feature": "technical_score",
-    "importance": 0.032380557827869236,
+    "importance": 0.03239495864630114,
     "label": "technical_score"
   },
   {
     "feature": "remaining_months",
-    "importance": 0.026472325095853285,
+    "importance": 0.02644498163521165,
     "label": "remaining_months"
   }
 ]

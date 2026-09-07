@@ -23,14 +23,14 @@
       ]
     },
     "random_forest": {
-      "precision": 0.496,
+      "precision": 0.497,
       "recall": 0.869,
-      "f1": 0.631,
-      "roc_auc": 0.936,
+      "f1": 0.632,
+      "roc_auc": 0.935,
       "confusion_matrix": [
         [
-          1109,
-          188
+          1110,
+          187
         ],
         [
           28,

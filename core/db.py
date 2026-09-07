@@ -17,7 +17,12 @@ from core.config import DB_URL, ROOT
 
 @lru_cache(maxsize=1)
 def get_engine() -> Engine:
-    return create_engine(DB_URL, future=True)
+    return create_engine(
+        DB_URL,
+        future=True,
+        pool_pre_ping=True,     
+        pool_recycle=300,       
+    )
 
 
 def dialect() -> str:
