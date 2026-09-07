@@ -74,9 +74,6 @@ def inject_css(theme: str) -> dict:
     .kpi .val {{ font-size:1.5rem; font-weight:800; }}
     .stFormSubmitButton>button, div.stButton>button {{ border-radius:10px; color:#0F172A !important; }}
     div.stButton>button[kind="primary"], .stFormSubmitButton>button[kind="primary"] {{ color:#ffffff !important; }}
-    .login-card {{ max-width:440px; margin:3vh auto 0 auto; background:{card};
-                   border:1px solid {border}; border-radius:18px; padding:24px 28px;
-                   box-shadow:0 8px 30px rgba(2,132,199,.10); }}
     </style>""", unsafe_allow_html=True)
     return {"template": template, "muted": muted}
 
@@ -124,31 +121,31 @@ def login_gate():
     if st.session_state.get("auth"):
         return
     header()
-    st.markdown('<div class="login-card">', unsafe_allow_html=True)
-    st.markdown("#### Sign in")
-    role = st.radio("Access level", ["Administrator", "Account Manager", "Guest (view only)"])
+    _, mid, _ = st.columns([1, 1.4, 1])
+    box = mid.container(border=True)
+    box.markdown("#### Sign in")
+    role = box.radio("Access level", ["Administrator", "Account Manager", "Guest (view only)"])
     if role == "Administrator":
-        pw = st.text_input("Admin password", type="password")
-        if st.button("Sign in", type="primary", use_container_width=True):
+        pw = box.text_input("Admin password", type="password")
+        if box.button("Sign in", type="primary", use_container_width=True):
             if pw == ADMIN_PW:
                 st.session_state.auth = {"role": "Administrator", "am": None, "name": "Administrator"}
                 st.rerun()
             else:
-                st.error("Incorrect password.")
+                box.error("Incorrect password.")
     elif role == "Account Manager":
         ams = account_manager_ids()
-        am = st.selectbox("Your account-manager ID", ams) if ams else None
-        if st.button("Sign in", type="primary", use_container_width=True):
+        am = box.selectbox("Your account-manager ID", ams) if ams else None
+        if box.button("Sign in", type="primary", use_container_width=True):
             st.session_state.auth = {"role": "Account Manager", "am": str(am), "name": f"Account Manager {am}"}
             st.rerun()
     else:
-        if st.button("Continue as guest", type="primary", use_container_width=True):
+        if box.button("Continue as guest", type="primary", use_container_width=True):
             st.session_state.auth = {"role": "Guest", "am": None, "name": "Guest"}
             st.rerun()
-    st.caption("Demo access · synthetic data. Administrator password: **admin123**. "
-               "Account managers sign in by ID and see only their own clients. "
-               "Guests view the full portfolio read-only.")
-    st.markdown('</div>', unsafe_allow_html=True)
+    box.caption("Demo access - synthetic data. Administrator password: **admin123**. "
+                "Account managers sign in by ID and see only their own clients. "
+                "Guests view the full portfolio read-only.")
     st.stop()
 
 
