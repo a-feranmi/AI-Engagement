@@ -19,6 +19,11 @@ import pandas as pd
 import numpy as np
 import plotly.express as px
 
+try:
+    from streamlit_autorefresh import st_autorefresh
+except Exception:
+    st_autorefresh = None
+
 ROOT = Path(__file__).resolve().parents[1]
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
@@ -67,7 +72,8 @@ def inject_css(theme: str) -> dict:
             border:1px solid {border}; border-left:6px solid var(--accent,{SKY}); }}
     .kpi .lab {{ font-size:.76rem; color:{muted}; margin-bottom:4px; letter-spacing:.02em; }}
     .kpi .val {{ font-size:1.5rem; font-weight:800; }}
-    .stFormSubmitButton>button, div.stButton>button {{ border-radius:10px; }}
+    .stFormSubmitButton>button, div.stButton>button {{ border-radius:10px; color:#0F172A !important; }}
+    div.stButton>button[kind="primary"], .stFormSubmitButton>button[kind="primary"] {{ color:#ffffff !important; }}
     .login-card {{ max-width:440px; margin:3vh auto 0 auto; background:{card};
                    border:1px solid {border}; border-radius:18px; padding:24px 28px;
                    box-shadow:0 8px 30px rgba(2,132,199,.10); }}
@@ -157,6 +163,14 @@ if st.sidebar.button("Log out"):
     del st.session_state["auth"]
     st.rerun()
 
+st.sidebar.divider()
+auto = st.sidebar.checkbox("Auto-refresh every 5 min", value=True)
+if auto and st_autorefresh is not None:
+    st_autorefresh(interval=5 * 60 * 1000, key="auto_refresh")
+if st.sidebar.button("Refresh now"):
+    st.cache_data.clear()
+    st.rerun()
+
 
 # ----------------------------------------------------------------- data
 @st.cache_data(ttl=300)
@@ -224,10 +238,14 @@ st.caption(f"Signed in as **{AUTH['name']}** · viewing {scope} · synthetic aca
 
 # ----------------------------------------------------------------- filters
 st.sidebar.header("Portfolio filters")
-clients = st.sidebar.multiselect("Client", sorted(df.client_name.unique()))
-roles = st.sidebar.multiselect("Role", sorted(df.role.unique()))
-industries = st.sidebar.multiselect("Industry", sorted(df.industry.unique()))
-risk_bands = st.sidebar.multiselect("Risk band", ["Low", "Watch", "Critical"])
+clients = st.sidebar.multiselect("Client", sorted(df.client_name.unique()), key="Client")
+roles = st.sidebar.multiselect("Role", sorted(df.role.unique()), key="Role")
+industries = st.sidebar.multiselect("Industry", sorted(df.industry.unique()), key="Industry")
+risk_bands = st.sidebar.multiselect("Risk band", ["Low", "Watch", "Critical"], key="Risk band")
+if st.sidebar.button("Reset filters"):
+    for _k in ("Client", "Role", "Industry", "Risk band"):
+        st.session_state.pop(_k, None)
+    st.rerun()
 
 filtered = df.copy()
 if clients:
