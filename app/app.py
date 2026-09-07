@@ -28,22 +28,137 @@ from core.db import read_sql, exec_sql   # DB-agnostic: SQLite locally, Postgres
 
 METRICS = ROOT / "artifacts" / "model" / "metrics.json"
 
-st.set_page_config(
-    page_title="Engagement360",
-    page_icon="◈",
-    layout="wide",
-    initial_sidebar_state="expanded",
-)
+st.set_page_config(page_title="Engagement360", page_icon="📈",
+                   layout="wide", initial_sidebar_state="expanded")
 
-st.markdown("""
-<style>
-.block-container {padding-top: 1.5rem;}
-.metric-card {padding: 0.8rem 1rem; border-radius: 0.8rem; background: rgba(120,120,120,.08);}
-.small-muted {font-size: .82rem; opacity: .72;}
-</style>
-""", unsafe_allow_html=True)
+# ----------------------------------------------------------------- branding
+SKY, SKY_DARK, SKY_LIGHT = "#0EA5E9", "#0369A1", "#7DD3FC"
+SKY_SEQ = ["#0EA5E9", "#0284C7", "#38BDF8", "#0369A1", "#7DD3FC", "#075985"]
+BAND_COLORS = {"Healthy": "#16A34A", "Low": "#16A34A", "Watch": "#F59E0B", "Critical": "#DC2626"}
+
+LOGO = ('<svg width="42" height="42" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">'
+        '<rect x="2" y="2" width="44" height="44" rx="12" fill="#0EA5E9"/>'
+        '<path d="M7 27 L17 27 L21 16 L27 33 L31 24 L41 24" fill="none" stroke="#ffffff" '
+        'stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>')
+
+# ----------------------------------------------------------------- theme
+if "theme" not in st.session_state:
+    st.session_state.theme = "Light"
 
 
+def inject_css(theme: str) -> dict:
+    if theme == "Dark":
+        bg, panel, card, text, border, muted = "#0B1220", "#0F1B2D", "#12203A", "#E2E8F0", "#1E3A5F", "#94A3B8"
+        template = "plotly_dark"
+    else:
+        bg, panel, card, text, border, muted = "#F5FAFF", "#FFFFFF", "#FFFFFF", "#0F172A", "#DBEAFE", "#64748B"
+        template = "plotly_white"
+    st.markdown(f"""
+    <style>
+    [data-testid="stAppViewContainer"] {{ background:{bg}; color:{text}; }}
+    [data-testid="stHeader"] {{ background:transparent; }}
+    [data-testid="stSidebar"] {{ background:{panel}; border-right:1px solid {border}; }}
+    .block-container {{ padding-top:1.1rem; }}
+    h1,h2,h3,h4,p,label,span {{ color:{text}; }}
+    .brandbar {{ display:flex; align-items:center; gap:12px; margin-bottom:2px; }}
+    .brandbar .title {{ font-size:1.55rem; font-weight:800; line-height:1.1; }}
+    .brandbar .sub {{ font-size:.85rem; color:{muted}; }}
+    .kpi {{ border-radius:14px; padding:14px 16px; background:{card};
+            border:1px solid {border}; border-left:6px solid var(--accent,{SKY}); }}
+    .kpi .lab {{ font-size:.76rem; color:{muted}; margin-bottom:4px; letter-spacing:.02em; }}
+    .kpi .val {{ font-size:1.5rem; font-weight:800; }}
+    .stFormSubmitButton>button, div.stButton>button {{ border-radius:10px; }}
+    .login-card {{ max-width:440px; margin:3vh auto 0 auto; background:{card};
+                   border:1px solid {border}; border-radius:18px; padding:24px 28px;
+                   box-shadow:0 8px 30px rgba(2,132,199,.10); }}
+    </style>""", unsafe_allow_html=True)
+    return {"template": template, "muted": muted}
+
+
+# sidebar top: logo + theme toggle (available before and after login)
+st.sidebar.markdown(f'<div class="brandbar">{LOGO}<div class="title" '
+                    f'style="font-size:1.15rem">Engagement360</div></div>', unsafe_allow_html=True)
+theme = st.sidebar.radio("Theme", ["Light", "Dark"], horizontal=True,
+                         index=0 if st.session_state.theme == "Light" else 1)
+st.session_state.theme = theme
+THEME = inject_css(theme)
+
+
+def style_fig(fig, h=330):
+    fig.update_layout(template=THEME["template"], height=h, colorway=SKY_SEQ,
+                      margin=dict(l=10, r=10, t=36, b=10),
+                      paper_bgcolor="rgba(0,0,0,0)", plot_bgcolor="rgba(0,0,0,0)")
+    return fig
+
+
+def header():
+    st.markdown(
+        f'<div class="brandbar">{LOGO}<div><div class="title">Engagement360</div>'
+        f'<div class="sub">AI-Powered Engagement Health, Early-Warning & Revenue Protection</div>'
+        f'</div></div>', unsafe_allow_html=True)
+
+
+# ----------------------------------------------------------------- auth
+def account_manager_ids() -> list[str]:
+    try:
+        d = read_sql("SELECT DISTINCT account_manager_id AS am FROM clients ORDER BY account_manager_id")
+        return d["am"].astype(str).tolist()
+    except Exception:
+        return []
+
+
+ADMIN_PW = "admin123"
+try:
+    ADMIN_PW = st.secrets["auth"]["admin_password"]
+except Exception:
+    pass
+
+
+def login_gate():
+    if st.session_state.get("auth"):
+        return
+    header()
+    st.markdown('<div class="login-card">', unsafe_allow_html=True)
+    st.markdown("#### Sign in")
+    role = st.radio("Access level", ["Administrator", "Account Manager", "Guest (view only)"])
+    if role == "Administrator":
+        pw = st.text_input("Admin password", type="password")
+        if st.button("Sign in", type="primary", use_container_width=True):
+            if pw == ADMIN_PW:
+                st.session_state.auth = {"role": "Administrator", "am": None, "name": "Administrator"}
+                st.rerun()
+            else:
+                st.error("Incorrect password.")
+    elif role == "Account Manager":
+        ams = account_manager_ids()
+        am = st.selectbox("Your account-manager ID", ams) if ams else None
+        if st.button("Sign in", type="primary", use_container_width=True):
+            st.session_state.auth = {"role": "Account Manager", "am": str(am), "name": f"Account Manager {am}"}
+            st.rerun()
+    else:
+        if st.button("Continue as guest", type="primary", use_container_width=True):
+            st.session_state.auth = {"role": "Guest", "am": None, "name": "Guest"}
+            st.rerun()
+    st.caption("Demo access · synthetic data. Administrator password: **admin123**. "
+               "Account managers sign in by ID and see only their own clients. "
+               "Guests view the full portfolio read-only.")
+    st.markdown('</div>', unsafe_allow_html=True)
+    st.stop()
+
+
+login_gate()
+AUTH = st.session_state.auth
+CAN_WRITE = AUTH["role"] in ("Administrator", "Account Manager")
+
+# sidebar: signed-in identity + logout
+st.sidebar.divider()
+st.sidebar.markdown(f"**Signed in**  \n{AUTH['name']}  \n`{AUTH['role']}`")
+if st.sidebar.button("Log out"):
+    del st.session_state["auth"]
+    st.rerun()
+
+
+# ----------------------------------------------------------------- data
 @st.cache_data(ttl=300)
 def portfolio() -> pd.DataFrame:
     return read_sql("""
@@ -58,8 +173,9 @@ def portfolio() -> pd.DataFrame:
         SELECT h.engagement_id, h.as_of_date, h.behs, h.health_band,
                h.performance_health, h.client_feedback_health, h.milestone_health,
                h.utilisation_health, h.sentiment_health,
-               e.client_id, c.client_name, c.industry, e.talent_id, t.talent_name,
-               e.role, e.monthly_contract_value, r.risk_probability, r.risk_band,
+               e.client_id, c.client_name, c.industry, c.account_manager_id,
+               e.talent_id, t.talent_name, e.role, e.monthly_contract_value,
+               r.risk_probability, r.risk_band,
                x.remaining_months, x.contract_exposure, x.risk_adjusted_exposure
         FROM h
         JOIN engagements e ON e.engagement_id = h.engagement_id
@@ -76,10 +192,8 @@ def current_interventions() -> pd.DataFrame:
 
 
 def risk_drivers(engagement_id: str) -> str:
-    d = read_sql(
-        "SELECT top_drivers FROM risk_drivers WHERE engagement_id=:eid ORDER BY as_of_date DESC LIMIT 1",
-        eid=engagement_id,
-    )
+    d = read_sql("SELECT top_drivers FROM risk_drivers WHERE engagement_id=:eid ORDER BY as_of_date DESC LIMIT 1",
+                 eid=engagement_id)
     return str(d.iloc[0]["top_drivers"]) if len(d) else "No material driver narrative available."
 
 
@@ -96,14 +210,19 @@ def avg_rating(engagement_id: str) -> float:
 try:
     df = portfolio()
 except Exception as exc:
+    header()
     st.error(str(exc))
     st.stop()
 
-st.title("Engagement360")
-st.caption("AI-Powered Engagement Health, Early-Warning & Revenue Protection Platform")
-st.info("Synthetic Bredge-inspired academic dataset — no confidential Bredge/client data used.")
+# role-based access: an account manager sees only their own clients
+if AUTH["role"] == "Account Manager":
+    df = df[df.account_manager_id.astype(str) == AUTH["am"]].copy()
 
-# Sidebar filters
+header()
+scope = "your portfolio" if AUTH["role"] == "Account Manager" else "the Bredge portfolio"
+st.caption(f"Signed in as **{AUTH['name']}** · viewing {scope} · synthetic academic dataset")
+
+# ----------------------------------------------------------------- filters
 st.sidebar.header("Portfolio filters")
 clients = st.sidebar.multiselect("Client", sorted(df.client_name.unique()))
 roles = st.sidebar.multiselect("Role", sorted(df.role.unique()))
@@ -120,56 +239,67 @@ if industries:
 if risk_bands:
     filtered = filtered[filtered.risk_band.isin(risk_bands)]
 
-# Executive KPI strip
+# ----------------------------------------------------------------- KPIs
 crit = int((filtered.risk_band == "Critical").sum())
 watch = int((filtered.risk_band == "Watch").sum())
 healthy = int((filtered.health_band == "Healthy").sum())
 exposure = float(filtered.risk_adjusted_exposure.fillna(0).sum())
 
-k1, k2, k3, k4, k5 = st.columns(5)
-k1.metric("Active engagements", f"{len(filtered):,}")
-k2.metric("Healthy", f"{healthy:,}")
-k3.metric("Watch", f"{watch:,}")
-k4.metric("Critical risk", f"{crit:,}")
-k5.metric("Risk-adjusted exposure", f"₦{exposure/1e9:,.2f}B")
 
-# Executive overview
+def kpi(col, label, value, accent):
+    col.markdown(f'<div class="kpi" style="--accent:{accent}"><div class="lab">{label}</div>'
+                 f'<div class="val" style="color:{accent}">{value}</div></div>', unsafe_allow_html=True)
+
+
+k1, k2, k3, k4, k5 = st.columns(5)
+kpi(k1, "ACTIVE ENGAGEMENTS", f"{len(filtered):,}", SKY)
+kpi(k2, "HEALTHY", f"{healthy:,}", BAND_COLORS["Healthy"])
+kpi(k3, "WATCH", f"{watch:,}", BAND_COLORS["Watch"])
+kpi(k4, "CRITICAL RISK", f"{crit:,}", BAND_COLORS["Critical"])
+kpi(k5, "REVENUE-AT-RISK", f"₦{exposure/1e9:,.2f}B", SKY_DARK)
+
 st.divider()
 left, right = st.columns([1, 1.5])
 with left:
     st.subheader("Portfolio health")
     health = filtered.health_band.value_counts().reindex(["Healthy", "Watch", "Critical"]).fillna(0).reset_index()
     health.columns = ["health_band", "engagements"]
-    fig = px.bar(health, x="health_band", y="engagements", text="engagements")
-    fig.update_layout(height=330, margin=dict(l=10, r=10, t=30, b=10))
+    fig = px.bar(health, x="health_band", y="engagements", text="engagements",
+                 color="health_band", color_discrete_map=BAND_COLORS)
+    style_fig(fig, 330).update_layout(showlegend=False, xaxis_title=None)
     st.plotly_chart(fig, use_container_width=True)
 with right:
     st.subheader("Highest-priority engagements")
     top = filtered.sort_values(["risk_probability", "risk_adjusted_exposure"], ascending=False).head(10).copy()
     top["Risk"] = (top.risk_probability.fillna(0) * 100).round(1).astype(str) + "%"
     top["Exposure"] = top.risk_adjusted_exposure.fillna(0).map(lambda x: f"₦{x/1e6:,.2f}M")
-    st.dataframe(top[["engagement_id", "client_name", "role", "risk_band", "Risk", "Exposure"]], use_container_width=True, hide_index=True)
+    show = top[["engagement_id", "client_name", "role", "risk_band", "Risk", "Exposure"]]
 
-# Tabs
-portfolio_tab, investigation_tab, interventions_tab, model_tab = st.tabs([
-    "Portfolio",
-    "Engagement investigation",
-    "Interventions",
-    "Model & governance",
-])
+    def _band_style(v):
+        c = BAND_COLORS.get(v, THEME["muted"])
+        return f"background-color:{c}22; color:{c}; font-weight:700;"
+    try:
+        show = show.style.map(_band_style, subset=["risk_band"])
+    except Exception:
+        pass
+    st.dataframe(show, use_container_width=True, hide_index=True)
+
+# ----------------------------------------------------------------- tabs
+portfolio_tab, investigation_tab, interventions_tab, model_tab = st.tabs(
+    ["Portfolio", "Engagement investigation", "Interventions", "Model & governance"])
 
 with portfolio_tab:
     st.subheader("Revenue exposure by client")
-    client_exp = filtered.groupby("client_name", as_index=False)["risk_adjusted_exposure"].sum().sort_values("risk_adjusted_exposure", ascending=False).head(15)
+    client_exp = (filtered.groupby("client_name", as_index=False)["risk_adjusted_exposure"].sum()
+                  .sort_values("risk_adjusted_exposure", ascending=False).head(15))
     client_exp["Exposure (₦M)"] = client_exp.risk_adjusted_exposure / 1e6
     fig = px.bar(client_exp, y="client_name", x="Exposure (₦M)", orientation="h")
-    fig.update_layout(height=480, yaxis_title=None)
+    style_fig(fig, 480).update_layout(yaxis_title=None)
     st.plotly_chart(fig, use_container_width=True)
 
     st.subheader("Risk distribution")
-    risk_dist = filtered["risk_probability"].fillna(0)
-    fig2 = px.histogram(risk_dist, nbins=20, labels={"value": "Risk probability"})
-    fig2.update_layout(height=330)
+    fig2 = px.histogram(filtered["risk_probability"].fillna(0), nbins=20, labels={"value": "Risk probability"})
+    style_fig(fig2, 330).update_layout(showlegend=False)
     st.plotly_chart(fig2, use_container_width=True)
 
 with investigation_tab:
@@ -182,9 +312,9 @@ with investigation_tab:
 
         m1, m2, m3, m4 = st.columns(4)
         m1.metric("BEHS", f"{row.behs:.1f}/100")
-        m2.metric("Risk probability", f"{row.risk_probability*100:.1f}%")
+        m2.metric("Risk probability", f"{(row.risk_probability or 0)*100:.1f}%")
         m3.metric("Risk band", str(row.risk_band))
-        m4.metric("Risk-adjusted exposure", f"₦{row.risk_adjusted_exposure/1e6:,.2f}M")
+        m4.metric("Revenue-at-Risk", f"₦{(row.risk_adjusted_exposure or 0)/1e6:,.2f}M")
 
         trend = read_sql("""
             SELECT as_of_date, behs, performance_health, client_feedback_health,
@@ -194,7 +324,7 @@ with investigation_tab:
         trend["as_of_date"] = pd.to_datetime(trend["as_of_date"])
         tlong = trend.melt(id_vars="as_of_date", var_name="metric", value_name="score")
         fig3 = px.line(tlong, x="as_of_date", y="score", color="metric")
-        fig3.update_layout(height=360, yaxis_title="Score")
+        style_fig(fig3, 360).update_layout(yaxis_title="Score")
         st.plotly_chart(fig3, use_container_width=True)
 
         c1, c2 = st.columns(2)
@@ -215,13 +345,9 @@ with investigation_tab:
 
         st.markdown("### AI-assisted intervention recommendation")
         recs = recommend(
-            risk_probability=float(row.risk_probability or 0),
-            behs=float(row.behs),
-            sentiment_health=float(row.sentiment_health),
-            performance_health=float(row.performance_health),
-            delay_days=avg_delay(selected),
-            feedback_rating=avg_rating(selected),
-        )
+            risk_probability=float(row.risk_probability or 0), behs=float(row.behs),
+            sentiment_health=float(row.sentiment_health), performance_health=float(row.performance_health),
+            delay_days=avg_delay(selected), feedback_rating=avg_rating(selected))
         for rec in recs:
             st.markdown(f"**{rec.priority} · {rec.action}** — {rec.reason}  ")
             st.caption(f"Owner: {rec.owner} · Suggested action window: {rec.due_days} days")
@@ -235,7 +361,6 @@ with investigation_tab:
         delay_reduction = s3.slider("Reduce average delay (days)", 0, 10, 0)
         base_risk = float(row.risk_probability or 0)
         base_score = float(row.behs)
-        # Transparent heuristic simulation for the MVP.
         scenario_behs = np.clip(base_score + 0.30*perf_uplift + 0.20*sentiment_uplift + 1.2*delay_reduction, 0, 100)
         scenario_risk = float(np.clip(base_risk - 0.006*(scenario_behs-base_score), 0.01, 0.99))
         w1, w2 = st.columns(2)
@@ -243,69 +368,78 @@ with investigation_tab:
         w2.metric("Scenario risk", f"{scenario_risk*100:.1f}%", delta=f"{(scenario_risk-base_risk)*100:+.1f} pp")
 
 with interventions_tab:
-    st.subheader("Log an intervention")
-    candidates = sorted(filtered.engagement_id.unique()) if len(filtered) else sorted(df.engagement_id.unique())
-    selected_i = st.selectbox("Engagement", candidates, key="intervention_engagement")
-    rrow = df[df.engagement_id == selected_i].iloc[0]
-    recs = recommend(
-        risk_probability=float(rrow.risk_probability or 0),
-        behs=float(rrow.behs),
-        sentiment_health=float(rrow.sentiment_health),
-        performance_health=float(rrow.performance_health),
-        delay_days=avg_delay(selected_i),
-        feedback_rating=avg_rating(selected_i),
-    )
-    action_options = [r.action for r in recs] + ["Mentoring", "Escalation", "Scope clarification"]
-    with st.form("intervention_form"):
-        a, b, c = st.columns(3)
-        itype = a.selectbox("Intervention type", list(dict.fromkeys(action_options)))
-        owner = b.text_input("Owner", "Account Manager")
-        priority = c.selectbox("Priority", ["High", "Medium", "Low"])
-        due_days = st.number_input("Due within (days)", 1, 60, 7)
-        notes = st.text_area("Action notes", "")
-        submitted = st.form_submit_button("Log intervention")
-    if submitted:
-        _today = date.today()
-        exec_sql("""
-            INSERT INTO interventions
-            (engagement_id, intervention_date, intervention_type, owner, priority, status, due_date, completed_date, outcome)
-            VALUES (:eid, :today, :itype, :owner, :priority, 'Open', :due, NULL, :notes)
-        """, eid=selected_i, today=str(_today), itype=itype, owner=owner,
-             priority=priority, due=str(_today + timedelta(days=int(due_days))), notes=notes)
-        st.cache_data.clear()
-        st.success("Intervention logged to the SQL database.")
+    if not CAN_WRITE:
+        st.info("View-only access. Sign in as an Administrator or an Account Manager to log interventions.")
+    else:
+        st.subheader("Log an intervention")
+        candidates = sorted(filtered.engagement_id.unique()) if len(filtered) else sorted(df.engagement_id.unique())
+        if candidates:
+            selected_i = st.selectbox("Engagement", candidates, key="intervention_engagement")
+            rrow = df[df.engagement_id == selected_i].iloc[0]
+            recs = recommend(
+                risk_probability=float(rrow.risk_probability or 0), behs=float(rrow.behs),
+                sentiment_health=float(rrow.sentiment_health), performance_health=float(rrow.performance_health),
+                delay_days=avg_delay(selected_i), feedback_rating=avg_rating(selected_i))
+            action_options = [r.action for r in recs] + ["Mentoring", "Escalation", "Scope clarification"]
+            with st.form("intervention_form"):
+                a, b, c = st.columns(3)
+                itype = a.selectbox("Intervention type", list(dict.fromkeys(action_options)))
+                owner = b.text_input("Owner", AUTH["name"])
+                priority = c.selectbox("Priority", ["High", "Medium", "Low"])
+                due_days = st.number_input("Due within (days)", 1, 60, 7)
+                notes = st.text_area("Action notes", "")
+                submitted = st.form_submit_button("Log intervention", type="primary")
+            if submitted:
+                _today = date.today()
+                exec_sql("""
+                    INSERT INTO interventions
+                    (engagement_id, intervention_date, intervention_type, owner, priority, status, due_date, completed_date, outcome)
+                    VALUES (:eid, :today, :itype, :owner, :priority, 'Open', :due, NULL, :notes)
+                """, eid=selected_i, today=str(_today), itype=itype, owner=owner,
+                     priority=priority, due=str(_today + timedelta(days=int(due_days))), notes=notes)
+                st.cache_data.clear()
+                st.success("Intervention logged to the SQL database.")
 
     st.subheader("Intervention register")
     ints = current_interventions()
     if len(ints):
         st.dataframe(ints, use_container_width=True, hide_index=True)
-        open_ids = ints.loc[ints.status.eq("Open"), "intervention_id"].tolist()
-        if open_ids:
-            st.markdown("### Close an intervention")
-            iid = st.selectbox("Open intervention", open_ids)
-            outcome = st.selectbox("Outcome", ["Risk reduced", "Risk unchanged", "Escalated", "Client renewed", "Other"])
-            note = st.text_input("Outcome note", "")
-            if st.button("Mark completed"):
-                exec_sql("UPDATE interventions SET status='Closed', completed_date=:cd, outcome=:oc WHERE intervention_id=:iid", cd=str(date.today()), oc=f"{outcome}: {note}", iid=int(iid))
-                st.cache_data.clear()
-                st.success("Intervention closed and outcome recorded.")
-                st.rerun()
+        if CAN_WRITE and "intervention_id" in ints.columns:
+            open_ids = ints.loc[ints.status.eq("Open"), "intervention_id"].tolist()
+            if open_ids:
+                st.markdown("### Close an intervention")
+                iid = st.selectbox("Open intervention", open_ids)
+                outcome = st.selectbox("Outcome", ["Risk reduced", "Risk unchanged", "Escalated", "Client renewed", "Other"])
+                note = st.text_input("Outcome note", "")
+                if st.button("Mark completed"):
+                    exec_sql("UPDATE interventions SET status='Closed', completed_date=:cd, outcome=:oc WHERE intervention_id=:iid",
+                             cd=str(date.today()), oc=f"{outcome}: {note}", iid=int(iid))
+                    st.cache_data.clear()
+                    st.success("Intervention closed and outcome recorded.")
+                    st.rerun()
+    else:
+        st.caption("No interventions recorded yet.")
 
 with model_tab:
     st.subheader("Model performance")
     if METRICS.exists():
         metrics = json.loads(METRICS.read_text())
         mdf = pd.DataFrame([
-            {"Model": name, "Precision": vals["precision"], "Recall": vals["recall"], "F1": vals["f1"], "ROC-AUC": vals["roc_auc"]}
-            for name, vals in metrics["results"].items()
-        ])
-        st.dataframe(mdf.style.format({c: "{:.3f}" for c in mdf.columns if c != "Model"}), use_container_width=True, hide_index=True)
+            {"Model": name, "Precision": vals["precision"], "Recall": vals["recall"],
+             "F1": vals["f1"], "ROC-AUC": vals["roc_auc"]}
+            for name, vals in metrics["results"].items()])
+        st.dataframe(mdf.style.format({c: "{:.3f}" for c in mdf.columns if c != "Model"}),
+                     use_container_width=True, hide_index=True)
         selected_model = metrics["selected_model"]
-        st.success(f"Primary early-warning model: {selected_model.replace('_', ' ').title()} · intervention threshold = {metrics['band_threshold']:.2f}")
-        st.markdown(f"**Critical interpretation:** {selected_model.replace('_', ' ').title()} is selected because recall is prioritised for early warning — catching an at-risk engagement matters more than an occasional false alarm. The precision-recall trade-off is stated openly, not hidden.")
+        st.success(f"Primary early-warning model: {selected_model.replace('_', ' ').title()} · "
+                   f"intervention threshold = {metrics['band_threshold']:.2f}")
+        st.markdown(f"**Critical interpretation:** {selected_model.replace('_', ' ').title()} is selected "
+                    "because recall is prioritised for early warning — catching an at-risk engagement matters "
+                    "more than an occasional false alarm. The precision-recall trade-off is stated openly, not hidden.")
 
     st.subheader("Governance checklist")
     st.checkbox("Human review required before intervention", value=True, disabled=True)
+    st.checkbox("Role-based access (admin / account manager / guest)", value=True, disabled=True)
     st.checkbox("Synthetic academic data / no confidential client records", value=True, disabled=True)
     st.checkbox("Temporal leakage controls applied in modelling", value=True, disabled=True)
     st.checkbox("Model version and decision audit trail retained", value=True, disabled=True)
