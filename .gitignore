@@ -1,0 +1,6 @@
+__pycache__/
+*.pyc
+.venv/
+.env
+artifacts/engagement360.sqlite
+artifacts/shap_values.npy

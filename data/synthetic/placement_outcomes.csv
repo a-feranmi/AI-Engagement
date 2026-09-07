@@ -1,0 +1,1201 @@
+engagement_id,outcome_date,outcome_type,successful
+ENG-00001,2024-11-01,Completed,True
+ENG-00002,2024-10-01,Early Termination,False
+ENG-00003,2025-04-01,Completed,True
+ENG-00004,2026-11-01,Renewed,True
+ENG-00005,2025-02-01,Completed,True
+ENG-00006,2025-11-01,Completed,True
+ENG-00007,2025-02-01,Renewed,True
+ENG-00008,2025-06-01,Renewed,True
+ENG-00009,2025-12-01,Early Termination,False
+ENG-00010,2024-09-01,Early Termination,False
+ENG-00011,2025-06-01,Completed,True
+ENG-00012,2026-11-01,Renewed,True
+ENG-00013,2027-03-01,Renewed,True
+ENG-00014,2024-06-01,Early Termination,False
+ENG-00015,2026-03-01,Renewed,True
+ENG-00016,2025-11-01,Early Termination,False
+ENG-00017,2027-07-01,Completed,True
+ENG-00018,2025-09-01,Early Termination,False
+ENG-00019,2024-12-01,Renewed,True
+ENG-00020,2025-03-01,Completed,True
+ENG-00021,2024-12-01,Early Termination,False
+ENG-00022,2026-08-01,Renewed,True
+ENG-00023,2026-12-01,Early Termination,False
+ENG-00024,2025-04-01,Renewed,True
+ENG-00025,2025-11-01,Completed,True
+ENG-00026,2025-05-01,Early Termination,False
+ENG-00027,2025-07-01,Renewed,True
+ENG-00028,2027-02-01,Completed,True
+ENG-00029,2024-10-01,Completed,True
+ENG-00030,2025-08-01,Renewed,True
+ENG-00031,2025-06-01,Completed,True
+ENG-00032,2025-09-01,Renewed,True
+ENG-00033,2025-05-01,Early Termination,False
+ENG-00034,2025-05-01,Early Termination,False
+ENG-00035,2025-04-01,Renewed,True
+ENG-00036,2025-01-01,Completed,True
+ENG-00037,2025-01-01,Completed,True
+ENG-00038,2025-05-01,Renewed,True
+ENG-00039,2025-03-01,Completed,True
+ENG-00040,2025-08-01,Renewed,True
+ENG-00041,2026-09-01,Renewed,True
+ENG-00042,2024-04-01,Early Termination,False
+ENG-00043,2026-06-01,Completed,True
+ENG-00044,2026-04-01,Completed,True
+ENG-00045,2026-09-01,Completed,True
+ENG-00046,2026-11-01,Early Termination,False
+ENG-00047,2026-03-01,Early Termination,False
+ENG-00048,2025-10-01,Completed,True
+ENG-00049,2025-02-01,Completed,True
+ENG-00050,2026-02-01,Early Termination,False
+ENG-00051,2025-06-01,Completed,True
+ENG-00052,2025-01-01,Completed,True
+ENG-00053,2026-07-01,Completed,True
+ENG-00054,2026-03-01,Completed,True
+ENG-00055,2024-08-01,Renewed,True
+ENG-00056,2025-04-01,Renewed,True
+ENG-00057,2025-06-01,Renewed,True
+ENG-00058,2026-08-01,Renewed,True
+ENG-00059,2025-04-01,Completed,True
+ENG-00060,2026-03-01,Renewed,True
+ENG-00061,2026-02-01,Early Termination,False
+ENG-00062,2025-01-01,Renewed,True
+ENG-00063,2026-11-01,Renewed,True
+ENG-00064,2025-06-01,Early Termination,False
+ENG-00065,2025-04-01,Completed,True
+ENG-00066,2024-12-01,Renewed,True
+ENG-00067,2024-10-01,Early Termination,False
+ENG-00068,2027-03-01,Completed,True
+ENG-00069,2027-04-01,Renewed,True
+ENG-00070,2026-12-01,Renewed,True
+ENG-00071,2025-12-01,Early Termination,False
+ENG-00072,2025-03-01,Renewed,True
+ENG-00073,2026-02-01,Renewed,True
+ENG-00074,2027-01-01,Renewed,True
+ENG-00075,2026-06-01,Renewed,True
+ENG-00076,2027-02-01,Renewed,True
+ENG-00077,2026-12-01,Renewed,True
+ENG-00078,2027-03-01,Renewed,True
+ENG-00079,2026-04-01,Early Termination,False
+ENG-00080,2024-10-01,Early Termination,False
+ENG-00081,2027-01-01,Completed,True
+ENG-00082,2025-11-01,Renewed,True
+ENG-00083,2026-10-01,Early Termination,False
+ENG-00084,2025-07-01,Renewed,True
+ENG-00085,2025-08-01,Renewed,True
+ENG-00086,2025-01-01,Early Termination,False
+ENG-00087,2026-08-01,Renewed,True
+ENG-00088,2025-02-01,Renewed,True
+ENG-00089,2025-10-01,Early Termination,False
+ENG-00090,2026-12-01,Early Termination,False
+ENG-00091,2025-08-01,Completed,True
+ENG-00092,2026-11-01,Early Termination,False
+ENG-00093,2025-09-01,Completed,True
+ENG-00094,2024-12-01,Completed,True
+ENG-00095,2026-01-01,Early Termination,False
+ENG-00096,2025-12-01,Completed,True
+ENG-00097,2026-07-01,Completed,True
+ENG-00098,2024-09-01,Early Termination,False
+ENG-00099,2025-07-01,Renewed,True
+ENG-00100,2024-09-01,Renewed,True
+ENG-00101,2025-02-01,Completed,True
+ENG-00102,2025-02-01,Completed,True
+ENG-00103,2025-07-01,Early Termination,False
+ENG-00104,2026-03-01,Renewed,True
+ENG-00105,2025-07-01,Completed,True
+ENG-00106,2024-11-01,Completed,True
+ENG-00107,2027-02-01,Renewed,True
+ENG-00108,2025-03-01,Renewed,True
+ENG-00109,2026-06-01,Completed,True
+ENG-00110,2025-04-01,Early Termination,False
+ENG-00111,2026-05-01,Completed,True
+ENG-00112,2026-03-01,Completed,True
+ENG-00113,2027-02-01,Completed,True
+ENG-00114,2025-02-01,Renewed,True
+ENG-00115,2026-02-01,Renewed,True
+ENG-00116,2026-11-01,Completed,True
+ENG-00117,2027-05-01,Renewed,True
+ENG-00118,2025-10-01,Early Termination,False
+ENG-00119,2026-01-01,Early Termination,False
+ENG-00120,2025-09-01,Completed,True
+ENG-00121,2025-11-01,Completed,True
+ENG-00122,2026-03-01,Renewed,True
+ENG-00123,2026-01-01,Renewed,True
+ENG-00124,2026-02-01,Renewed,True
+ENG-00125,2027-05-01,Renewed,True
+ENG-00126,2025-08-01,Early Termination,False
+ENG-00127,2025-08-01,Completed,True
+ENG-00128,2026-07-01,Renewed,True
+ENG-00129,2027-02-01,Renewed,True
+ENG-00130,2025-06-01,Renewed,True
+ENG-00131,2025-10-01,Renewed,True
+ENG-00132,2025-10-01,Completed,True
+ENG-00133,2026-12-01,Renewed,True
+ENG-00134,2026-09-01,Completed,True
+ENG-00135,2024-07-01,Early Termination,False
+ENG-00136,2024-10-01,Early Termination,False
+ENG-00137,2027-01-01,Completed,True
+ENG-00138,2025-06-01,Renewed,True
+ENG-00139,2025-09-01,Completed,True
+ENG-00140,2026-01-01,Renewed,True
+ENG-00141,2027-04-01,Completed,True
+ENG-00142,2025-10-01,Early Termination,False
+ENG-00143,2026-04-01,Renewed,True
+ENG-00144,2026-12-01,Renewed,True
+ENG-00145,2026-12-01,Completed,True
+ENG-00146,2026-01-01,Renewed,True
+ENG-00147,2026-06-01,Renewed,True
+ENG-00148,2025-03-01,Renewed,True
+ENG-00149,2025-08-01,Completed,True
+ENG-00150,2026-03-01,Renewed,True
+ENG-00151,2026-11-01,Early Termination,False
+ENG-00152,2026-09-01,Completed,True
+ENG-00153,2026-05-01,Early Termination,False
+ENG-00154,2026-10-01,Early Termination,False
+ENG-00155,2024-11-01,Completed,True
+ENG-00156,2025-01-01,Early Termination,False
+ENG-00157,2024-08-01,Completed,True
+ENG-00158,2026-09-01,Early Termination,False
+ENG-00159,2026-01-01,Renewed,True
+ENG-00160,2026-04-01,Renewed,True
+ENG-00161,2024-12-01,Early Termination,False
+ENG-00162,2026-08-01,Early Termination,False
+ENG-00163,2026-10-01,Completed,True
+ENG-00164,2025-01-01,Early Termination,False
+ENG-00165,2025-02-01,Completed,True
+ENG-00166,2025-03-01,Early Termination,False
+ENG-00167,2024-07-01,Early Termination,False
+ENG-00168,2026-07-01,Completed,True
+ENG-00169,2027-03-01,Renewed,True
+ENG-00170,2027-08-01,Completed,True
+ENG-00171,2027-02-01,Renewed,True
+ENG-00172,2026-09-01,Early Termination,False
+ENG-00173,2026-03-01,Completed,True
+ENG-00174,2026-04-01,Renewed,True
+ENG-00175,2026-11-01,Early Termination,False
+ENG-00176,2024-12-01,Early Termination,False
+ENG-00177,2026-08-01,Renewed,True
+ENG-00178,2026-10-01,Completed,True
+ENG-00179,2026-11-01,Renewed,True
+ENG-00180,2025-07-01,Completed,True
+ENG-00181,2026-02-01,Completed,True
+ENG-00182,2026-12-01,Completed,True
+ENG-00183,2024-04-01,Early Termination,False
+ENG-00184,2025-10-01,Early Termination,False
+ENG-00185,2026-09-01,Renewed,True
+ENG-00186,2025-08-01,Early Termination,False
+ENG-00187,2025-01-01,Early Termination,False
+ENG-00188,2025-02-01,Completed,True
+ENG-00189,2025-06-01,Early Termination,False
+ENG-00190,2025-02-01,Completed,True
+ENG-00191,2027-02-01,Completed,True
+ENG-00192,2025-01-01,Completed,True
+ENG-00193,2024-08-01,Early Termination,False
+ENG-00194,2024-07-01,Early Termination,False
+ENG-00195,2025-05-01,Renewed,True
+ENG-00196,2024-06-01,Early Termination,False
+ENG-00197,2027-01-01,Completed,True
+ENG-00198,2024-12-01,Completed,True
+ENG-00199,2026-12-01,Early Termination,False
+ENG-00200,2026-01-01,Early Termination,False
+ENG-00201,2025-12-01,Renewed,True
+ENG-00202,2026-10-01,Completed,True
+ENG-00203,2026-10-01,Renewed,True
+ENG-00204,2026-09-01,Completed,True
+ENG-00205,2027-02-01,Renewed,True
+ENG-00206,2026-01-01,Early Termination,False
+ENG-00207,2024-08-01,Completed,True
+ENG-00208,2026-01-01,Renewed,True
+ENG-00209,2026-11-01,Early Termination,False
+ENG-00210,2026-06-01,Early Termination,False
+ENG-00211,2025-07-01,Completed,True
+ENG-00212,2026-11-01,Completed,True
+ENG-00213,2026-04-01,Renewed,True
+ENG-00214,2026-09-01,Early Termination,False
+ENG-00215,2025-09-01,Renewed,True
+ENG-00216,2024-04-01,Early Termination,False
+ENG-00217,2024-12-01,Renewed,True
+ENG-00218,2025-06-01,Renewed,True
+ENG-00219,2026-07-01,Completed,True
+ENG-00220,2026-08-01,Renewed,True
+ENG-00221,2027-02-01,Renewed,True
+ENG-00222,2025-07-01,Completed,True
+ENG-00223,2025-01-01,Renewed,True
+ENG-00224,2027-02-01,Renewed,True
+ENG-00225,2026-04-01,Completed,True
+ENG-00226,2026-05-01,Renewed,True
+ENG-00227,2026-09-01,Renewed,True
+ENG-00228,2026-08-01,Renewed,True
+ENG-00229,2025-12-01,Completed,True
+ENG-00230,2025-05-01,Early Termination,False
+ENG-00231,2024-05-01,Early Termination,False
+ENG-00232,2026-05-01,Early Termination,False
+ENG-00233,2025-07-01,Completed,True
+ENG-00234,2027-01-01,Renewed,True
+ENG-00235,2025-01-01,Completed,True
+ENG-00236,2025-11-01,Renewed,True
+ENG-00237,2025-03-01,Completed,True
+ENG-00238,2027-02-01,Renewed,True
+ENG-00239,2026-12-01,Renewed,True
+ENG-00240,2025-05-01,Early Termination,False
+ENG-00241,2026-12-01,Renewed,True
+ENG-00242,2027-08-01,Renewed,True
+ENG-00243,2025-08-01,Renewed,True
+ENG-00244,2027-02-01,Renewed,True
+ENG-00245,2026-10-01,Renewed,True
+ENG-00246,2026-07-01,Early Termination,False
+ENG-00247,2025-12-01,Renewed,True
+ENG-00248,2024-11-01,Early Termination,False
+ENG-00249,2025-10-01,Renewed,True
+ENG-00250,2025-10-01,Completed,True
+ENG-00251,2026-02-01,Renewed,True
+ENG-00252,2025-09-01,Renewed,True
+ENG-00253,2024-11-01,Completed,True
+ENG-00254,2025-08-01,Early Termination,False
+ENG-00255,2024-09-01,Completed,True
+ENG-00256,2027-04-01,Completed,True
+ENG-00257,2025-04-01,Renewed,True
+ENG-00258,2025-10-01,Early Termination,False
+ENG-00259,2026-11-01,Renewed,True
+ENG-00260,2027-01-01,Early Termination,False
+ENG-00261,2024-10-01,Renewed,True
+ENG-00262,2027-07-01,Renewed,True
+ENG-00263,2025-07-01,Renewed,True
+ENG-00264,2026-07-01,Completed,True
+ENG-00265,2025-10-01,Early Termination,False
+ENG-00266,2026-03-01,Renewed,True
+ENG-00267,2025-12-01,Early Termination,False
+ENG-00268,2026-06-01,Early Termination,False
+ENG-00269,2025-05-01,Completed,True
+ENG-00270,2026-06-01,Renewed,True
+ENG-00271,2027-05-01,Renewed,True
+ENG-00272,2025-03-01,Early Termination,False
+ENG-00273,2025-05-01,Renewed,True
+ENG-00274,2026-03-01,Renewed,True
+ENG-00275,2026-02-01,Renewed,True
+ENG-00276,2027-06-01,Completed,True
+ENG-00277,2027-03-01,Early Termination,False
+ENG-00278,2024-12-01,Completed,True
+ENG-00279,2025-09-01,Completed,True
+ENG-00280,2026-12-01,Early Termination,False
+ENG-00281,2024-08-01,Completed,True
+ENG-00282,2026-08-01,Renewed,True
+ENG-00283,2026-01-01,Renewed,True
+ENG-00284,2025-03-01,Completed,True
+ENG-00285,2026-07-01,Early Termination,False
+ENG-00286,2025-11-01,Renewed,True
+ENG-00287,2025-07-01,Renewed,True
+ENG-00288,2026-03-01,Completed,True
+ENG-00289,2027-02-01,Completed,True
+ENG-00290,2026-02-01,Renewed,True
+ENG-00291,2025-03-01,Early Termination,False
+ENG-00292,2025-04-01,Renewed,True
+ENG-00293,2026-02-01,Renewed,True
+ENG-00294,2025-03-01,Renewed,True
+ENG-00295,2026-01-01,Renewed,True
+ENG-00296,2025-01-01,Renewed,True
+ENG-00297,2026-10-01,Completed,True
+ENG-00298,2024-12-01,Renewed,True
+ENG-00299,2024-11-01,Early Termination,False
+ENG-00300,2024-07-01,Early Termination,False
+ENG-00301,2026-07-01,Renewed,True
+ENG-00302,2025-07-01,Renewed,True
+ENG-00303,2026-08-01,Completed,True
+ENG-00304,2026-01-01,Renewed,True
+ENG-00305,2025-02-01,Completed,True
+ENG-00306,2025-01-01,Early Termination,False
+ENG-00307,2025-05-01,Renewed,True
+ENG-00308,2025-05-01,Early Termination,False
+ENG-00309,2025-12-01,Early Termination,False
+ENG-00310,2027-01-01,Renewed,True
+ENG-00311,2027-03-01,Renewed,True
+ENG-00312,2027-05-01,Completed,True
+ENG-00313,2026-06-01,Renewed,True
+ENG-00314,2024-12-01,Early Termination,False
+ENG-00315,2025-02-01,Renewed,True
+ENG-00316,2025-12-01,Renewed,True
+ENG-00317,2025-07-01,Completed,True
+ENG-00318,2024-09-01,Completed,True
+ENG-00319,2024-10-01,Early Termination,False
+ENG-00320,2025-07-01,Renewed,True
+ENG-00321,2025-10-01,Early Termination,False
+ENG-00322,2026-03-01,Early Termination,False
+ENG-00323,2025-05-01,Completed,True
+ENG-00324,2026-04-01,Early Termination,False
+ENG-00325,2024-08-01,Renewed,True
+ENG-00326,2026-01-01,Renewed,True
+ENG-00327,2025-08-01,Early Termination,False
+ENG-00328,2025-05-01,Early Termination,False
+ENG-00329,2026-08-01,Renewed,True
+ENG-00330,2025-07-01,Renewed,True
+ENG-00331,2025-06-01,Renewed,True
+ENG-00332,2026-11-01,Early Termination,False
+ENG-00333,2026-12-01,Renewed,True
+ENG-00334,2024-12-01,Completed,True
+ENG-00335,2024-12-01,Completed,True
+ENG-00336,2026-07-01,Early Termination,False
+ENG-00337,2025-02-01,Renewed,True
+ENG-00338,2025-12-01,Early Termination,False
+ENG-00339,2025-10-01,Completed,True
+ENG-00340,2025-01-01,Early Termination,False
+ENG-00341,2025-10-01,Renewed,True
+ENG-00342,2026-08-01,Completed,True
+ENG-00343,2025-08-01,Completed,True
+ENG-00344,2025-12-01,Early Termination,False
+ENG-00345,2025-11-01,Renewed,True
+ENG-00346,2026-07-01,Early Termination,False
+ENG-00347,2027-03-01,Renewed,True
+ENG-00348,2024-11-01,Renewed,True
+ENG-00349,2026-09-01,Renewed,True
+ENG-00350,2026-09-01,Completed,True
+ENG-00351,2025-09-01,Renewed,True
+ENG-00352,2027-01-01,Renewed,True
+ENG-00353,2025-07-01,Renewed,True
+ENG-00354,2025-10-01,Completed,True
+ENG-00355,2026-12-01,Completed,True
+ENG-00356,2026-05-01,Completed,True
+ENG-00357,2025-06-01,Completed,True
+ENG-00358,2026-01-01,Renewed,True
+ENG-00359,2025-11-01,Renewed,True
+ENG-00360,2025-01-01,Renewed,True
+ENG-00361,2025-02-01,Renewed,True
+ENG-00362,2025-04-01,Early Termination,False
+ENG-00363,2024-10-01,Completed,True
+ENG-00364,2026-10-01,Early Termination,False
+ENG-00365,2027-07-01,Renewed,True
+ENG-00366,2026-07-01,Early Termination,False
+ENG-00367,2026-10-01,Completed,True
+ENG-00368,2025-05-01,Renewed,True
+ENG-00369,2026-08-01,Completed,True
+ENG-00370,2026-05-01,Completed,True
+ENG-00371,2027-04-01,Renewed,True
+ENG-00372,2025-05-01,Renewed,True
+ENG-00373,2026-11-01,Renewed,True
+ENG-00374,2026-10-01,Completed,True
+ENG-00375,2027-05-01,Completed,True
+ENG-00376,2024-10-01,Early Termination,False
+ENG-00377,2026-06-01,Completed,True
+ENG-00378,2025-05-01,Renewed,True
+ENG-00379,2027-06-01,Renewed,True
+ENG-00380,2026-03-01,Renewed,True
+ENG-00381,2025-01-01,Renewed,True
+ENG-00382,2025-06-01,Completed,True
+ENG-00383,2026-08-01,Completed,True
+ENG-00384,2027-01-01,Renewed,True
+ENG-00385,2025-03-01,Early Termination,False
+ENG-00386,2026-11-01,Completed,True
+ENG-00387,2026-12-01,Renewed,True
+ENG-00388,2024-08-01,Early Termination,False
+ENG-00389,2024-12-01,Early Termination,False
+ENG-00390,2024-04-01,Early Termination,False
+ENG-00391,2025-09-01,Completed,True
+ENG-00392,2025-07-01,Completed,True
+ENG-00393,2026-09-01,Early Termination,False
+ENG-00394,2025-12-01,Early Termination,False
+ENG-00395,2027-05-01,Renewed,True
+ENG-00396,2027-02-01,Early Termination,False
+ENG-00397,2025-07-01,Early Termination,False
+ENG-00398,2024-06-01,Early Termination,False
+ENG-00399,2026-05-01,Completed,True
+ENG-00400,2027-02-01,Renewed,True
+ENG-00401,2025-03-01,Renewed,True
+ENG-00402,2026-06-01,Completed,True
+ENG-00403,2026-11-01,Renewed,True
+ENG-00404,2025-12-01,Renewed,True
+ENG-00405,2025-07-01,Completed,True
+ENG-00406,2026-05-01,Completed,True
+ENG-00407,2026-02-01,Completed,True
+ENG-00408,2026-10-01,Renewed,True
+ENG-00409,2026-04-01,Early Termination,False
+ENG-00410,2024-10-01,Renewed,True
+ENG-00411,2025-11-01,Renewed,True
+ENG-00412,2025-03-01,Early Termination,False
+ENG-00413,2027-03-01,Renewed,True
+ENG-00414,2026-02-01,Completed,True
+ENG-00415,2024-10-01,Renewed,True
+ENG-00416,2025-04-01,Completed,True
+ENG-00417,2026-02-01,Completed,True
+ENG-00418,2026-07-01,Renewed,True
+ENG-00419,2024-09-01,Renewed,True
+ENG-00420,2026-04-01,Early Termination,False
+ENG-00421,2025-05-01,Early Termination,False
+ENG-00422,2026-07-01,Renewed,True
+ENG-00423,2026-04-01,Completed,True
+ENG-00424,2024-06-01,Early Termination,False
+ENG-00425,2025-11-01,Completed,True
+ENG-00426,2026-12-01,Renewed,True
+ENG-00427,2025-12-01,Renewed,True
+ENG-00428,2026-11-01,Early Termination,False
+ENG-00429,2026-08-01,Completed,True
+ENG-00430,2025-03-01,Early Termination,False
+ENG-00431,2024-12-01,Renewed,True
+ENG-00432,2027-04-01,Completed,True
+ENG-00433,2026-07-01,Renewed,True
+ENG-00434,2027-04-01,Completed,True
+ENG-00435,2026-07-01,Renewed,True
+ENG-00436,2026-10-01,Renewed,True
+ENG-00437,2025-02-01,Completed,True
+ENG-00438,2026-10-01,Renewed,True
+ENG-00439,2026-03-01,Renewed,True
+ENG-00440,2025-07-01,Renewed,True
+ENG-00441,2026-06-01,Completed,True
+ENG-00442,2024-10-01,Completed,True
+ENG-00443,2026-03-01,Renewed,True
+ENG-00444,2025-11-01,Renewed,True
+ENG-00445,2027-06-01,Renewed,True
+ENG-00446,2026-01-01,Early Termination,False
+ENG-00447,2026-05-01,Renewed,True
+ENG-00448,2026-04-01,Renewed,True
+ENG-00449,2027-05-01,Renewed,True
+ENG-00450,2026-01-01,Early Termination,False
+ENG-00451,2025-10-01,Early Termination,False
+ENG-00452,2026-06-01,Completed,True
+ENG-00453,2025-01-01,Completed,True
+ENG-00454,2026-04-01,Renewed,True
+ENG-00455,2026-06-01,Early Termination,False
+ENG-00456,2025-08-01,Completed,True
+ENG-00457,2025-05-01,Renewed,True
+ENG-00458,2026-07-01,Renewed,True
+ENG-00459,2024-12-01,Completed,True
+ENG-00460,2025-12-01,Renewed,True
+ENG-00461,2025-07-01,Completed,True
+ENG-00462,2026-09-01,Renewed,True
+ENG-00463,2026-04-01,Renewed,True
+ENG-00464,2026-05-01,Renewed,True
+ENG-00465,2026-09-01,Completed,True
+ENG-00466,2024-06-01,Early Termination,False
+ENG-00467,2025-05-01,Renewed,True
+ENG-00468,2026-05-01,Completed,True
+ENG-00469,2026-09-01,Renewed,True
+ENG-00470,2024-09-01,Completed,True
+ENG-00471,2027-01-01,Completed,True
+ENG-00472,2025-02-01,Early Termination,False
+ENG-00473,2025-05-01,Completed,True
+ENG-00474,2025-11-01,Renewed,True
+ENG-00475,2025-10-01,Completed,True
+ENG-00476,2025-09-01,Early Termination,False
+ENG-00477,2025-07-01,Renewed,True
+ENG-00478,2025-02-01,Early Termination,False
+ENG-00479,2026-08-01,Completed,True
+ENG-00480,2027-04-01,Completed,True
+ENG-00481,2026-11-01,Early Termination,False
+ENG-00482,2027-05-01,Renewed,True
+ENG-00483,2025-02-01,Early Termination,False
+ENG-00484,2025-05-01,Renewed,True
+ENG-00485,2025-04-01,Renewed,True
+ENG-00486,2026-11-01,Completed,True
+ENG-00487,2025-04-01,Early Termination,False
+ENG-00488,2025-05-01,Renewed,True
+ENG-00489,2025-12-01,Early Termination,False
+ENG-00490,2025-02-01,Completed,True
+ENG-00491,2025-04-01,Renewed,True
+ENG-00492,2025-06-01,Renewed,True
+ENG-00493,2025-03-01,Renewed,True
+ENG-00494,2026-07-01,Renewed,True
+ENG-00495,2025-07-01,Renewed,True
+ENG-00496,2027-02-01,Renewed,True
+ENG-00497,2027-02-01,Early Termination,False
+ENG-00498,2027-06-01,Renewed,True
+ENG-00499,2025-12-01,Renewed,True
+ENG-00500,2025-09-01,Renewed,True
+ENG-00501,2026-06-01,Early Termination,False
+ENG-00502,2024-05-01,Early Termination,False
+ENG-00503,2026-06-01,Renewed,True
+ENG-00504,2027-06-01,Completed,True
+ENG-00505,2025-05-01,Early Termination,False
+ENG-00506,2026-07-01,Early Termination,False
+ENG-00507,2024-12-01,Renewed,True
+ENG-00508,2026-01-01,Completed,True
+ENG-00509,2026-01-01,Renewed,True
+ENG-00510,2025-07-01,Early Termination,False
+ENG-00511,2026-12-01,Completed,True
+ENG-00512,2025-12-01,Renewed,True
+ENG-00513,2026-02-01,Early Termination,False
+ENG-00514,2026-08-01,Completed,True
+ENG-00515,2026-01-01,Early Termination,False
+ENG-00516,2025-12-01,Renewed,True
+ENG-00517,2025-04-01,Completed,True
+ENG-00518,2024-12-01,Renewed,True
+ENG-00519,2025-10-01,Renewed,True
+ENG-00520,2026-03-01,Renewed,True
+ENG-00521,2024-10-01,Completed,True
+ENG-00522,2026-05-01,Renewed,True
+ENG-00523,2024-09-01,Renewed,True
+ENG-00524,2026-09-01,Completed,True
+ENG-00525,2025-09-01,Renewed,True
+ENG-00526,2026-10-01,Renewed,True
+ENG-00527,2025-08-01,Early Termination,False
+ENG-00528,2026-01-01,Renewed,True
+ENG-00529,2026-09-01,Renewed,True
+ENG-00530,2025-12-01,Renewed,True
+ENG-00531,2026-10-01,Renewed,True
+ENG-00532,2024-05-01,Early Termination,False
+ENG-00533,2025-02-01,Renewed,True
+ENG-00534,2027-05-01,Renewed,True
+ENG-00535,2024-12-01,Completed,True
+ENG-00536,2025-12-01,Renewed,True
+ENG-00537,2026-10-01,Renewed,True
+ENG-00538,2026-07-01,Renewed,True
+ENG-00539,2026-02-01,Renewed,True
+ENG-00540,2026-04-01,Early Termination,False
+ENG-00541,2025-03-01,Early Termination,False
+ENG-00542,2026-06-01,Completed,True
+ENG-00543,2026-04-01,Completed,True
+ENG-00544,2025-09-01,Early Termination,False
+ENG-00545,2025-03-01,Renewed,True
+ENG-00546,2027-03-01,Early Termination,False
+ENG-00547,2026-09-01,Completed,True
+ENG-00548,2026-12-01,Completed,True
+ENG-00549,2025-09-01,Completed,True
+ENG-00550,2025-06-01,Completed,True
+ENG-00551,2025-10-01,Early Termination,False
+ENG-00552,2025-03-01,Early Termination,False
+ENG-00553,2025-02-01,Renewed,True
+ENG-00554,2025-05-01,Renewed,True
+ENG-00555,2027-07-01,Completed,True
+ENG-00556,2027-02-01,Renewed,True
+ENG-00557,2026-02-01,Early Termination,False
+ENG-00558,2025-08-01,Completed,True
+ENG-00559,2026-01-01,Completed,True
+ENG-00560,2026-09-01,Early Termination,False
+ENG-00561,2026-05-01,Renewed,True
+ENG-00562,2024-10-01,Renewed,True
+ENG-00563,2025-06-01,Completed,True
+ENG-00564,2026-12-01,Renewed,True
+ENG-00565,2026-06-01,Completed,True
+ENG-00566,2026-08-01,Renewed,True
+ENG-00567,2024-11-01,Renewed,True
+ENG-00568,2027-06-01,Completed,True
+ENG-00569,2026-08-01,Completed,True
+ENG-00570,2026-04-01,Renewed,True
+ENG-00571,2025-10-01,Completed,True
+ENG-00572,2026-12-01,Renewed,True
+ENG-00573,2024-11-01,Renewed,True
+ENG-00574,2025-05-01,Early Termination,False
+ENG-00575,2027-04-01,Completed,True
+ENG-00576,2025-07-01,Completed,True
+ENG-00577,2025-08-01,Early Termination,False
+ENG-00578,2026-10-01,Completed,True
+ENG-00579,2025-07-01,Renewed,True
+ENG-00580,2025-07-01,Early Termination,False
+ENG-00581,2026-09-01,Renewed,True
+ENG-00582,2024-12-01,Renewed,True
+ENG-00583,2026-10-01,Renewed,True
+ENG-00584,2025-09-01,Renewed,True
+ENG-00585,2025-09-01,Renewed,True
+ENG-00586,2025-08-01,Completed,True
+ENG-00587,2025-10-01,Renewed,True
+ENG-00588,2026-07-01,Renewed,True
+ENG-00589,2025-02-01,Renewed,True
+ENG-00590,2026-05-01,Renewed,True
+ENG-00591,2024-12-01,Renewed,True
+ENG-00592,2026-06-01,Completed,True
+ENG-00593,2027-06-01,Completed,True
+ENG-00594,2024-12-01,Completed,True
+ENG-00595,2024-10-01,Early Termination,False
+ENG-00596,2026-03-01,Renewed,True
+ENG-00597,2024-08-01,Renewed,True
+ENG-00598,2025-03-01,Early Termination,False
+ENG-00599,2025-04-01,Completed,True
+ENG-00600,2024-07-01,Early Termination,False
+ENG-00601,2026-09-01,Renewed,True
+ENG-00602,2025-12-01,Renewed,True
+ENG-00603,2026-05-01,Early Termination,False
+ENG-00604,2026-01-01,Completed,True
+ENG-00605,2026-02-01,Early Termination,False
+ENG-00606,2025-05-01,Renewed,True
+ENG-00607,2026-07-01,Early Termination,False
+ENG-00608,2026-05-01,Completed,True
+ENG-00609,2024-11-01,Early Termination,False
+ENG-00610,2025-02-01,Early Termination,False
+ENG-00611,2025-12-01,Early Termination,False
+ENG-00612,2024-11-01,Renewed,True
+ENG-00613,2025-03-01,Completed,True
+ENG-00614,2024-09-01,Completed,True
+ENG-00615,2027-05-01,Renewed,True
+ENG-00616,2024-11-01,Completed,True
+ENG-00617,2025-01-01,Renewed,True
+ENG-00618,2025-04-01,Renewed,True
+ENG-00619,2026-09-01,Early Termination,False
+ENG-00620,2025-04-01,Renewed,True
+ENG-00621,2026-02-01,Completed,True
+ENG-00622,2027-07-01,Renewed,True
+ENG-00623,2026-11-01,Renewed,True
+ENG-00624,2025-01-01,Renewed,True
+ENG-00625,2024-12-01,Completed,True
+ENG-00626,2025-01-01,Early Termination,False
+ENG-00627,2027-02-01,Early Termination,False
+ENG-00628,2025-05-01,Completed,True
+ENG-00629,2026-05-01,Completed,True
+ENG-00630,2025-03-01,Completed,True
+ENG-00631,2025-08-01,Completed,True
+ENG-00632,2026-12-01,Completed,True
+ENG-00633,2026-05-01,Completed,True
+ENG-00634,2026-12-01,Renewed,True
+ENG-00635,2026-07-01,Renewed,True
+ENG-00636,2026-05-01,Renewed,True
+ENG-00637,2026-08-01,Renewed,True
+ENG-00638,2025-07-01,Renewed,True
+ENG-00639,2026-08-01,Renewed,True
+ENG-00640,2026-10-01,Renewed,True
+ENG-00641,2026-04-01,Renewed,True
+ENG-00642,2025-07-01,Renewed,True
+ENG-00643,2026-04-01,Completed,True
+ENG-00644,2027-07-01,Completed,True
+ENG-00645,2025-07-01,Completed,True
+ENG-00646,2025-06-01,Early Termination,False
+ENG-00647,2026-04-01,Completed,True
+ENG-00648,2027-04-01,Completed,True
+ENG-00649,2026-05-01,Renewed,True
+ENG-00650,2027-06-01,Renewed,True
+ENG-00651,2025-08-01,Renewed,True
+ENG-00652,2026-01-01,Renewed,True
+ENG-00653,2025-06-01,Completed,True
+ENG-00654,2025-03-01,Early Termination,False
+ENG-00655,2025-11-01,Renewed,True
+ENG-00656,2025-05-01,Completed,True
+ENG-00657,2026-02-01,Renewed,True
+ENG-00658,2026-05-01,Early Termination,False
+ENG-00659,2025-07-01,Completed,True
+ENG-00660,2025-05-01,Early Termination,False
+ENG-00661,2026-04-01,Renewed,True
+ENG-00662,2025-03-01,Renewed,True
+ENG-00663,2025-06-01,Early Termination,False
+ENG-00664,2027-02-01,Early Termination,False
+ENG-00665,2025-04-01,Renewed,True
+ENG-00666,2025-04-01,Renewed,True
+ENG-00667,2025-12-01,Renewed,True
+ENG-00668,2026-09-01,Renewed,True
+ENG-00669,2025-08-01,Early Termination,False
+ENG-00670,2025-10-01,Completed,True
+ENG-00671,2025-05-01,Renewed,True
+ENG-00672,2025-09-01,Completed,True
+ENG-00673,2026-10-01,Early Termination,False
+ENG-00674,2026-06-01,Renewed,True
+ENG-00675,2025-07-01,Completed,True
+ENG-00676,2027-01-01,Renewed,True
+ENG-00677,2024-12-01,Completed,True
+ENG-00678,2027-01-01,Renewed,True
+ENG-00679,2025-01-01,Completed,True
+ENG-00680,2025-03-01,Completed,True
+ENG-00681,2026-11-01,Early Termination,False
+ENG-00682,2025-08-01,Renewed,True
+ENG-00683,2025-09-01,Early Termination,False
+ENG-00684,2024-08-01,Early Termination,False
+ENG-00685,2026-04-01,Renewed,True
+ENG-00686,2026-06-01,Completed,True
+ENG-00687,2025-02-01,Renewed,True
+ENG-00688,2026-07-01,Renewed,True
+ENG-00689,2025-12-01,Early Termination,False
+ENG-00690,2025-03-01,Renewed,True
+ENG-00691,2025-05-01,Renewed,True
+ENG-00692,2026-03-01,Renewed,True
+ENG-00693,2024-12-01,Renewed,True
+ENG-00694,2026-07-01,Renewed,True
+ENG-00695,2026-04-01,Completed,True
+ENG-00696,2026-06-01,Renewed,True
+ENG-00697,2026-04-01,Early Termination,False
+ENG-00698,2024-09-01,Early Termination,False
+ENG-00699,2026-01-01,Renewed,True
+ENG-00700,2025-06-01,Early Termination,False
+ENG-00701,2025-04-01,Completed,True
+ENG-00702,2027-02-01,Completed,True
+ENG-00703,2025-03-01,Renewed,True
+ENG-00704,2025-07-01,Renewed,True
+ENG-00705,2027-06-01,Renewed,True
+ENG-00706,2024-12-01,Early Termination,False
+ENG-00707,2026-02-01,Early Termination,False
+ENG-00708,2026-01-01,Renewed,True
+ENG-00709,2026-04-01,Completed,True
+ENG-00710,2026-12-01,Completed,True
+ENG-00711,2025-10-01,Renewed,True
+ENG-00712,2025-05-01,Renewed,True
+ENG-00713,2026-06-01,Renewed,True
+ENG-00714,2026-05-01,Renewed,True
+ENG-00715,2025-06-01,Renewed,True
+ENG-00716,2026-10-01,Early Termination,False
+ENG-00717,2025-08-01,Renewed,True
+ENG-00718,2027-05-01,Renewed,True
+ENG-00719,2025-06-01,Renewed,True
+ENG-00720,2025-04-01,Completed,True
+ENG-00721,2026-01-01,Renewed,True
+ENG-00722,2024-12-01,Renewed,True
+ENG-00723,2026-12-01,Renewed,True
+ENG-00724,2027-04-01,Completed,True
+ENG-00725,2026-02-01,Completed,True
+ENG-00726,2026-07-01,Renewed,True
+ENG-00727,2024-12-01,Renewed,True
+ENG-00728,2025-03-01,Completed,True
+ENG-00729,2026-07-01,Renewed,True
+ENG-00730,2026-08-01,Completed,True
+ENG-00731,2027-02-01,Completed,True
+ENG-00732,2024-05-01,Early Termination,False
+ENG-00733,2027-03-01,Completed,True
+ENG-00734,2026-07-01,Completed,True
+ENG-00735,2026-04-01,Renewed,True
+ENG-00736,2025-07-01,Early Termination,False
+ENG-00737,2026-06-01,Renewed,True
+ENG-00738,2026-12-01,Renewed,True
+ENG-00739,2026-02-01,Early Termination,False
+ENG-00740,2026-10-01,Early Termination,False
+ENG-00741,2027-05-01,Renewed,True
+ENG-00742,2027-05-01,Renewed,True
+ENG-00743,2026-06-01,Completed,True
+ENG-00744,2026-11-01,Renewed,True
+ENG-00745,2025-12-01,Early Termination,False
+ENG-00746,2027-07-01,Renewed,True
+ENG-00747,2025-10-01,Completed,True
+ENG-00748,2027-07-01,Renewed,True
+ENG-00749,2027-04-01,Completed,True
+ENG-00750,2025-05-01,Renewed,True
+ENG-00751,2024-08-01,Renewed,True
+ENG-00752,2026-12-01,Renewed,True
+ENG-00753,2025-11-01,Completed,True
+ENG-00754,2024-10-01,Renewed,True
+ENG-00755,2025-02-01,Renewed,True
+ENG-00756,2027-03-01,Completed,True
+ENG-00757,2024-12-01,Renewed,True
+ENG-00758,2026-08-01,Renewed,True
+ENG-00759,2025-03-01,Early Termination,False
+ENG-00760,2025-07-01,Completed,True
+ENG-00761,2025-06-01,Early Termination,False
+ENG-00762,2025-06-01,Renewed,True
+ENG-00763,2026-01-01,Early Termination,False
+ENG-00764,2025-10-01,Early Termination,False
+ENG-00765,2025-10-01,Renewed,True
+ENG-00766,2026-10-01,Completed,True
+ENG-00767,2025-10-01,Early Termination,False
+ENG-00768,2025-07-01,Early Termination,False
+ENG-00769,2024-12-01,Renewed,True
+ENG-00770,2025-12-01,Early Termination,False
+ENG-00771,2025-10-01,Renewed,True
+ENG-00772,2025-09-01,Renewed,True
+ENG-00773,2025-09-01,Renewed,True
+ENG-00774,2026-07-01,Renewed,True
+ENG-00775,2027-08-01,Completed,True
+ENG-00776,2026-10-01,Renewed,True
+ENG-00777,2026-10-01,Renewed,True
+ENG-00778,2025-04-01,Renewed,True
+ENG-00779,2026-10-01,Renewed,True
+ENG-00780,2024-08-01,Renewed,True
+ENG-00781,2025-01-01,Completed,True
+ENG-00782,2027-03-01,Renewed,True
+ENG-00783,2026-02-01,Completed,True
+ENG-00784,2026-02-01,Early Termination,False
+ENG-00785,2025-01-01,Renewed,True
+ENG-00786,2026-01-01,Renewed,True
+ENG-00787,2027-04-01,Completed,True
+ENG-00788,2024-11-01,Early Termination,False
+ENG-00789,2026-08-01,Renewed,True
+ENG-00790,2025-02-01,Renewed,True
+ENG-00791,2025-02-01,Early Termination,False
+ENG-00792,2027-01-01,Early Termination,False
+ENG-00793,2026-08-01,Completed,True
+ENG-00794,2025-05-01,Completed,True
+ENG-00795,2026-05-01,Early Termination,False
+ENG-00796,2025-10-01,Early Termination,False
+ENG-00797,2025-08-01,Completed,True
+ENG-00798,2025-07-01,Completed,True
+ENG-00799,2026-04-01,Renewed,True
+ENG-00800,2026-03-01,Completed,True
+ENG-00801,2025-02-01,Completed,True
+ENG-00802,2026-12-01,Renewed,True
+ENG-00803,2025-04-01,Early Termination,False
+ENG-00804,2025-02-01,Early Termination,False
+ENG-00805,2027-07-01,Renewed,True
+ENG-00806,2026-01-01,Early Termination,False
+ENG-00807,2024-09-01,Renewed,True
+ENG-00808,2027-02-01,Completed,True
+ENG-00809,2026-01-01,Early Termination,False
+ENG-00810,2027-05-01,Completed,True
+ENG-00811,2026-08-01,Completed,True
+ENG-00812,2025-05-01,Renewed,True
+ENG-00813,2025-09-01,Renewed,True
+ENG-00814,2025-08-01,Renewed,True
+ENG-00815,2026-06-01,Renewed,True
+ENG-00816,2024-10-01,Early Termination,False
+ENG-00817,2026-12-01,Renewed,True
+ENG-00818,2026-03-01,Renewed,True
+ENG-00819,2025-11-01,Renewed,True
+ENG-00820,2025-09-01,Renewed,True
+ENG-00821,2025-01-01,Completed,True
+ENG-00822,2024-12-01,Early Termination,False
+ENG-00823,2025-11-01,Completed,True
+ENG-00824,2026-08-01,Renewed,True
+ENG-00825,2025-10-01,Renewed,True
+ENG-00826,2027-03-01,Renewed,True
+ENG-00827,2026-07-01,Early Termination,False
+ENG-00828,2026-02-01,Renewed,True
+ENG-00829,2024-12-01,Renewed,True
+ENG-00830,2025-05-01,Early Termination,False
+ENG-00831,2026-04-01,Completed,True
+ENG-00832,2027-02-01,Renewed,True
+ENG-00833,2026-05-01,Completed,True
+ENG-00834,2026-09-01,Completed,True
+ENG-00835,2026-11-01,Early Termination,False
+ENG-00836,2026-05-01,Renewed,True
+ENG-00837,2025-03-01,Renewed,True
+ENG-00838,2026-11-01,Renewed,True
+ENG-00839,2027-05-01,Renewed,True
+ENG-00840,2026-09-01,Completed,True
+ENG-00841,2025-02-01,Renewed,True
+ENG-00842,2024-11-01,Renewed,True
+ENG-00843,2026-06-01,Renewed,True
+ENG-00844,2026-08-01,Completed,True
+ENG-00845,2025-11-01,Completed,True
+ENG-00846,2025-04-01,Completed,True
+ENG-00847,2026-11-01,Renewed,True
+ENG-00848,2026-11-01,Completed,True
+ENG-00849,2025-04-01,Early Termination,False
+ENG-00850,2026-09-01,Renewed,True
+ENG-00851,2024-07-01,Early Termination,False
+ENG-00852,2026-05-01,Renewed,True
+ENG-00853,2026-03-01,Early Termination,False
+ENG-00854,2025-06-01,Completed,True
+ENG-00855,2027-04-01,Early Termination,False
+ENG-00856,2025-11-01,Early Termination,False
+ENG-00857,2026-10-01,Completed,True
+ENG-00858,2026-09-01,Completed,True
+ENG-00859,2025-02-01,Early Termination,False
+ENG-00860,2027-03-01,Early Termination,False
+ENG-00861,2026-01-01,Early Termination,False
+ENG-00862,2027-01-01,Early Termination,False
+ENG-00863,2026-08-01,Completed,True
+ENG-00864,2025-12-01,Renewed,True
+ENG-00865,2025-11-01,Renewed,True
+ENG-00866,2024-09-01,Completed,True
+ENG-00867,2026-09-01,Early Termination,False
+ENG-00868,2026-04-01,Completed,True
+ENG-00869,2025-09-01,Renewed,True
+ENG-00870,2027-06-01,Completed,True
+ENG-00871,2027-02-01,Renewed,True
+ENG-00872,2027-04-01,Completed,True
+ENG-00873,2026-11-01,Renewed,True
+ENG-00874,2026-05-01,Renewed,True
+ENG-00875,2025-11-01,Renewed,True
+ENG-00876,2026-12-01,Renewed,True
+ENG-00877,2026-09-01,Early Termination,False
+ENG-00878,2027-01-01,Completed,True
+ENG-00879,2024-04-01,Early Termination,False
+ENG-00880,2025-02-01,Renewed,True
+ENG-00881,2026-11-01,Early Termination,False
+ENG-00882,2026-12-01,Completed,True
+ENG-00883,2026-11-01,Renewed,True
+ENG-00884,2026-07-01,Early Termination,False
+ENG-00885,2025-07-01,Completed,True
+ENG-00886,2027-02-01,Renewed,True
+ENG-00887,2024-12-01,Completed,True
+ENG-00888,2025-01-01,Renewed,True
+ENG-00889,2027-04-01,Renewed,True
+ENG-00890,2027-04-01,Completed,True
+ENG-00891,2026-01-01,Renewed,True
+ENG-00892,2025-10-01,Early Termination,False
+ENG-00893,2025-11-01,Completed,True
+ENG-00894,2026-02-01,Completed,True
+ENG-00895,2025-09-01,Renewed,True
+ENG-00896,2024-11-01,Early Termination,False
+ENG-00897,2026-06-01,Renewed,True
+ENG-00898,2026-11-01,Renewed,True
+ENG-00899,2025-01-01,Renewed,True
+ENG-00900,2025-01-01,Renewed,True
+ENG-00901,2026-03-01,Early Termination,False
+ENG-00902,2026-08-01,Renewed,True
+ENG-00903,2025-03-01,Renewed,True
+ENG-00904,2025-01-01,Renewed,True
+ENG-00905,2027-02-01,Early Termination,False
+ENG-00906,2025-04-01,Renewed,True
+ENG-00907,2026-07-01,Completed,True
+ENG-00908,2026-02-01,Early Termination,False
+ENG-00909,2025-08-01,Early Termination,False
+ENG-00910,2027-03-01,Completed,True
+ENG-00911,2025-09-01,Early Termination,False
+ENG-00912,2026-11-01,Renewed,True
+ENG-00913,2025-09-01,Renewed,True
+ENG-00914,2027-04-01,Completed,True
+ENG-00915,2025-05-01,Renewed,True
+ENG-00916,2026-04-01,Completed,True
+ENG-00917,2026-04-01,Early Termination,False
+ENG-00918,2026-08-01,Early Termination,False
+ENG-00919,2027-03-01,Renewed,True
+ENG-00920,2025-05-01,Renewed,True
+ENG-00921,2026-09-01,Renewed,True
+ENG-00922,2027-02-01,Completed,True
+ENG-00923,2026-02-01,Completed,True
+ENG-00924,2027-04-01,Completed,True
+ENG-00925,2024-06-01,Early Termination,False
+ENG-00926,2024-08-01,Early Termination,False
+ENG-00927,2025-05-01,Early Termination,False
+ENG-00928,2025-09-01,Early Termination,False
+ENG-00929,2026-11-01,Renewed,True
+ENG-00930,2026-04-01,Renewed,True
+ENG-00931,2026-04-01,Early Termination,False
+ENG-00932,2024-10-01,Early Termination,False
+ENG-00933,2026-06-01,Completed,True
+ENG-00934,2025-12-01,Completed,True
+ENG-00935,2026-02-01,Renewed,True
+ENG-00936,2024-09-01,Early Termination,False
+ENG-00937,2024-05-01,Early Termination,False
+ENG-00938,2026-05-01,Renewed,True
+ENG-00939,2026-06-01,Early Termination,False
+ENG-00940,2027-06-01,Renewed,True
+ENG-00941,2026-03-01,Completed,True
+ENG-00942,2024-09-01,Renewed,True
+ENG-00943,2024-12-01,Early Termination,False
+ENG-00944,2024-12-01,Completed,True
+ENG-00945,2026-05-01,Completed,True
+ENG-00946,2024-09-01,Completed,True
+ENG-00947,2025-11-01,Early Termination,False
+ENG-00948,2024-12-01,Renewed,True
+ENG-00949,2025-09-01,Completed,True
+ENG-00950,2027-01-01,Renewed,True
+ENG-00951,2025-08-01,Completed,True
+ENG-00952,2024-09-01,Renewed,True
+ENG-00953,2027-07-01,Renewed,True
+ENG-00954,2024-10-01,Renewed,True
+ENG-00955,2025-12-01,Renewed,True
+ENG-00956,2025-11-01,Renewed,True
+ENG-00957,2025-09-01,Early Termination,False
+ENG-00958,2025-07-01,Early Termination,False
+ENG-00959,2026-09-01,Renewed,True
+ENG-00960,2025-10-01,Renewed,True
+ENG-00961,2024-08-01,Completed,True
+ENG-00962,2026-06-01,Completed,True
+ENG-00963,2027-01-01,Completed,True
+ENG-00964,2025-08-01,Early Termination,False
+ENG-00965,2025-03-01,Renewed,True
+ENG-00966,2024-11-01,Early Termination,False
+ENG-00967,2025-05-01,Renewed,True
+ENG-00968,2025-02-01,Renewed,True
+ENG-00969,2026-07-01,Completed,True
+ENG-00970,2025-09-01,Early Termination,False
+ENG-00971,2025-05-01,Renewed,True
+ENG-00972,2024-11-01,Renewed,True
+ENG-00973,2027-05-01,Completed,True
+ENG-00974,2027-05-01,Renewed,True
+ENG-00975,2026-06-01,Renewed,True
+ENG-00976,2024-11-01,Renewed,True
+ENG-00977,2025-06-01,Renewed,True
+ENG-00978,2024-12-01,Completed,True
+ENG-00979,2026-05-01,Completed,True
+ENG-00980,2025-06-01,Renewed,True
+ENG-00981,2026-02-01,Renewed,True
+ENG-00982,2026-06-01,Early Termination,False
+ENG-00983,2025-01-01,Renewed,True
+ENG-00984,2025-07-01,Renewed,True
+ENG-00985,2025-06-01,Early Termination,False
+ENG-00986,2027-03-01,Completed,True
+ENG-00987,2027-02-01,Completed,True
+ENG-00988,2025-01-01,Early Termination,False
+ENG-00989,2026-06-01,Renewed,True
+ENG-00990,2026-06-01,Renewed,True
+ENG-00991,2026-05-01,Early Termination,False
+ENG-00992,2026-09-01,Completed,True
+ENG-00993,2025-10-01,Completed,True
+ENG-00994,2026-11-01,Renewed,True
+ENG-00995,2027-06-01,Renewed,True
+ENG-00996,2025-12-01,Renewed,True
+ENG-00997,2026-03-01,Completed,True
+ENG-00998,2025-02-01,Renewed,True
+ENG-00999,2026-10-01,Completed,True
+ENG-01000,2026-07-01,Renewed,True
+ENG-01001,2025-11-01,Renewed,True
+ENG-01002,2025-07-01,Completed,True
+ENG-01003,2026-04-01,Renewed,True
+ENG-01004,2026-07-01,Early Termination,False
+ENG-01005,2026-11-01,Renewed,True
+ENG-01006,2026-09-01,Renewed,True
+ENG-01007,2026-09-01,Early Termination,False
+ENG-01008,2025-07-01,Completed,True
+ENG-01009,2027-02-01,Early Termination,False
+ENG-01010,2024-08-01,Renewed,True
+ENG-01011,2025-05-01,Renewed,True
+ENG-01012,2026-01-01,Completed,True
+ENG-01013,2025-11-01,Renewed,True
+ENG-01014,2026-08-01,Completed,True
+ENG-01015,2027-01-01,Renewed,True
+ENG-01016,2024-09-01,Completed,True
+ENG-01017,2026-08-01,Renewed,True
+ENG-01018,2026-09-01,Renewed,True
+ENG-01019,2027-02-01,Completed,True
+ENG-01020,2024-08-01,Completed,True
+ENG-01021,2025-01-01,Completed,True
+ENG-01022,2026-06-01,Completed,True
+ENG-01023,2026-12-01,Renewed,True
+ENG-01024,2026-04-01,Completed,True
+ENG-01025,2027-01-01,Renewed,True
+ENG-01026,2026-02-01,Early Termination,False
+ENG-01027,2026-07-01,Early Termination,False
+ENG-01028,2024-09-01,Renewed,True
+ENG-01029,2026-10-01,Early Termination,False
+ENG-01030,2025-08-01,Early Termination,False
+ENG-01031,2027-06-01,Renewed,True
+ENG-01032,2026-01-01,Renewed,True
+ENG-01033,2025-08-01,Early Termination,False
+ENG-01034,2026-10-01,Early Termination,False
+ENG-01035,2026-03-01,Completed,True
+ENG-01036,2024-04-01,Early Termination,False
+ENG-01037,2025-10-01,Renewed,True
+ENG-01038,2025-07-01,Renewed,True
+ENG-01039,2026-09-01,Renewed,True
+ENG-01040,2025-01-01,Completed,True
+ENG-01041,2024-08-01,Completed,True
+ENG-01042,2025-01-01,Renewed,True
+ENG-01043,2025-10-01,Completed,True
+ENG-01044,2024-10-01,Renewed,True
+ENG-01045,2025-02-01,Completed,True
+ENG-01046,2026-10-01,Renewed,True
+ENG-01047,2024-07-01,Renewed,True
+ENG-01048,2025-07-01,Renewed,True
+ENG-01049,2026-11-01,Early Termination,False
+ENG-01050,2025-01-01,Completed,True
+ENG-01051,2026-09-01,Early Termination,False
+ENG-01052,2025-07-01,Early Termination,False
+ENG-01053,2025-04-01,Early Termination,False
+ENG-01054,2026-11-01,Renewed,True
+ENG-01055,2025-11-01,Early Termination,False
+ENG-01056,2025-10-01,Renewed,True
+ENG-01057,2025-03-01,Renewed,True
+ENG-01058,2026-08-01,Renewed,True
+ENG-01059,2027-03-01,Completed,True
+ENG-01060,2025-06-01,Renewed,True
+ENG-01061,2025-12-01,Early Termination,False
+ENG-01062,2025-02-01,Completed,True
+ENG-01063,2024-11-01,Renewed,True
+ENG-01064,2027-01-01,Completed,True
+ENG-01065,2025-07-01,Renewed,True
+ENG-01066,2025-12-01,Renewed,True
+ENG-01067,2027-06-01,Renewed,True
+ENG-01068,2025-06-01,Completed,True
+ENG-01069,2026-11-01,Early Termination,False
+ENG-01070,2026-06-01,Renewed,True
+ENG-01071,2024-07-01,Early Termination,False
+ENG-01072,2026-12-01,Completed,True
+ENG-01073,2026-10-01,Renewed,True
+ENG-01074,2026-05-01,Renewed,True
+ENG-01075,2026-02-01,Completed,True
+ENG-01076,2026-03-01,Renewed,True
+ENG-01077,2025-12-01,Early Termination,False
+ENG-01078,2026-01-01,Early Termination,False
+ENG-01079,2027-01-01,Early Termination,False
+ENG-01080,2027-02-01,Renewed,True
+ENG-01081,2025-09-01,Completed,True
+ENG-01082,2025-02-01,Renewed,True
+ENG-01083,2024-12-01,Renewed,True
+ENG-01084,2027-01-01,Renewed,True
+ENG-01085,2025-04-01,Renewed,True
+ENG-01086,2026-03-01,Renewed,True
+ENG-01087,2026-02-01,Early Termination,False
+ENG-01088,2027-06-01,Completed,True
+ENG-01089,2025-07-01,Renewed,True
+ENG-01090,2026-12-01,Renewed,True
+ENG-01091,2025-03-01,Early Termination,False
+ENG-01092,2025-05-01,Renewed,True
+ENG-01093,2026-04-01,Completed,True
+ENG-01094,2024-12-01,Early Termination,False
+ENG-01095,2026-03-01,Renewed,True
+ENG-01096,2025-04-01,Renewed,True
+ENG-01097,2026-03-01,Completed,True
+ENG-01098,2025-02-01,Early Termination,False
+ENG-01099,2024-10-01,Early Termination,False
+ENG-01100,2026-04-01,Early Termination,False
+ENG-01101,2025-11-01,Renewed,True
+ENG-01102,2026-08-01,Completed,True
+ENG-01103,2027-05-01,Renewed,True
+ENG-01104,2024-10-01,Renewed,True
+ENG-01105,2026-10-01,Renewed,True
+ENG-01106,2025-11-01,Renewed,True
+ENG-01107,2026-03-01,Renewed,True
+ENG-01108,2025-02-01,Renewed,True
+ENG-01109,2024-12-01,Renewed,True
+ENG-01110,2025-08-01,Early Termination,False
+ENG-01111,2024-09-01,Renewed,True
+ENG-01112,2026-01-01,Completed,True
+ENG-01113,2026-05-01,Renewed,True
+ENG-01114,2026-11-01,Renewed,True
+ENG-01115,2025-06-01,Completed,True
+ENG-01116,2026-01-01,Renewed,True
+ENG-01117,2026-05-01,Early Termination,False
+ENG-01118,2024-12-01,Early Termination,False
+ENG-01119,2025-05-01,Completed,True
+ENG-01120,2026-03-01,Renewed,True
+ENG-01121,2025-01-01,Completed,True
+ENG-01122,2024-10-01,Renewed,True
+ENG-01123,2027-02-01,Renewed,True
+ENG-01124,2024-10-01,Early Termination,False
+ENG-01125,2027-01-01,Completed,True
+ENG-01126,2027-06-01,Completed,True
+ENG-01127,2026-05-01,Renewed,True
+ENG-01128,2026-02-01,Completed,True
+ENG-01129,2025-02-01,Early Termination,False
+ENG-01130,2025-08-01,Early Termination,False
+ENG-01131,2026-05-01,Renewed,True
+ENG-01132,2026-01-01,Completed,True
+ENG-01133,2026-02-01,Completed,True
+ENG-01134,2024-05-01,Early Termination,False
+ENG-01135,2024-12-01,Completed,True
+ENG-01136,2025-02-01,Renewed,True
+ENG-01137,2026-06-01,Renewed,True
+ENG-01138,2027-04-01,Renewed,True
+ENG-01139,2026-11-01,Renewed,True
+ENG-01140,2025-05-01,Renewed,True
+ENG-01141,2026-04-01,Early Termination,False
+ENG-01142,2027-05-01,Renewed,True
+ENG-01143,2025-03-01,Early Termination,False
+ENG-01144,2025-10-01,Early Termination,False
+ENG-01145,2025-01-01,Completed,True
+ENG-01146,2025-12-01,Renewed,True
+ENG-01147,2024-11-01,Completed,True
+ENG-01148,2025-05-01,Renewed,True
+ENG-01149,2025-02-01,Renewed,True
+ENG-01150,2026-10-01,Renewed,True
+ENG-01151,2025-04-01,Early Termination,False
+ENG-01152,2025-02-01,Renewed,True
+ENG-01153,2025-05-01,Renewed,True
+ENG-01154,2026-08-01,Renewed,True
+ENG-01155,2027-03-01,Renewed,True
+ENG-01156,2024-11-01,Early Termination,False
+ENG-01157,2024-12-01,Renewed,True
+ENG-01158,2025-04-01,Renewed,True
+ENG-01159,2025-12-01,Completed,True
+ENG-01160,2026-09-01,Completed,True
+ENG-01161,2026-12-01,Completed,True
+ENG-01162,2026-02-01,Renewed,True
+ENG-01163,2025-04-01,Completed,True
+ENG-01164,2027-05-01,Completed,True
+ENG-01165,2025-01-01,Completed,True
+ENG-01166,2024-07-01,Renewed,True
+ENG-01167,2025-02-01,Renewed,True
+ENG-01168,2026-12-01,Completed,True
+ENG-01169,2026-03-01,Renewed,True
+ENG-01170,2027-01-01,Renewed,True
+ENG-01171,2025-08-01,Completed,True
+ENG-01172,2025-02-01,Renewed,True
+ENG-01173,2026-11-01,Completed,True
+ENG-01174,2026-02-01,Renewed,True
+ENG-01175,2025-04-01,Early Termination,False
+ENG-01176,2025-09-01,Early Termination,False
+ENG-01177,2026-10-01,Completed,True
+ENG-01178,2026-06-01,Renewed,True
+ENG-01179,2027-04-01,Completed,True
+ENG-01180,2027-01-01,Renewed,True
+ENG-01181,2027-04-01,Completed,True
+ENG-01182,2025-08-01,Renewed,True
+ENG-01183,2025-02-01,Renewed,True
+ENG-01184,2025-09-01,Completed,True
+ENG-01185,2025-07-01,Early Termination,False
+ENG-01186,2025-09-01,Completed,True
+ENG-01187,2026-02-01,Completed,True
+ENG-01188,2026-04-01,Early Termination,False
+ENG-01189,2024-12-01,Early Termination,False
+ENG-01190,2025-06-01,Renewed,True
+ENG-01191,2025-09-01,Renewed,True
+ENG-01192,2024-06-01,Early Termination,False
+ENG-01193,2026-12-01,Renewed,True
+ENG-01194,2024-12-01,Completed,True
+ENG-01195,2026-12-01,Early Termination,False
+ENG-01196,2026-02-01,Renewed,True
+ENG-01197,2026-02-01,Renewed,True
+ENG-01198,2025-03-01,Completed,True
+ENG-01199,2024-07-01,Early Termination,False
+ENG-01200,2026-05-01,Renewed,True

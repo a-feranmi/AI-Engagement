@@ -1,0 +1,15 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: engagement360-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: engagement360
+      POSTGRES_USER: engagement360
+      POSTGRES_PASSWORD: engagement360
+    ports:
+      - "5432:5432"
+    volumes:
+      - engagement360_pgdata:/var/lib/postgresql/data
+volumes:
+  engagement360_pgdata:

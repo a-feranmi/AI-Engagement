@@ -1,0 +1,65 @@
+{
+  "n_observations": 400,
+  "top_features": [
+    {
+      "feature": "num__delay_days",
+      "mean_abs_shap": 0.9740612247893474
+    },
+    {
+      "feature": "num__milestone_health",
+      "mean_abs_shap": 0.7637103545802502
+    },
+    {
+      "feature": "num__client_feedback_health_delta",
+      "mean_abs_shap": 0.5409219116950091
+    },
+    {
+      "feature": "num__overall_score",
+      "mean_abs_shap": 0.4549082190587938
+    },
+    {
+      "feature": "num__behs",
+      "mean_abs_shap": 0.44941076190437057
+    },
+    {
+      "feature": "num__performance_health_delta",
+      "mean_abs_shap": 0.3761268101835638
+    },
+    {
+      "feature": "num__sentiment_health",
+      "mean_abs_shap": 0.3515676289803607
+    },
+    {
+      "feature": "num__engagement_age_months",
+      "mean_abs_shap": 0.34585163749897935
+    },
+    {
+      "feature": "num__behs_delta",
+      "mean_abs_shap": 0.30838783035037537
+    },
+    {
+      "feature": "num__performance_health",
+      "mean_abs_shap": 0.24374911512829048
+    },
+    {
+      "feature": "num__sentiment_health_delta",
+      "mean_abs_shap": 0.20263629601261815
+    },
+    {
+      "feature": "cat__role_Analytics Engineer",
+      "mean_abs_shap": 0.18082292494825178
+    },
+    {
+      "feature": "num__utilisation_health_delta",
+      "mean_abs_shap": 0.1620134365606168
+    },
+    {
+      "feature": "num__contract_exposure",
+      "mean_abs_shap": 0.14742459483763953
+    },
+    {
+      "feature": "cat__role_BI Developer",
+      "mean_abs_shap": 0.14011177946987405
+    }
+  ]
+}

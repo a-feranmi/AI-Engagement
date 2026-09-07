@@ -1,0 +1,46 @@
+engagement_id,intervention_date,intervention_type,owner,priority,status,due_date,completed_date,outcome
+ENG-00300,2024-07-01,Client alignment,Account Manager,High,Open,2024-07-08,,
+ENG-00684,2024-08-01,Project reset,Talent Manager,High,Closed,2024-08-08,2024-08-06,Risk reduced
+ENG-00925,2024-06-01,Performance review,Delivery Lead,High,Closed,2024-06-08,2024-06-06,Risk reduced
+ENG-00809,2026-01-01,Mentoring,Account Manager,High,Open,2026-01-08,,
+ENG-00669,2025-08-01,Scope clarification,Talent Manager,High,Closed,2025-08-08,2025-08-06,Risk reduced
+ENG-00860,2027-03-01,Client alignment,Delivery Lead,High,Closed,2027-03-08,2027-03-06,Risk reduced
+ENG-00928,2025-09-01,Project reset,Account Manager,High,Open,2025-09-08,,
+ENG-00166,2025-03-01,Performance review,Talent Manager,High,Closed,2025-03-08,2025-03-06,Risk reduced
+ENG-00759,2025-03-01,Mentoring,Delivery Lead,High,Closed,2025-03-08,2025-03-06,Risk reduced
+ENG-00816,2024-10-01,Scope clarification,Account Manager,High,Open,2024-10-08,,
+ENG-00619,2026-09-01,Client alignment,Talent Manager,High,Closed,2026-09-08,2026-09-06,Risk reduced
+ENG-01078,2026-01-01,Project reset,Delivery Lead,High,Closed,2026-01-08,2026-01-06,Risk reduced
+ENG-00136,2024-10-01,Performance review,Account Manager,High,Open,2024-10-08,,
+ENG-00574,2025-05-01,Mentoring,Talent Manager,High,Closed,2025-05-08,2025-05-06,Risk reduced
+ENG-00988,2025-01-01,Scope clarification,Delivery Lead,High,Closed,2025-01-08,2025-01-06,Risk reduced
+ENG-00154,2026-10-01,Client alignment,Account Manager,High,Open,2026-10-08,,
+ENG-00321,2025-10-01,Project reset,Talent Manager,High,Closed,2025-10-08,2025-10-06,Risk reduced
+ENG-00982,2026-06-01,Performance review,Delivery Lead,High,Closed,2026-06-08,2026-06-06,Risk reduced
+ENG-00164,2025-01-01,Mentoring,Account Manager,High,Open,2025-01-08,,
+ENG-01199,2024-07-01,Scope clarification,Talent Manager,High,Closed,2024-07-08,2024-07-06,Risk reduced
+ENG-00393,2026-09-01,Client alignment,Delivery Lead,High,Closed,2026-09-08,2026-09-06,Risk reduced
+ENG-00080,2024-10-01,Project reset,Account Manager,High,Open,2024-10-08,,
+ENG-00389,2024-12-01,Performance review,Talent Manager,High,Closed,2024-12-08,2024-12-06,Risk reduced
+ENG-00014,2024-06-01,Mentoring,Delivery Lead,High,Closed,2024-06-08,2024-06-06,Risk reduced
+ENG-01004,2026-07-01,Scope clarification,Account Manager,High,Open,2026-07-08,,
+ENG-00791,2025-02-01,Client alignment,Talent Manager,High,Closed,2025-02-08,2025-02-06,Risk reduced
+ENG-00046,2026-11-01,Project reset,Delivery Lead,High,Closed,2026-11-08,2026-11-06,Risk reduced
+ENG-00806,2026-01-01,Performance review,Account Manager,High,Open,2026-01-08,,
+ENG-00126,2025-08-01,Mentoring,Talent Manager,High,Closed,2025-08-08,2025-08-06,Risk reduced
+ENG-00937,2024-05-01,Scope clarification,Delivery Lead,High,Closed,2024-05-08,2024-05-06,Risk reduced
+ENG-00515,2026-01-01,Client alignment,Account Manager,High,Open,2026-01-08,,
+ENG-00231,2024-05-01,Project reset,Talent Manager,High,Closed,2024-05-08,2024-05-06,Risk reduced
+ENG-00214,2026-09-01,Performance review,Delivery Lead,High,Closed,2026-09-08,2026-09-06,Risk reduced
+ENG-00175,2026-11-01,Mentoring,Account Manager,High,Open,2026-11-08,,
+ENG-00795,2026-05-01,Scope clarification,Talent Manager,High,Closed,2026-05-08,2026-05-06,Risk reduced
+ENG-01117,2026-05-01,Client alignment,Delivery Lead,High,Closed,2026-05-08,2026-05-06,Risk reduced
+ENG-00700,2025-06-01,Project reset,Account Manager,High,Open,2025-06-08,,
+ENG-00158,2026-09-01,Performance review,Talent Manager,High,Closed,2026-09-08,2026-09-06,Risk reduced
+ENG-00489,2025-12-01,Mentoring,Delivery Lead,High,Closed,2025-12-08,2025-12-06,Risk reduced
+ENG-00089,2025-10-01,Scope clarification,Account Manager,High,Open,2025-10-08,,
+ENG-00768,2025-07-01,Client alignment,Talent Manager,High,Closed,2025-07-08,2025-07-06,Risk reduced
+ENG-00560,2026-09-01,Project reset,Delivery Lead,High,Closed,2026-09-08,2026-09-06,Risk reduced
+ENG-00761,2025-06-01,Performance review,Account Manager,High,Open,2025-06-08,,
+ENG-01061,2025-12-01,Mentoring,Talent Manager,High,Closed,2025-12-08,2025-12-06,Risk reduced
+ENG-00398,2024-06-01,Scope clarification,Delivery Lead,High,Closed,2024-06-08,2024-06-06,Risk reduced

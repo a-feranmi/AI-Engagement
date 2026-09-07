@@ -1,0 +1,15 @@
+{
+  "clients":60.0,
+  "talents":500.0,
+  "engagements":1200.0,
+  "engagement_months":9544.0,
+  "performance_reviews":9544.0,
+  "client_feedback":9544.0,
+  "milestones":9544.0,
+  "timesheets":9544.0,
+  "checkins":9544.0,
+  "early_termination_rate":0.2492,
+  "churn_next_90d_rate":0.1009,
+  "latest_risk_adjusted_exposure":1579239165.5,
+  "latest_behs_mean":69.91
+}

@@ -1,0 +1,501 @@
+talent_id,talent_name,role,seniority,years_experience,primary_skill,location
+T-0001,Synthetic Talent 0001,Data Analyst,Senior,11.4,Databricks,Abuja
+T-0002,Synthetic Talent 0002,Analytics Engineer,Mid,4.4,NLP,Lagos
+T-0003,Synthetic Talent 0003,Data Analyst,Mid,11.6,NLP,Lagos
+T-0004,Synthetic Talent 0004,Analytics Engineer,Mid,5.6,GCP,Lagos
+T-0005,Synthetic Talent 0005,Analytics Engineer,Mid,11.1,Spark,Port Harcourt
+T-0006,Synthetic Talent 0006,Data Analyst,Mid,5.2,AWS,Port Harcourt
+T-0007,Synthetic Talent 0007,AI Engineer,Lead,5.9,Python,Port Harcourt
+T-0008,Synthetic Talent 0008,Data Scientist,Mid,6.7,AWS,Port Harcourt
+T-0009,Synthetic Talent 0009,AI Engineer,Mid,15.7,Spark,Remote
+T-0010,Synthetic Talent 0010,Data Analyst,Senior,8.2,SQL,Accra
+T-0011,Synthetic Talent 0011,Data Engineer,Senior,3.2,Power BI,Port Harcourt
+T-0012,Synthetic Talent 0012,ML Engineer,Lead,8.6,Azure,Remote
+T-0013,Synthetic Talent 0013,Data Engineer,Senior,4.3,Spark,Remote
+T-0014,Synthetic Talent 0014,Data Scientist,Mid,3.9,Databricks,Remote
+T-0015,Synthetic Talent 0015,Analytics Engineer,Mid,8.4,AWS,Lagos
+T-0016,Synthetic Talent 0016,Data Engineer,Lead,5.6,Databricks,Accra
+T-0017,Synthetic Talent 0017,Analytics Engineer,Senior,6.4,GCP,Lagos
+T-0018,Synthetic Talent 0018,Data Analyst,Lead,5.5,SQL,Port Harcourt
+T-0019,Synthetic Talent 0019,Data Engineer,Junior,6.6,Power BI,Remote
+T-0020,Synthetic Talent 0020,Analytics Engineer,Senior,6.9,Machine Learning,Port Harcourt
+T-0021,Synthetic Talent 0021,AI Engineer,Senior,0.5,Azure,Abuja
+T-0022,Synthetic Talent 0022,Data Engineer,Mid,7.6,Spark,Accra
+T-0023,Synthetic Talent 0023,Data Scientist,Senior,2.4,Azure,Lagos
+T-0024,Synthetic Talent 0024,BI Developer,Senior,0.9,Databricks,Abuja
+T-0025,Synthetic Talent 0025,BI Developer,Junior,5.3,Spark,Accra
+T-0026,Synthetic Talent 0026,Analytics Engineer,Mid,5.8,SQL,Remote
+T-0027,Synthetic Talent 0027,ML Engineer,Senior,3.3,Spark,Lagos
+T-0028,Synthetic Talent 0028,Data Scientist,Mid,8.2,Databricks,Remote
+T-0029,Synthetic Talent 0029,Analytics Engineer,Mid,1.2,Machine Learning,Accra
+T-0030,Synthetic Talent 0030,Analytics Engineer,Mid,4.2,NLP,Lagos
+T-0031,Synthetic Talent 0031,Data Scientist,Mid,3.6,Databricks,Port Harcourt
+T-0032,Synthetic Talent 0032,Data Analyst,Lead,5.4,Python,Port Harcourt
+T-0033,Synthetic Talent 0033,Data Engineer,Senior,6.4,Power BI,Lagos
+T-0034,Synthetic Talent 0034,BI Developer,Junior,2.3,SQL,Abuja
+T-0035,Synthetic Talent 0035,Data Scientist,Lead,7.8,SQL,Lagos
+T-0036,Synthetic Talent 0036,ML Engineer,Senior,5.7,NLP,Lagos
+T-0037,Synthetic Talent 0037,ML Engineer,Mid,0.5,Databricks,Port Harcourt
+T-0038,Synthetic Talent 0038,AI Engineer,Senior,0.5,Python,Port Harcourt
+T-0039,Synthetic Talent 0039,Data Analyst,Junior,5.5,Machine Learning,Abuja
+T-0040,Synthetic Talent 0040,Data Analyst,Lead,4.8,Azure,Abuja
+T-0041,Synthetic Talent 0041,Data Engineer,Senior,5.2,SQL,Lagos
+T-0042,Synthetic Talent 0042,ML Engineer,Senior,5.4,Databricks,Remote
+T-0043,Synthetic Talent 0043,Analytics Engineer,Junior,6.2,NLP,Abuja
+T-0044,Synthetic Talent 0044,ML Engineer,Lead,8.5,Azure,Accra
+T-0045,Synthetic Talent 0045,ML Engineer,Junior,1.9,Machine Learning,Port Harcourt
+T-0046,Synthetic Talent 0046,BI Developer,Mid,1.7,Spark,Accra
+T-0047,Synthetic Talent 0047,Data Engineer,Mid,2.0,Machine Learning,Remote
+T-0048,Synthetic Talent 0048,Analytics Engineer,Senior,6.4,AWS,Abuja
+T-0049,Synthetic Talent 0049,ML Engineer,Mid,9.5,Databricks,Remote
+T-0050,Synthetic Talent 0050,ML Engineer,Lead,4.1,SQL,Abuja
+T-0051,Synthetic Talent 0051,AI Engineer,Senior,0.5,Python,Lagos
+T-0052,Synthetic Talent 0052,Data Engineer,Junior,0.5,Databricks,Abuja
+T-0053,Synthetic Talent 0053,BI Developer,Junior,2.8,Power BI,Abuja
+T-0054,Synthetic Talent 0054,Data Scientist,Junior,3.7,Spark,Lagos
+T-0055,Synthetic Talent 0055,ML Engineer,Senior,4.2,Machine Learning,Lagos
+T-0056,Synthetic Talent 0056,ML Engineer,Senior,5.6,Python,Accra
+T-0057,Synthetic Talent 0057,AI Engineer,Mid,4.5,Azure,Port Harcourt
+T-0058,Synthetic Talent 0058,ML Engineer,Senior,8.9,Power BI,Port Harcourt
+T-0059,Synthetic Talent 0059,Data Engineer,Junior,3.3,Python,Accra
+T-0060,Synthetic Talent 0060,Data Analyst,Senior,2.7,Databricks,Abuja
+T-0061,Synthetic Talent 0061,Data Scientist,Lead,7.0,Python,Port Harcourt
+T-0062,Synthetic Talent 0062,AI Engineer,Senior,0.6,SQL,Accra
+T-0063,Synthetic Talent 0063,Data Analyst,Senior,6.7,GCP,Remote
+T-0064,Synthetic Talent 0064,BI Developer,Senior,5.8,NLP,Abuja
+T-0065,Synthetic Talent 0065,ML Engineer,Junior,5.0,Python,Abuja
+T-0066,Synthetic Talent 0066,Data Analyst,Mid,10.6,Machine Learning,Lagos
+T-0067,Synthetic Talent 0067,Data Scientist,Mid,3.5,Azure,Lagos
+T-0068,Synthetic Talent 0068,ML Engineer,Mid,12.1,NLP,Lagos
+T-0069,Synthetic Talent 0069,Data Scientist,Senior,4.8,Python,Remote
+T-0070,Synthetic Talent 0070,Data Analyst,Senior,1.4,Databricks,Remote
+T-0071,Synthetic Talent 0071,Analytics Engineer,Senior,5.7,GCP,Port Harcourt
+T-0072,Synthetic Talent 0072,Analytics Engineer,Mid,2.1,NLP,Remote
+T-0073,Synthetic Talent 0073,Data Analyst,Senior,3.1,Spark,Lagos
+T-0074,Synthetic Talent 0074,Data Engineer,Mid,6.8,Databricks,Abuja
+T-0075,Synthetic Talent 0075,Data Engineer,Mid,7.3,GCP,Abuja
+T-0076,Synthetic Talent 0076,Analytics Engineer,Senior,3.5,Python,Accra
+T-0077,Synthetic Talent 0077,AI Engineer,Lead,8.7,Databricks,Remote
+T-0078,Synthetic Talent 0078,AI Engineer,Senior,9.2,Machine Learning,Accra
+T-0079,Synthetic Talent 0079,BI Developer,Junior,10.1,Spark,Abuja
+T-0080,Synthetic Talent 0080,AI Engineer,Senior,7.2,Azure,Accra
+T-0081,Synthetic Talent 0081,Data Scientist,Junior,9.9,Spark,Lagos
+T-0082,Synthetic Talent 0082,Data Analyst,Senior,0.5,Azure,Abuja
+T-0083,Synthetic Talent 0083,Analytics Engineer,Senior,4.5,Databricks,Port Harcourt
+T-0084,Synthetic Talent 0084,BI Developer,Mid,2.7,NLP,Lagos
+T-0085,Synthetic Talent 0085,BI Developer,Junior,5.9,Power BI,Accra
+T-0086,Synthetic Talent 0086,Data Engineer,Mid,3.7,Databricks,Accra
+T-0087,Synthetic Talent 0087,Data Engineer,Lead,5.0,AWS,Port Harcourt
+T-0088,Synthetic Talent 0088,Data Analyst,Mid,11.5,Machine Learning,Abuja
+T-0089,Synthetic Talent 0089,Data Analyst,Senior,5.0,Machine Learning,Lagos
+T-0090,Synthetic Talent 0090,ML Engineer,Senior,6.8,AWS,Remote
+T-0091,Synthetic Talent 0091,ML Engineer,Senior,4.8,AWS,Port Harcourt
+T-0092,Synthetic Talent 0092,Data Scientist,Mid,5.7,AWS,Remote
+T-0093,Synthetic Talent 0093,Data Scientist,Lead,5.5,NLP,Remote
+T-0094,Synthetic Talent 0094,AI Engineer,Mid,6.9,Spark,Lagos
+T-0095,Synthetic Talent 0095,ML Engineer,Senior,9.2,Power BI,Lagos
+T-0096,Synthetic Talent 0096,AI Engineer,Senior,10.8,Spark,Remote
+T-0097,Synthetic Talent 0097,BI Developer,Senior,6.5,Python,Lagos
+T-0098,Synthetic Talent 0098,Data Scientist,Lead,7.4,Spark,Accra
+T-0099,Synthetic Talent 0099,Data Engineer,Mid,1.8,Python,Lagos
+T-0100,Synthetic Talent 0100,BI Developer,Mid,5.2,SQL,Remote
+T-0101,Synthetic Talent 0101,Analytics Engineer,Mid,8.5,Machine Learning,Accra
+T-0102,Synthetic Talent 0102,Data Scientist,Mid,8.3,SQL,Port Harcourt
+T-0103,Synthetic Talent 0103,Analytics Engineer,Junior,6.2,Azure,Lagos
+T-0104,Synthetic Talent 0104,ML Engineer,Mid,8.3,Machine Learning,Accra
+T-0105,Synthetic Talent 0105,BI Developer,Mid,7.1,Machine Learning,Lagos
+T-0106,Synthetic Talent 0106,Data Engineer,Mid,9.3,AWS,Port Harcourt
+T-0107,Synthetic Talent 0107,BI Developer,Mid,6.4,Python,Accra
+T-0108,Synthetic Talent 0108,BI Developer,Senior,4.4,Databricks,Remote
+T-0109,Synthetic Talent 0109,Data Engineer,Senior,6.6,NLP,Lagos
+T-0110,Synthetic Talent 0110,Data Engineer,Mid,0.5,GCP,Accra
+T-0111,Synthetic Talent 0111,ML Engineer,Mid,6.7,SQL,Lagos
+T-0112,Synthetic Talent 0112,Data Analyst,Mid,0.5,SQL,Remote
+T-0113,Synthetic Talent 0113,Data Scientist,Senior,0.5,Spark,Remote
+T-0114,Synthetic Talent 0114,ML Engineer,Mid,6.9,Python,Abuja
+T-0115,Synthetic Talent 0115,BI Developer,Junior,7.0,NLP,Port Harcourt
+T-0116,Synthetic Talent 0116,BI Developer,Mid,1.8,Power BI,Lagos
+T-0117,Synthetic Talent 0117,Data Engineer,Mid,3.2,Power BI,Accra
+T-0118,Synthetic Talent 0118,BI Developer,Mid,9.9,Databricks,Abuja
+T-0119,Synthetic Talent 0119,Data Analyst,Senior,4.0,NLP,Abuja
+T-0120,Synthetic Talent 0120,AI Engineer,Senior,12.7,Power BI,Port Harcourt
+T-0121,Synthetic Talent 0121,AI Engineer,Senior,5.5,Spark,Remote
+T-0122,Synthetic Talent 0122,BI Developer,Senior,6.8,Azure,Port Harcourt
+T-0123,Synthetic Talent 0123,Data Engineer,Senior,10.7,GCP,Port Harcourt
+T-0124,Synthetic Talent 0124,BI Developer,Mid,5.9,Databricks,Port Harcourt
+T-0125,Synthetic Talent 0125,Data Analyst,Senior,2.3,NLP,Accra
+T-0126,Synthetic Talent 0126,ML Engineer,Senior,5.1,Databricks,Abuja
+T-0127,Synthetic Talent 0127,ML Engineer,Mid,5.4,SQL,Accra
+T-0128,Synthetic Talent 0128,Data Scientist,Senior,1.1,Power BI,Remote
+T-0129,Synthetic Talent 0129,Data Analyst,Mid,4.7,Azure,Accra
+T-0130,Synthetic Talent 0130,AI Engineer,Mid,3.1,SQL,Accra
+T-0131,Synthetic Talent 0131,Data Scientist,Senior,8.5,Spark,Remote
+T-0132,Synthetic Talent 0132,Analytics Engineer,Senior,5.6,Python,Abuja
+T-0133,Synthetic Talent 0133,Data Scientist,Lead,4.6,Databricks,Remote
+T-0134,Synthetic Talent 0134,Data Scientist,Mid,5.2,SQL,Remote
+T-0135,Synthetic Talent 0135,BI Developer,Mid,6.2,Python,Abuja
+T-0136,Synthetic Talent 0136,Data Analyst,Senior,7.5,Python,Remote
+T-0137,Synthetic Talent 0137,AI Engineer,Mid,2.3,Python,Abuja
+T-0138,Synthetic Talent 0138,AI Engineer,Senior,2.2,Azure,Port Harcourt
+T-0139,Synthetic Talent 0139,Data Scientist,Mid,9.0,Spark,Remote
+T-0140,Synthetic Talent 0140,Data Engineer,Junior,4.2,Databricks,Lagos
+T-0141,Synthetic Talent 0141,Data Analyst,Junior,1.0,Power BI,Abuja
+T-0142,Synthetic Talent 0142,BI Developer,Senior,6.9,Azure,Remote
+T-0143,Synthetic Talent 0143,BI Developer,Junior,7.0,GCP,Port Harcourt
+T-0144,Synthetic Talent 0144,Data Engineer,Mid,0.6,GCP,Accra
+T-0145,Synthetic Talent 0145,Data Analyst,Mid,6.2,Machine Learning,Lagos
+T-0146,Synthetic Talent 0146,Data Analyst,Mid,7.9,Power BI,Remote
+T-0147,Synthetic Talent 0147,Data Analyst,Mid,6.7,Azure,Accra
+T-0148,Synthetic Talent 0148,AI Engineer,Senior,7.5,NLP,Accra
+T-0149,Synthetic Talent 0149,BI Developer,Junior,1.0,NLP,Lagos
+T-0150,Synthetic Talent 0150,Data Engineer,Senior,6.6,GCP,Accra
+T-0151,Synthetic Talent 0151,AI Engineer,Senior,4.5,GCP,Abuja
+T-0152,Synthetic Talent 0152,Data Engineer,Mid,4.0,NLP,Abuja
+T-0153,Synthetic Talent 0153,Data Scientist,Mid,8.3,GCP,Abuja
+T-0154,Synthetic Talent 0154,Analytics Engineer,Senior,10.2,Databricks,Remote
+T-0155,Synthetic Talent 0155,AI Engineer,Junior,11.2,Python,Remote
+T-0156,Synthetic Talent 0156,BI Developer,Mid,9.7,Spark,Port Harcourt
+T-0157,Synthetic Talent 0157,Data Analyst,Lead,5.1,Python,Lagos
+T-0158,Synthetic Talent 0158,Data Engineer,Lead,6.6,SQL,Accra
+T-0159,Synthetic Talent 0159,Data Engineer,Senior,8.0,AWS,Abuja
+T-0160,Synthetic Talent 0160,Data Scientist,Mid,5.9,Power BI,Lagos
+T-0161,Synthetic Talent 0161,BI Developer,Senior,5.9,AWS,Port Harcourt
+T-0162,Synthetic Talent 0162,AI Engineer,Senior,8.1,AWS,Port Harcourt
+T-0163,Synthetic Talent 0163,Data Scientist,Mid,5.3,GCP,Remote
+T-0164,Synthetic Talent 0164,BI Developer,Senior,3.2,Databricks,Accra
+T-0165,Synthetic Talent 0165,ML Engineer,Junior,4.2,NLP,Lagos
+T-0166,Synthetic Talent 0166,ML Engineer,Mid,7.5,Spark,Abuja
+T-0167,Synthetic Talent 0167,ML Engineer,Mid,5.5,Spark,Port Harcourt
+T-0168,Synthetic Talent 0168,Data Engineer,Mid,6.6,Machine Learning,Remote
+T-0169,Synthetic Talent 0169,BI Developer,Mid,7.6,Python,Remote
+T-0170,Synthetic Talent 0170,Data Analyst,Senior,4.3,Azure,Abuja
+T-0171,Synthetic Talent 0171,Data Engineer,Lead,7.9,AWS,Remote
+T-0172,Synthetic Talent 0172,Data Engineer,Senior,6.7,Python,Accra
+T-0173,Synthetic Talent 0173,Data Engineer,Senior,1.5,GCP,Port Harcourt
+T-0174,Synthetic Talent 0174,Data Analyst,Lead,10.1,Spark,Accra
+T-0175,Synthetic Talent 0175,Data Analyst,Mid,3.9,Python,Remote
+T-0176,Synthetic Talent 0176,Analytics Engineer,Mid,0.5,GCP,Abuja
+T-0177,Synthetic Talent 0177,BI Developer,Mid,2.2,Python,Abuja
+T-0178,Synthetic Talent 0178,Data Analyst,Junior,2.2,GCP,Remote
+T-0179,Synthetic Talent 0179,Data Scientist,Senior,5.7,Python,Abuja
+T-0180,Synthetic Talent 0180,ML Engineer,Mid,4.6,AWS,Abuja
+T-0181,Synthetic Talent 0181,BI Developer,Mid,4.4,NLP,Abuja
+T-0182,Synthetic Talent 0182,Analytics Engineer,Mid,7.5,Power BI,Remote
+T-0183,Synthetic Talent 0183,AI Engineer,Mid,6.6,Machine Learning,Abuja
+T-0184,Synthetic Talent 0184,Analytics Engineer,Lead,6.5,Machine Learning,Remote
+T-0185,Synthetic Talent 0185,Data Scientist,Junior,6.8,Databricks,Accra
+T-0186,Synthetic Talent 0186,Data Engineer,Mid,7.5,Python,Accra
+T-0187,Synthetic Talent 0187,BI Developer,Mid,0.5,Machine Learning,Accra
+T-0188,Synthetic Talent 0188,AI Engineer,Mid,4.3,Databricks,Lagos
+T-0189,Synthetic Talent 0189,Data Analyst,Senior,0.5,Machine Learning,Port Harcourt
+T-0190,Synthetic Talent 0190,AI Engineer,Mid,5.6,Python,Abuja
+T-0191,Synthetic Talent 0191,Data Analyst,Junior,5.5,NLP,Accra
+T-0192,Synthetic Talent 0192,AI Engineer,Mid,8.8,Python,Remote
+T-0193,Synthetic Talent 0193,AI Engineer,Senior,9.3,Azure,Abuja
+T-0194,Synthetic Talent 0194,Data Analyst,Senior,6.1,AWS,Port Harcourt
+T-0195,Synthetic Talent 0195,ML Engineer,Senior,3.9,Azure,Remote
+T-0196,Synthetic Talent 0196,Data Analyst,Senior,7.1,Azure,Port Harcourt
+T-0197,Synthetic Talent 0197,ML Engineer,Senior,3.8,SQL,Port Harcourt
+T-0198,Synthetic Talent 0198,BI Developer,Junior,5.5,Azure,Lagos
+T-0199,Synthetic Talent 0199,Data Analyst,Mid,8.7,Databricks,Port Harcourt
+T-0200,Synthetic Talent 0200,Data Scientist,Mid,3.7,AWS,Abuja
+T-0201,Synthetic Talent 0201,BI Developer,Mid,8.1,Power BI,Accra
+T-0202,Synthetic Talent 0202,Data Scientist,Senior,7.7,Databricks,Accra
+T-0203,Synthetic Talent 0203,Data Analyst,Mid,2.4,SQL,Remote
+T-0204,Synthetic Talent 0204,ML Engineer,Senior,8.6,AWS,Lagos
+T-0205,Synthetic Talent 0205,ML Engineer,Senior,7.7,Azure,Accra
+T-0206,Synthetic Talent 0206,Analytics Engineer,Mid,5.8,AWS,Abuja
+T-0207,Synthetic Talent 0207,Data Scientist,Lead,3.1,Databricks,Port Harcourt
+T-0208,Synthetic Talent 0208,BI Developer,Senior,2.8,AWS,Accra
+T-0209,Synthetic Talent 0209,ML Engineer,Senior,3.8,Databricks,Accra
+T-0210,Synthetic Talent 0210,Data Scientist,Mid,7.2,SQL,Lagos
+T-0211,Synthetic Talent 0211,BI Developer,Mid,2.4,Machine Learning,Abuja
+T-0212,Synthetic Talent 0212,BI Developer,Mid,6.9,Azure,Remote
+T-0213,Synthetic Talent 0213,ML Engineer,Junior,1.5,Power BI,Port Harcourt
+T-0214,Synthetic Talent 0214,Data Analyst,Mid,4.8,Power BI,Abuja
+T-0215,Synthetic Talent 0215,Analytics Engineer,Lead,5.9,Machine Learning,Port Harcourt
+T-0216,Synthetic Talent 0216,ML Engineer,Senior,13.3,GCP,Accra
+T-0217,Synthetic Talent 0217,Data Engineer,Mid,1.1,GCP,Abuja
+T-0218,Synthetic Talent 0218,Analytics Engineer,Mid,10.2,SQL,Remote
+T-0219,Synthetic Talent 0219,AI Engineer,Mid,6.0,Azure,Remote
+T-0220,Synthetic Talent 0220,Data Analyst,Junior,6.8,Databricks,Accra
+T-0221,Synthetic Talent 0221,AI Engineer,Lead,5.9,SQL,Abuja
+T-0222,Synthetic Talent 0222,Data Analyst,Mid,6.9,AWS,Abuja
+T-0223,Synthetic Talent 0223,AI Engineer,Mid,5.0,AWS,Port Harcourt
+T-0224,Synthetic Talent 0224,Data Scientist,Senior,10.2,NLP,Port Harcourt
+T-0225,Synthetic Talent 0225,Data Analyst,Junior,4.0,Power BI,Port Harcourt
+T-0226,Synthetic Talent 0226,BI Developer,Mid,9.1,AWS,Remote
+T-0227,Synthetic Talent 0227,Data Engineer,Senior,3.4,Machine Learning,Remote
+T-0228,Synthetic Talent 0228,Analytics Engineer,Senior,5.3,SQL,Abuja
+T-0229,Synthetic Talent 0229,Data Engineer,Lead,2.1,NLP,Remote
+T-0230,Synthetic Talent 0230,BI Developer,Senior,7.0,NLP,Abuja
+T-0231,Synthetic Talent 0231,AI Engineer,Mid,10.1,Machine Learning,Port Harcourt
+T-0232,Synthetic Talent 0232,AI Engineer,Senior,5.3,GCP,Lagos
+T-0233,Synthetic Talent 0233,ML Engineer,Lead,4.9,Machine Learning,Abuja
+T-0234,Synthetic Talent 0234,ML Engineer,Senior,1.9,Machine Learning,Accra
+T-0235,Synthetic Talent 0235,Analytics Engineer,Lead,4.8,Databricks,Port Harcourt
+T-0236,Synthetic Talent 0236,AI Engineer,Senior,0.5,AWS,Remote
+T-0237,Synthetic Talent 0237,AI Engineer,Senior,2.6,AWS,Lagos
+T-0238,Synthetic Talent 0238,Data Analyst,Junior,6.2,GCP,Remote
+T-0239,Synthetic Talent 0239,Analytics Engineer,Senior,9.7,Python,Abuja
+T-0240,Synthetic Talent 0240,Data Analyst,Mid,14.5,NLP,Remote
+T-0241,Synthetic Talent 0241,Data Scientist,Senior,3.6,Machine Learning,Accra
+T-0242,Synthetic Talent 0242,AI Engineer,Senior,10.1,GCP,Port Harcourt
+T-0243,Synthetic Talent 0243,Data Engineer,Lead,6.3,Spark,Lagos
+T-0244,Synthetic Talent 0244,AI Engineer,Lead,5.0,Spark,Port Harcourt
+T-0245,Synthetic Talent 0245,ML Engineer,Mid,6.9,AWS,Lagos
+T-0246,Synthetic Talent 0246,Data Engineer,Senior,5.7,GCP,Port Harcourt
+T-0247,Synthetic Talent 0247,Data Scientist,Senior,5.9,Machine Learning,Lagos
+T-0248,Synthetic Talent 0248,ML Engineer,Mid,4.2,GCP,Remote
+T-0249,Synthetic Talent 0249,AI Engineer,Mid,1.0,Databricks,Abuja
+T-0250,Synthetic Talent 0250,Analytics Engineer,Junior,0.6,Databricks,Abuja
+T-0251,Synthetic Talent 0251,BI Developer,Senior,7.6,Machine Learning,Lagos
+T-0252,Synthetic Talent 0252,BI Developer,Mid,4.6,Spark,Accra
+T-0253,Synthetic Talent 0253,AI Engineer,Lead,3.6,Azure,Accra
+T-0254,Synthetic Talent 0254,Analytics Engineer,Mid,5.5,AWS,Accra
+T-0255,Synthetic Talent 0255,Data Scientist,Lead,8.0,GCP,Lagos
+T-0256,Synthetic Talent 0256,Data Scientist,Mid,6.1,NLP,Abuja
+T-0257,Synthetic Talent 0257,Data Analyst,Senior,3.4,Spark,Accra
+T-0258,Synthetic Talent 0258,Data Scientist,Junior,9.4,Azure,Port Harcourt
+T-0259,Synthetic Talent 0259,BI Developer,Senior,10.6,SQL,Lagos
+T-0260,Synthetic Talent 0260,Data Scientist,Senior,7.1,Machine Learning,Lagos
+T-0261,Synthetic Talent 0261,Data Analyst,Lead,8.6,AWS,Abuja
+T-0262,Synthetic Talent 0262,Analytics Engineer,Senior,9.5,AWS,Accra
+T-0263,Synthetic Talent 0263,BI Developer,Junior,9.1,Azure,Lagos
+T-0264,Synthetic Talent 0264,BI Developer,Mid,7.5,Power BI,Accra
+T-0265,Synthetic Talent 0265,Data Engineer,Junior,7.4,Azure,Remote
+T-0266,Synthetic Talent 0266,ML Engineer,Junior,7.2,Machine Learning,Accra
+T-0267,Synthetic Talent 0267,ML Engineer,Senior,2.0,Spark,Accra
+T-0268,Synthetic Talent 0268,Data Engineer,Senior,7.7,Python,Abuja
+T-0269,Synthetic Talent 0269,Data Engineer,Senior,1.2,Spark,Accra
+T-0270,Synthetic Talent 0270,Data Engineer,Senior,3.0,Python,Lagos
+T-0271,Synthetic Talent 0271,BI Developer,Senior,9.7,Spark,Abuja
+T-0272,Synthetic Talent 0272,AI Engineer,Senior,8.2,GCP,Abuja
+T-0273,Synthetic Talent 0273,AI Engineer,Junior,10.3,Python,Lagos
+T-0274,Synthetic Talent 0274,AI Engineer,Mid,4.6,Machine Learning,Lagos
+T-0275,Synthetic Talent 0275,BI Developer,Senior,1.8,Power BI,Lagos
+T-0276,Synthetic Talent 0276,Data Analyst,Senior,4.7,NLP,Lagos
+T-0277,Synthetic Talent 0277,BI Developer,Junior,5.8,Machine Learning,Abuja
+T-0278,Synthetic Talent 0278,Data Analyst,Mid,5.8,Power BI,Lagos
+T-0279,Synthetic Talent 0279,ML Engineer,Senior,9.1,Azure,Lagos
+T-0280,Synthetic Talent 0280,Analytics Engineer,Junior,4.3,Python,Accra
+T-0281,Synthetic Talent 0281,Data Scientist,Mid,6.6,SQL,Lagos
+T-0282,Synthetic Talent 0282,Data Engineer,Lead,2.3,Databricks,Lagos
+T-0283,Synthetic Talent 0283,Data Engineer,Senior,6.9,NLP,Lagos
+T-0284,Synthetic Talent 0284,AI Engineer,Mid,5.5,Python,Lagos
+T-0285,Synthetic Talent 0285,Data Scientist,Senior,3.1,Power BI,Port Harcourt
+T-0286,Synthetic Talent 0286,Data Scientist,Mid,4.7,Python,Accra
+T-0287,Synthetic Talent 0287,BI Developer,Senior,4.9,Spark,Remote
+T-0288,Synthetic Talent 0288,Data Engineer,Mid,4.6,Power BI,Port Harcourt
+T-0289,Synthetic Talent 0289,BI Developer,Senior,11.2,Spark,Lagos
+T-0290,Synthetic Talent 0290,BI Developer,Mid,5.2,Azure,Remote
+T-0291,Synthetic Talent 0291,Analytics Engineer,Mid,4.7,Python,Lagos
+T-0292,Synthetic Talent 0292,Data Engineer,Senior,0.5,NLP,Remote
+T-0293,Synthetic Talent 0293,Data Engineer,Mid,2.6,Machine Learning,Port Harcourt
+T-0294,Synthetic Talent 0294,Data Engineer,Junior,4.7,Machine Learning,Accra
+T-0295,Synthetic Talent 0295,Analytics Engineer,Mid,3.3,Python,Abuja
+T-0296,Synthetic Talent 0296,Data Engineer,Senior,9.9,Machine Learning,Remote
+T-0297,Synthetic Talent 0297,ML Engineer,Senior,5.0,NLP,Port Harcourt
+T-0298,Synthetic Talent 0298,Data Analyst,Lead,9.6,Python,Port Harcourt
+T-0299,Synthetic Talent 0299,ML Engineer,Mid,5.7,Machine Learning,Accra
+T-0300,Synthetic Talent 0300,Data Analyst,Mid,5.6,Spark,Remote
+T-0301,Synthetic Talent 0301,Analytics Engineer,Mid,5.2,Machine Learning,Port Harcourt
+T-0302,Synthetic Talent 0302,Data Analyst,Senior,5.5,AWS,Port Harcourt
+T-0303,Synthetic Talent 0303,Data Engineer,Lead,11.0,NLP,Remote
+T-0304,Synthetic Talent 0304,Data Engineer,Senior,0.5,Python,Abuja
+T-0305,Synthetic Talent 0305,AI Engineer,Senior,0.5,Spark,Lagos
+T-0306,Synthetic Talent 0306,Data Analyst,Mid,3.8,Power BI,Port Harcourt
+T-0307,Synthetic Talent 0307,ML Engineer,Lead,5.5,Power BI,Lagos
+T-0308,Synthetic Talent 0308,Analytics Engineer,Mid,7.7,Spark,Lagos
+T-0309,Synthetic Talent 0309,ML Engineer,Mid,7.0,Spark,Port Harcourt
+T-0310,Synthetic Talent 0310,Analytics Engineer,Mid,4.3,Python,Remote
+T-0311,Synthetic Talent 0311,AI Engineer,Junior,8.8,Machine Learning,Remote
+T-0312,Synthetic Talent 0312,Data Scientist,Mid,8.8,Azure,Abuja
+T-0313,Synthetic Talent 0313,AI Engineer,Junior,6.1,NLP,Port Harcourt
+T-0314,Synthetic Talent 0314,Data Scientist,Mid,8.6,Machine Learning,Lagos
+T-0315,Synthetic Talent 0315,BI Developer,Senior,6.4,Python,Remote
+T-0316,Synthetic Talent 0316,ML Engineer,Mid,3.7,SQL,Abuja
+T-0317,Synthetic Talent 0317,AI Engineer,Mid,7.7,AWS,Remote
+T-0318,Synthetic Talent 0318,BI Developer,Lead,5.9,AWS,Accra
+T-0319,Synthetic Talent 0319,AI Engineer,Senior,5.5,Power BI,Remote
+T-0320,Synthetic Talent 0320,AI Engineer,Senior,10.2,Machine Learning,Abuja
+T-0321,Synthetic Talent 0321,ML Engineer,Mid,0.5,Azure,Accra
+T-0322,Synthetic Talent 0322,Data Analyst,Lead,1.0,Machine Learning,Remote
+T-0323,Synthetic Talent 0323,ML Engineer,Mid,1.7,Python,Remote
+T-0324,Synthetic Talent 0324,Data Engineer,Mid,4.3,NLP,Accra
+T-0325,Synthetic Talent 0325,BI Developer,Lead,4.7,Power BI,Accra
+T-0326,Synthetic Talent 0326,Data Engineer,Mid,0.7,AWS,Lagos
+T-0327,Synthetic Talent 0327,Data Engineer,Senior,2.3,AWS,Accra
+T-0328,Synthetic Talent 0328,Data Engineer,Senior,2.7,NLP,Remote
+T-0329,Synthetic Talent 0329,Analytics Engineer,Senior,13.4,Power BI,Abuja
+T-0330,Synthetic Talent 0330,ML Engineer,Mid,11.3,Power BI,Abuja
+T-0331,Synthetic Talent 0331,BI Developer,Mid,4.2,Spark,Remote
+T-0332,Synthetic Talent 0332,Data Scientist,Mid,4.3,Spark,Abuja
+T-0333,Synthetic Talent 0333,Data Engineer,Mid,1.8,Python,Port Harcourt
+T-0334,Synthetic Talent 0334,Data Analyst,Senior,0.5,Python,Remote
+T-0335,Synthetic Talent 0335,Data Analyst,Mid,5.1,Power BI,Remote
+T-0336,Synthetic Talent 0336,Data Scientist,Senior,2.3,AWS,Accra
+T-0337,Synthetic Talent 0337,BI Developer,Senior,5.2,Spark,Lagos
+T-0338,Synthetic Talent 0338,ML Engineer,Senior,0.5,Spark,Abuja
+T-0339,Synthetic Talent 0339,BI Developer,Mid,3.1,Machine Learning,Accra
+T-0340,Synthetic Talent 0340,Data Analyst,Mid,6.0,Power BI,Port Harcourt
+T-0341,Synthetic Talent 0341,Data Analyst,Lead,6.7,Databricks,Abuja
+T-0342,Synthetic Talent 0342,AI Engineer,Senior,6.8,Machine Learning,Abuja
+T-0343,Synthetic Talent 0343,Data Analyst,Senior,1.3,Python,Abuja
+T-0344,Synthetic Talent 0344,Data Analyst,Lead,8.2,Spark,Port Harcourt
+T-0345,Synthetic Talent 0345,Data Scientist,Senior,2.9,Python,Abuja
+T-0346,Synthetic Talent 0346,BI Developer,Mid,7.5,Power BI,Remote
+T-0347,Synthetic Talent 0347,Analytics Engineer,Senior,5.5,Spark,Port Harcourt
+T-0348,Synthetic Talent 0348,Data Analyst,Junior,1.1,Python,Remote
+T-0349,Synthetic Talent 0349,AI Engineer,Senior,4.5,SQL,Lagos
+T-0350,Synthetic Talent 0350,AI Engineer,Lead,6.7,AWS,Remote
+T-0351,Synthetic Talent 0351,AI Engineer,Mid,7.5,Machine Learning,Accra
+T-0352,Synthetic Talent 0352,BI Developer,Mid,5.0,Spark,Lagos
+T-0353,Synthetic Talent 0353,Data Engineer,Junior,10.4,NLP,Abuja
+T-0354,Synthetic Talent 0354,BI Developer,Lead,8.7,Spark,Remote
+T-0355,Synthetic Talent 0355,Data Scientist,Junior,4.7,Databricks,Remote
+T-0356,Synthetic Talent 0356,AI Engineer,Junior,7.9,Power BI,Remote
+T-0357,Synthetic Talent 0357,Analytics Engineer,Mid,11.7,Azure,Port Harcourt
+T-0358,Synthetic Talent 0358,AI Engineer,Junior,11.8,Machine Learning,Remote
+T-0359,Synthetic Talent 0359,Analytics Engineer,Mid,1.6,SQL,Remote
+T-0360,Synthetic Talent 0360,Analytics Engineer,Mid,2.5,Databricks,Lagos
+T-0361,Synthetic Talent 0361,Analytics Engineer,Mid,10.3,Spark,Remote
+T-0362,Synthetic Talent 0362,AI Engineer,Junior,2.1,AWS,Port Harcourt
+T-0363,Synthetic Talent 0363,AI Engineer,Junior,1.3,GCP,Lagos
+T-0364,Synthetic Talent 0364,Data Analyst,Mid,3.9,GCP,Port Harcourt
+T-0365,Synthetic Talent 0365,AI Engineer,Junior,6.8,SQL,Port Harcourt
+T-0366,Synthetic Talent 0366,ML Engineer,Senior,5.2,NLP,Lagos
+T-0367,Synthetic Talent 0367,Data Scientist,Mid,3.4,GCP,Accra
+T-0368,Synthetic Talent 0368,ML Engineer,Mid,3.3,Databricks,Abuja
+T-0369,Synthetic Talent 0369,BI Developer,Mid,3.2,AWS,Abuja
+T-0370,Synthetic Talent 0370,BI Developer,Mid,2.7,GCP,Port Harcourt
+T-0371,Synthetic Talent 0371,AI Engineer,Junior,12.8,AWS,Accra
+T-0372,Synthetic Talent 0372,ML Engineer,Junior,6.5,NLP,Remote
+T-0373,Synthetic Talent 0373,AI Engineer,Senior,8.3,NLP,Remote
+T-0374,Synthetic Talent 0374,Data Scientist,Junior,3.9,Databricks,Abuja
+T-0375,Synthetic Talent 0375,Analytics Engineer,Mid,4.9,Azure,Accra
+T-0376,Synthetic Talent 0376,Analytics Engineer,Mid,3.2,Machine Learning,Accra
+T-0377,Synthetic Talent 0377,Data Engineer,Mid,0.5,Spark,Port Harcourt
+T-0378,Synthetic Talent 0378,Data Engineer,Mid,1.1,AWS,Port Harcourt
+T-0379,Synthetic Talent 0379,Data Analyst,Senior,0.5,Machine Learning,Lagos
+T-0380,Synthetic Talent 0380,Data Analyst,Senior,0.5,SQL,Remote
+T-0381,Synthetic Talent 0381,ML Engineer,Mid,1.7,Machine Learning,Accra
+T-0382,Synthetic Talent 0382,ML Engineer,Mid,9.7,SQL,Port Harcourt
+T-0383,Synthetic Talent 0383,Data Engineer,Mid,5.4,Azure,Port Harcourt
+T-0384,Synthetic Talent 0384,Data Scientist,Mid,9.6,AWS,Port Harcourt
+T-0385,Synthetic Talent 0385,Analytics Engineer,Senior,6.8,AWS,Lagos
+T-0386,Synthetic Talent 0386,Data Engineer,Mid,8.0,AWS,Remote
+T-0387,Synthetic Talent 0387,Data Scientist,Mid,2.6,AWS,Remote
+T-0388,Synthetic Talent 0388,Data Scientist,Lead,7.2,AWS,Accra
+T-0389,Synthetic Talent 0389,ML Engineer,Junior,7.8,AWS,Accra
+T-0390,Synthetic Talent 0390,Data Scientist,Mid,3.7,Azure,Port Harcourt
+T-0391,Synthetic Talent 0391,AI Engineer,Senior,7.3,Machine Learning,Accra
+T-0392,Synthetic Talent 0392,Data Scientist,Mid,7.3,Azure,Port Harcourt
+T-0393,Synthetic Talent 0393,ML Engineer,Junior,3.7,GCP,Remote
+T-0394,Synthetic Talent 0394,Data Scientist,Mid,1.9,NLP,Remote
+T-0395,Synthetic Talent 0395,Data Engineer,Lead,1.7,Databricks,Accra
+T-0396,Synthetic Talent 0396,Analytics Engineer,Junior,5.8,Python,Remote
+T-0397,Synthetic Talent 0397,Data Engineer,Mid,6.5,Machine Learning,Lagos
+T-0398,Synthetic Talent 0398,Data Scientist,Junior,3.0,Power BI,Lagos
+T-0399,Synthetic Talent 0399,AI Engineer,Junior,5.6,Python,Port Harcourt
+T-0400,Synthetic Talent 0400,BI Developer,Senior,7.3,Machine Learning,Port Harcourt
+T-0401,Synthetic Talent 0401,Analytics Engineer,Mid,7.5,SQL,Remote
+T-0402,Synthetic Talent 0402,BI Developer,Senior,10.5,NLP,Port Harcourt
+T-0403,Synthetic Talent 0403,AI Engineer,Senior,9.6,Machine Learning,Port Harcourt
+T-0404,Synthetic Talent 0404,ML Engineer,Senior,2.3,Databricks,Accra
+T-0405,Synthetic Talent 0405,AI Engineer,Junior,10.9,GCP,Abuja
+T-0406,Synthetic Talent 0406,Data Scientist,Senior,3.8,NLP,Port Harcourt
+T-0407,Synthetic Talent 0407,ML Engineer,Senior,8.8,Python,Port Harcourt
+T-0408,Synthetic Talent 0408,ML Engineer,Mid,5.7,NLP,Port Harcourt
+T-0409,Synthetic Talent 0409,BI Developer,Senior,4.2,Python,Accra
+T-0410,Synthetic Talent 0410,AI Engineer,Senior,0.5,Spark,Accra
+T-0411,Synthetic Talent 0411,ML Engineer,Mid,5.0,Python,Port Harcourt
+T-0412,Synthetic Talent 0412,Analytics Engineer,Lead,0.5,AWS,Port Harcourt
+T-0413,Synthetic Talent 0413,Data Engineer,Mid,8.6,Machine Learning,Port Harcourt
+T-0414,Synthetic Talent 0414,AI Engineer,Senior,10.4,Power BI,Lagos
+T-0415,Synthetic Talent 0415,ML Engineer,Lead,2.9,NLP,Port Harcourt
+T-0416,Synthetic Talent 0416,ML Engineer,Mid,6.5,GCP,Abuja
+T-0417,Synthetic Talent 0417,AI Engineer,Senior,3.2,GCP,Lagos
+T-0418,Synthetic Talent 0418,Analytics Engineer,Mid,3.5,Databricks,Lagos
+T-0419,Synthetic Talent 0419,Data Analyst,Senior,8.0,AWS,Port Harcourt
+T-0420,Synthetic Talent 0420,Data Scientist,Senior,5.4,Spark,Lagos
+T-0421,Synthetic Talent 0421,Data Engineer,Mid,11.1,Databricks,Remote
+T-0422,Synthetic Talent 0422,AI Engineer,Mid,4.0,Azure,Port Harcourt
+T-0423,Synthetic Talent 0423,Data Analyst,Mid,8.7,GCP,Abuja
+T-0424,Synthetic Talent 0424,Data Engineer,Junior,5.8,Power BI,Remote
+T-0425,Synthetic Talent 0425,Analytics Engineer,Junior,8.0,Power BI,Port Harcourt
+T-0426,Synthetic Talent 0426,Analytics Engineer,Mid,4.1,Python,Remote
+T-0427,Synthetic Talent 0427,ML Engineer,Junior,5.3,Power BI,Remote
+T-0428,Synthetic Talent 0428,BI Developer,Mid,5.1,Python,Lagos
+T-0429,Synthetic Talent 0429,BI Developer,Senior,2.8,Machine Learning,Abuja
+T-0430,Synthetic Talent 0430,Data Analyst,Senior,7.6,SQL,Port Harcourt
+T-0431,Synthetic Talent 0431,BI Developer,Senior,7.6,GCP,Accra
+T-0432,Synthetic Talent 0432,Analytics Engineer,Mid,7.4,Databricks,Lagos
+T-0433,Synthetic Talent 0433,Analytics Engineer,Lead,10.4,Machine Learning,Lagos
+T-0434,Synthetic Talent 0434,Data Analyst,Senior,10.1,AWS,Accra
+T-0435,Synthetic Talent 0435,Analytics Engineer,Mid,4.3,SQL,Accra
+T-0436,Synthetic Talent 0436,AI Engineer,Mid,6.7,NLP,Lagos
+T-0437,Synthetic Talent 0437,Analytics Engineer,Senior,3.5,SQL,Port Harcourt
+T-0438,Synthetic Talent 0438,Data Analyst,Mid,5.6,GCP,Remote
+T-0439,Synthetic Talent 0439,ML Engineer,Mid,3.6,GCP,Lagos
+T-0440,Synthetic Talent 0440,BI Developer,Lead,10.7,Python,Abuja
+T-0441,Synthetic Talent 0441,AI Engineer,Junior,6.7,Machine Learning,Abuja
+T-0442,Synthetic Talent 0442,Data Analyst,Junior,4.8,Python,Remote
+T-0443,Synthetic Talent 0443,BI Developer,Lead,9.3,Power BI,Abuja
+T-0444,Synthetic Talent 0444,BI Developer,Senior,0.5,NLP,Port Harcourt
+T-0445,Synthetic Talent 0445,Data Engineer,Mid,0.5,Databricks,Abuja
+T-0446,Synthetic Talent 0446,AI Engineer,Lead,8.0,Power BI,Remote
+T-0447,Synthetic Talent 0447,Data Scientist,Senior,5.7,Databricks,Lagos
+T-0448,Synthetic Talent 0448,Analytics Engineer,Mid,6.3,Databricks,Abuja
+T-0449,Synthetic Talent 0449,ML Engineer,Senior,1.3,Machine Learning,Abuja
+T-0450,Synthetic Talent 0450,AI Engineer,Mid,5.4,Python,Accra
+T-0451,Synthetic Talent 0451,BI Developer,Junior,11.9,Power BI,Accra
+T-0452,Synthetic Talent 0452,AI Engineer,Senior,8.1,GCP,Port Harcourt
+T-0453,Synthetic Talent 0453,BI Developer,Mid,6.0,Databricks,Lagos
+T-0454,Synthetic Talent 0454,BI Developer,Senior,4.1,NLP,Remote
+T-0455,Synthetic Talent 0455,Data Analyst,Senior,4.2,AWS,Port Harcourt
+T-0456,Synthetic Talent 0456,Data Engineer,Junior,0.5,Power BI,Accra
+T-0457,Synthetic Talent 0457,AI Engineer,Senior,6.3,Databricks,Abuja
+T-0458,Synthetic Talent 0458,Analytics Engineer,Mid,8.2,Power BI,Accra
+T-0459,Synthetic Talent 0459,Data Analyst,Senior,0.5,Spark,Accra
+T-0460,Synthetic Talent 0460,Data Analyst,Mid,3.4,Databricks,Abuja
+T-0461,Synthetic Talent 0461,ML Engineer,Senior,1.8,Azure,Remote
+T-0462,Synthetic Talent 0462,Analytics Engineer,Senior,2.4,Power BI,Abuja
+T-0463,Synthetic Talent 0463,Data Engineer,Mid,5.7,SQL,Abuja
+T-0464,Synthetic Talent 0464,Data Engineer,Senior,0.5,AWS,Abuja
+T-0465,Synthetic Talent 0465,Data Analyst,Senior,7.5,Databricks,Remote
+T-0466,Synthetic Talent 0466,ML Engineer,Senior,7.9,AWS,Abuja
+T-0467,Synthetic Talent 0467,Data Analyst,Senior,4.7,GCP,Remote
+T-0468,Synthetic Talent 0468,Analytics Engineer,Lead,0.5,Power BI,Port Harcourt
+T-0469,Synthetic Talent 0469,ML Engineer,Mid,2.3,Machine Learning,Remote
+T-0470,Synthetic Talent 0470,ML Engineer,Mid,9.4,Machine Learning,Accra
+T-0471,Synthetic Talent 0471,Analytics Engineer,Junior,0.5,GCP,Lagos
+T-0472,Synthetic Talent 0472,ML Engineer,Senior,4.4,Machine Learning,Accra
+T-0473,Synthetic Talent 0473,AI Engineer,Mid,1.7,Azure,Lagos
+T-0474,Synthetic Talent 0474,AI Engineer,Mid,8.1,Spark,Port Harcourt
+T-0475,Synthetic Talent 0475,BI Developer,Junior,3.3,Machine Learning,Abuja
+T-0476,Synthetic Talent 0476,AI Engineer,Senior,6.8,NLP,Remote
+T-0477,Synthetic Talent 0477,ML Engineer,Mid,7.3,NLP,Remote
+T-0478,Synthetic Talent 0478,ML Engineer,Senior,11.4,Power BI,Accra
+T-0479,Synthetic Talent 0479,Data Engineer,Mid,4.9,GCP,Port Harcourt
+T-0480,Synthetic Talent 0480,Analytics Engineer,Lead,6.7,SQL,Accra
+T-0481,Synthetic Talent 0481,Data Analyst,Mid,0.7,Azure,Abuja
+T-0482,Synthetic Talent 0482,BI Developer,Mid,9.3,Azure,Abuja
+T-0483,Synthetic Talent 0483,AI Engineer,Senior,3.1,Spark,Abuja
+T-0484,Synthetic Talent 0484,Data Analyst,Lead,3.7,Databricks,Port Harcourt
+T-0485,Synthetic Talent 0485,AI Engineer,Mid,5.4,NLP,Remote
+T-0486,Synthetic Talent 0486,Data Analyst,Mid,0.5,SQL,Accra
+T-0487,Synthetic Talent 0487,AI Engineer,Senior,6.2,Power BI,Abuja
+T-0488,Synthetic Talent 0488,Data Analyst,Senior,8.6,Power BI,Abuja
+T-0489,Synthetic Talent 0489,ML Engineer,Mid,6.4,NLP,Accra
+T-0490,Synthetic Talent 0490,Analytics Engineer,Mid,0.5,Azure,Port Harcourt
+T-0491,Synthetic Talent 0491,AI Engineer,Senior,5.1,Machine Learning,Abuja
+T-0492,Synthetic Talent 0492,Data Scientist,Senior,7.9,NLP,Accra
+T-0493,Synthetic Talent 0493,BI Developer,Senior,0.5,Machine Learning,Port Harcourt
+T-0494,Synthetic Talent 0494,AI Engineer,Senior,2.1,SQL,Accra
+T-0495,Synthetic Talent 0495,Data Engineer,Junior,8.3,Python,Accra
+T-0496,Synthetic Talent 0496,Analytics Engineer,Lead,6.4,Spark,Accra
+T-0497,Synthetic Talent 0497,AI Engineer,Senior,6.8,Spark,Port Harcourt
+T-0498,Synthetic Talent 0498,Data Scientist,Senior,11.5,Machine Learning,Remote
+T-0499,Synthetic Talent 0499,AI Engineer,Junior,7.0,Python,Accra
+T-0500,Synthetic Talent 0500,BI Developer,Mid,7.6,Spark,Abuja

@@ -1,0 +1,62 @@
+[
+  {
+    "feature": "behs",
+    "importance": 0.15611082218783265,
+    "label": "Engagement health"
+  },
+  {
+    "feature": "client_feedback_health",
+    "importance": 0.11578772277392722,
+    "label": "Client feedback"
+  },
+  {
+    "feature": "feedback_rating",
+    "importance": 0.10170187886366745,
+    "label": "Feedback rating"
+  },
+  {
+    "feature": "overall_score",
+    "importance": 0.08976329707728921,
+    "label": "Overall performance"
+  },
+  {
+    "feature": "performance_health",
+    "importance": 0.08644604715301976,
+    "label": "Performance"
+  },
+  {
+    "feature": "sentiment_health",
+    "importance": 0.06955144551752297,
+    "label": "Sentiment"
+  },
+  {
+    "feature": "communication_score",
+    "importance": 0.048856864367054956,
+    "label": "Communication score"
+  },
+  {
+    "feature": "client_feedback_health_delta",
+    "importance": 0.043494782091907255,
+    "label": "client_feedback_health_delta"
+  },
+  {
+    "feature": "behs_delta",
+    "importance": 0.042505030780295286,
+    "label": "behs_delta"
+  },
+  {
+    "feature": "delivery_score",
+    "importance": 0.03891680130336252,
+    "label": "Delivery score"
+  },
+  {
+    "feature": "technical_score",
+    "importance": 0.032380557827869236,
+    "label": "technical_score"
+  },
+  {
+    "feature": "remaining_months",
+    "importance": 0.026472325095853285,
+    "label": "remaining_months"
+  }
+]

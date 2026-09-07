@@ -1,0 +1,11 @@
+table,rows,columns,null_cells,duplicate_rows
+clients,60,5,0,0
+talents,500,7,0,0
+engagements,1200,10,901,0
+performance_reviews,9544,6,0,0
+client_feedback,9544,4,0,0
+project_milestones,9544,6,0,0
+timesheets,9544,5,0,0
+checkins,9544,3,0,0
+placement_outcomes,1200,4,0,0
+engagement_health,9544,10,0,0
