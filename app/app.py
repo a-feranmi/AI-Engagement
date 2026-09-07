@@ -72,7 +72,7 @@ def portfolio() -> pd.DataFrame:
 
 
 def current_interventions() -> pd.DataFrame:
-    return read_sql("SELECT * FROM interventions ORDER BY intervention_date DESC, intervention_id DESC")
+    return read_sql("SELECT * FROM interventions ORDER BY intervention_date DESC")
 
 
 def risk_drivers(engagement_id: str) -> str:
