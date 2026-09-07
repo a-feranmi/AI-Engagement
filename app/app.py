@@ -233,8 +233,6 @@ if AUTH["role"] == "Account Manager":
     df = df[df.account_manager_id.astype(str) == AUTH["am"]].copy()
 
 header()
-scope = "your portfolio" if AUTH["role"] == "Account Manager" else "the Bredge portfolio"
-st.caption(f"Signed in as **{AUTH['name']}** · viewing {scope} · synthetic academic dataset")
 
 # ----------------------------------------------------------------- filters
 st.sidebar.header("Portfolio filters")
