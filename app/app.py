@@ -78,6 +78,8 @@ def inject_css(theme: str) -> dict:
     .stFormSubmitButton>button *, div.stButton>button * {{ color:#0F172A !important; }}
     div.stButton>button[kind="primary"] *, .stFormSubmitButton>button[kind="primary"] * {{ color:#ffffff !important; }}
     .st-key-logincard {{ border:1.5px solid #0EA5E9 !important; border-radius:16px; padding:16px 20px; }}
+    [data-testid="stToolbar"] svg, [data-testid="stToolbarActions"] svg,
+    [data-testid="stToolbar"] a, [data-testid="stToolbar"] button {{ color:{text} !important; fill:{text} !important; }}
     </style>""", unsafe_allow_html=True)
     return {"template": template, "muted": muted}
 
