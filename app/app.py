@@ -79,10 +79,11 @@ def inject_css(theme: str) -> dict:
     div.stButton>button[kind="primary"] *, .stFormSubmitButton>button[kind="primary"] * {{ color:#ffffff !important; }}
     .st-key-logincard {{ border:1.5px solid #0EA5E9 !important; border-radius:16px; padding:16px 20px; }}
     [class*="st-key-sec"] {{ border:1px solid rgba(14,165,233,.55) !important; border-radius:14px; padding:10px 16px; }}
-    .stTabs [data-baseweb="tab-list"] {{ gap:8px; border-bottom:1px solid rgba(14,165,233,.25); }}
-    .stTabs [data-baseweb="tab"] {{ padding:9px 20px; border-radius:12px; cursor:pointer; }}
-    .stTabs [data-baseweb="tab"]:hover {{ background:rgba(14,165,233,.14); }}
-    .stTabs [aria-selected="true"] {{ background:rgba(14,165,233,.20); border:1px solid rgba(14,165,233,.55); }}
+    .stTabs [data-baseweb="tab-list"] {{ gap:10px; border-bottom:none !important; }}
+    .stTabs [data-baseweb="tab-border"], .stTabs [data-baseweb="tab-highlight"] {{ display:none !important; }}
+    .stTabs button[data-baseweb="tab"] {{ padding:8px 24px !important; border-radius:14px !important; cursor:pointer; }}
+    .stTabs button[data-baseweb="tab"]:hover {{ background:rgba(14,165,233,.14); }}
+    .stTabs button[aria-selected="true"] {{ background:rgba(14,165,233,.20) !important; border:1px solid rgba(14,165,233,.55) !important; }}
     [data-testid="stToolbar"] svg, [data-testid="stToolbarActions"] svg,
     [data-testid="stToolbar"] a, [data-testid="stToolbar"] button {{ color:{text} !important; fill:{text} !important; }}
     </style>""", unsafe_allow_html=True)
