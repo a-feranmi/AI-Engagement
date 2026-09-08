@@ -164,7 +164,7 @@ CAN_WRITE = AUTH["role"] in ("Administrator", "Account Manager")
 
 # sidebar: signed-in identity + logout
 st.sidebar.divider()
-st.sidebar.markdown(f"**Signed in**  \n{AUTH['name']}  \n`{AUTH['role']}`")
+st.sidebar.markdown(f"**Signed in**  \n{AUTH['name']}  \n{AUTH['role']}")
 if st.sidebar.button("Log out"):
     del st.session_state["auth"]
     st.rerun()
