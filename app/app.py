@@ -79,12 +79,12 @@ def inject_css(theme: str) -> dict:
     div.stButton>button[kind="primary"] *, .stFormSubmitButton>button[kind="primary"] * {{ color:#ffffff !important; }}
     .st-key-logincard {{ border:1.5px solid #0EA5E9 !important; border-radius:16px; padding:16px 20px; }}
     [class*="st-key-sec"] {{ border:1px solid rgba(14,165,233,.55) !important; border-radius:14px; padding:10px 16px; }}
-    .stTabs [data-baseweb="tab-list"] {{ gap:10px; border-bottom:none !important; }}
-    .stTabs [data-baseweb="tab-border"], .stTabs [data-baseweb="tab-highlight"] {{ display:none !important; }}
-    .stTabs button[data-baseweb="tab"] {{ padding:8px 24px !important; border-radius:14px !important; cursor:pointer; }}
-    .stTabs button[data-baseweb="tab"]:focus, .stTabs button[data-baseweb="tab"]:focus-visible {{ outline:none !important; box-shadow:none !important; }}
-    .stTabs button[data-baseweb="tab"]:hover {{ background:rgba(14,165,233,.14); }}
-    .stTabs button[aria-selected="true"] {{ background:rgba(14,165,233,.14) !important; border:2px solid #0EA5E9 !important; border-radius:14px !important; }}
+    .stTabs [data-baseweb="tab-list"], .stTabs [role="tablist"] {{ gap:10px; border-bottom:none !important; }}
+    .stTabs [role="tab"] {{ padding:8px 22px !important; border-radius:14px !important; cursor:pointer; outline:none !important; }}
+    .stTabs [role="tab"]:hover {{ background:rgba(14,165,233,.14); }}
+    .stTabs [role="tab"][data-selected="true"], .stTabs [role="tab"][data-selected] {{ background:rgba(14,165,233,.14) !important; border:2px solid #0EA5E9 !important; border-radius:14px !important; }}
+    .stTabs [role="tab"] > * {{ border-radius:14px !important; }}
+    .stTabs [data-baseweb="tab-highlight"], .stTabs [data-baseweb="tab-border"] {{ display:none !important; }}
     [data-testid="stToolbar"] svg, [data-testid="stToolbarActions"] svg,
     [data-testid="stToolbar"] a, [data-testid="stToolbar"] button {{ color:{text} !important; fill:{text} !important; }}
     </style>""", unsafe_allow_html=True)
