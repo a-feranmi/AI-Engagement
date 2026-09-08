@@ -138,7 +138,7 @@ def login_gate():
         pw = box.text_input("Admin password", type="password")
         if box.button("Sign in", type="primary", use_container_width=True):
             if pw == ADMIN_PW:
-                st.session_state.auth = {"role": "Administrator", "am": None, "name": "Administrator"}
+                st.session_state.auth = {"role": "Administrator", "am": None, "name": "Bredge Admin"}
                 st.rerun()
             else:
                 box.error("Incorrect password.")
@@ -164,7 +164,10 @@ CAN_WRITE = AUTH["role"] in ("Administrator", "Account Manager")
 
 # sidebar: signed-in identity + logout
 st.sidebar.divider()
-st.sidebar.markdown(f"**Signed in**  \n{AUTH['name']}  \n{AUTH['role']}")
+if AUTH["name"] == AUTH["role"]:
+    st.sidebar.markdown(f"**Signed in**  \n{AUTH['name']}")
+else:
+    st.sidebar.markdown(f"**Signed in**  \n{AUTH['name']}  \n{AUTH['role']}")
 if st.sidebar.button("Log out"):
     del st.session_state["auth"]
     st.rerun()
