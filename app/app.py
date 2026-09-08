@@ -41,7 +41,7 @@ SKY, SKY_DARK, SKY_LIGHT = "#0EA5E9", "#0369A1", "#7DD3FC"
 SKY_SEQ = ["#0EA5E9", "#0284C7", "#38BDF8", "#0369A1", "#7DD3FC", "#075985"]
 BAND_COLORS = {"Healthy": "#16A34A", "Low": "#16A34A", "Watch": "#F59E0B", "Critical": "#DC2626"}
 
-LOGO = ('<svg width="42" height="42" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">'
+LOGO = ('<svg width="58" height="58" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">'
         '<rect x="2" y="2" width="44" height="44" rx="12" fill="#0EA5E9"/>'
         '<path d="M7 27 L17 27 L21 16 L27 33 L31 24 L41 24" fill="none" stroke="#ffffff" '
         'stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>')
@@ -65,7 +65,8 @@ def inject_css(theme: str) -> dict:
     [data-testid="stSidebar"] {{ background:{panel}; border-right:1px solid {border}; }}
     .block-container {{ padding-top:1.1rem; }}
     h1,h2,h3,h4,p,label,span {{ color:{text}; }}
-    .brandbar {{ display:flex; align-items:center; gap:12px; margin-bottom:2px; }}
+    .brandbar {{ display:flex; align-items:center; gap:14px; margin-bottom:2px; }}
+    .brandbar > div {{ display:flex; flex-direction:column; justify-content:center; }}
     .brandbar .title {{ font-size:1.55rem; font-weight:800; line-height:1.1; }}
     .brandbar .sub {{ font-size:.85rem; color:{muted}; }}
     .kpi {{ border-radius:14px; padding:14px 16px; background:{card};
