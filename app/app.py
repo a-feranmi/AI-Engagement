@@ -78,7 +78,7 @@ def inject_css(theme: str) -> dict:
     .stFormSubmitButton>button *, div.stButton>button * {{ color:#0F172A !important; }}
     div.stButton>button[kind="primary"] *, .stFormSubmitButton>button[kind="primary"] * {{ color:#ffffff !important; }}
     .st-key-logincard {{ border:1.5px solid #0EA5E9 !important; border-radius:16px; padding:16px 20px; }}
-    [data-testid="stPlotlyChart"], [data-testid="stDataFrame"], [data-testid="stTable"] {{ border:1px solid rgba(14,165,233,.45) !important; border-radius:12px; padding:6px; }}
+    [class*="st-key-sec"] {{ border:1px solid rgba(14,165,233,.55) !important; border-radius:14px; padding:10px 16px; }}
     [data-testid="stToolbar"] svg, [data-testid="stToolbarActions"] svg,
     [data-testid="stToolbar"] a, [data-testid="stToolbar"] button {{ color:{text} !important; fill:{text} !important; }}
     </style>""", unsafe_allow_html=True)
@@ -286,47 +286,54 @@ kpi(k5, "REVENUE-AT-RISK", f"₦{exposure/1e9:,.2f}B", SKY_DARK)
 
 st.divider()
 left, right = st.columns([1, 1.5])
-with left:
-    st.subheader("Portfolio health")
-    health = filtered.health_band.value_counts().reindex(["Healthy", "Watch", "Critical"]).fillna(0).reset_index()
-    health.columns = ["health_band", "engagements"]
-    fig = px.bar(health, x="health_band", y="engagements", text="engagements",
-                 color="health_band", color_discrete_map=BAND_COLORS)
-    style_fig(fig, 330).update_layout(showlegend=False, xaxis_title=None)
-    st.plotly_chart(fig, use_container_width=True)
-with right:
-    st.subheader("Highest-priority engagements")
-    top = filtered.sort_values(["risk_probability", "risk_adjusted_exposure"], ascending=False).head(10).copy()
-    top["Risk"] = (top.risk_probability.fillna(0) * 100).round(1).astype(str) + "%"
-    top["Exposure"] = top.risk_adjusted_exposure.fillna(0).map(lambda x: f"₦{x/1e6:,.2f}M")
-    show = top[["engagement_id", "client_name", "role", "risk_band", "Risk", "Exposure"]]
 
-    def _band_style(v):
-        c = BAND_COLORS.get(v, THEME["muted"])
-        return f"background-color:{c}22; color:{c}; font-weight:700;"
-    try:
-        show = show.style.map(_band_style, subset=["risk_band"])
-    except Exception:
-        pass
-    st.dataframe(show, use_container_width=True, hide_index=True)
+lc = left.container(border=True, key="sec_health")
+lc.subheader("Portfolio health")
+health = filtered.health_band.value_counts().reindex(["Healthy", "Watch", "Critical"]).fillna(0).reset_index()
+health.columns = ["health_band", "engagements"]
+fig = px.bar(health, x="health_band", y="engagements", text="engagements",
+             color="health_band", color_discrete_map=BAND_COLORS)
+style_fig(fig, 330).update_layout(showlegend=False, xaxis_title=None)
+lc.plotly_chart(fig, use_container_width=True)
+
+rc = right.container(border=True, key="sec_priority")
+rc.subheader("Highest-priority engagements")
+top = filtered.sort_values(["risk_probability", "risk_adjusted_exposure"], ascending=False).head(10).copy()
+top["Risk"] = (top.risk_probability.fillna(0) * 100).round(1).astype(str) + "%"
+top["Exposure"] = top.risk_adjusted_exposure.fillna(0).map(lambda x: f"₦{x/1e6:,.2f}M")
+show = top[["engagement_id", "client_name", "role", "risk_band", "Risk", "Exposure"]]
+
+
+def _band_style(v):
+    c = BAND_COLORS.get(v, THEME["muted"])
+    return f"background-color:{c}22; color:{c}; font-weight:700;"
+
+
+try:
+    show = show.style.map(_band_style, subset=["risk_band"])
+except Exception:
+    pass
+rc.dataframe(show, use_container_width=True, hide_index=True)
 
 # ----------------------------------------------------------------- tabs
 portfolio_tab, investigation_tab, interventions_tab, model_tab = st.tabs(
     ["Portfolio", "Engagement investigation", "Interventions", "Model & governance"])
 
 with portfolio_tab:
-    st.subheader("Revenue exposure by client")
+    rev = st.container(border=True, key="sec_revenue")
+    rev.subheader("Revenue exposure by client")
     client_exp = (filtered.groupby("client_name", as_index=False)["risk_adjusted_exposure"].sum()
                   .sort_values("risk_adjusted_exposure", ascending=False).head(15))
     client_exp["Exposure (₦M)"] = client_exp.risk_adjusted_exposure / 1e6
     fig = px.bar(client_exp, y="client_name", x="Exposure (₦M)", orientation="h")
     style_fig(fig, 480).update_layout(yaxis_title=None)
-    st.plotly_chart(fig, use_container_width=True)
+    rev.plotly_chart(fig, use_container_width=True)
 
-    st.subheader("Risk distribution")
+    dist = st.container(border=True, key="sec_riskdist")
+    dist.subheader("Risk distribution")
     fig2 = px.histogram(filtered["risk_probability"].fillna(0), nbins=20, labels={"value": "Risk probability"})
     style_fig(fig2, 330).update_layout(showlegend=False)
-    st.plotly_chart(fig2, use_container_width=True)
+    dist.plotly_chart(fig2, use_container_width=True)
 
 with investigation_tab:
     if filtered.empty:
