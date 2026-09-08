@@ -82,8 +82,9 @@ def inject_css(theme: str) -> dict:
     .stTabs [data-baseweb="tab-list"] {{ gap:10px; border-bottom:none !important; }}
     .stTabs [data-baseweb="tab-border"], .stTabs [data-baseweb="tab-highlight"] {{ display:none !important; }}
     .stTabs button[data-baseweb="tab"] {{ padding:8px 24px !important; border-radius:14px !important; cursor:pointer; }}
+    .stTabs button[data-baseweb="tab"]:focus, .stTabs button[data-baseweb="tab"]:focus-visible {{ outline:none !important; box-shadow:none !important; }}
     .stTabs button[data-baseweb="tab"]:hover {{ background:rgba(14,165,233,.14); }}
-    .stTabs button[aria-selected="true"] {{ background:rgba(14,165,233,.20) !important; border:1px solid rgba(14,165,233,.55) !important; }}
+    .stTabs button[aria-selected="true"] {{ background:rgba(14,165,233,.14) !important; border:2px solid #0EA5E9 !important; border-radius:14px !important; }}
     [data-testid="stToolbar"] svg, [data-testid="stToolbarActions"] svg,
     [data-testid="stToolbar"] a, [data-testid="stToolbar"] button {{ color:{text} !important; fill:{text} !important; }}
     </style>""", unsafe_allow_html=True)
