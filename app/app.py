@@ -75,6 +75,7 @@ def inject_css(theme: str) -> dict:
     .kpi .val {{ font-size:1.5rem; font-weight:800; }}
     .stFormSubmitButton>button, div.stButton>button {{ border-radius:10px; color:#0F172A !important; }}
     div.stButton>button[kind="primary"], .stFormSubmitButton>button[kind="primary"] {{ color:#ffffff !important; }}
+    [data-testid="stVerticalBlockBorderWrapper"] {{ border:1.5px solid #0EA5E9 !important; border-radius:16px; }}
     </style>""", unsafe_allow_html=True)
     return {"template": template, "muted": muted}
 
