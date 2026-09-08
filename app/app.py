@@ -285,19 +285,18 @@ kpi(k4, "CRITICAL RISK", f"{crit:,}", BAND_COLORS["Critical"])
 kpi(k5, "REVENUE-AT-RISK", f"₦{exposure/1e9:,.2f}B", SKY_DARK)
 
 st.divider()
-left, right = st.columns([1, 1.5])
+row = st.container(border=True, key="sec_toprow")
+left, right = row.columns([1, 1.5])
 
-lc = left.container(border=True, key="sec_health")
-lc.subheader("Portfolio health")
+left.subheader("Portfolio health")
 health = filtered.health_band.value_counts().reindex(["Healthy", "Watch", "Critical"]).fillna(0).reset_index()
 health.columns = ["health_band", "engagements"]
 fig = px.bar(health, x="health_band", y="engagements", text="engagements",
              color="health_band", color_discrete_map=BAND_COLORS)
 style_fig(fig, 330).update_layout(showlegend=False, xaxis_title=None)
-lc.plotly_chart(fig, use_container_width=True)
+left.plotly_chart(fig, use_container_width=True)
 
-rc = right.container(border=True, key="sec_priority")
-rc.subheader("Highest-priority engagements")
+right.subheader("Highest-priority engagements")
 top = filtered.sort_values(["risk_probability", "risk_adjusted_exposure"], ascending=False).head(10).copy()
 top["Risk"] = (top.risk_probability.fillna(0) * 100).round(1).astype(str) + "%"
 top["Exposure"] = top.risk_adjusted_exposure.fillna(0).map(lambda x: f"₦{x/1e6:,.2f}M")
@@ -313,7 +312,7 @@ try:
     show = show.style.map(_band_style, subset=["risk_band"])
 except Exception:
     pass
-rc.dataframe(show, use_container_width=True, hide_index=True)
+right.dataframe(show, use_container_width=True, hide_index=True)
 
 # ----------------------------------------------------------------- tabs
 portfolio_tab, investigation_tab, interventions_tab, model_tab = st.tabs(
