@@ -319,20 +319,19 @@ portfolio_tab, investigation_tab, interventions_tab, model_tab = st.tabs(
     ["Portfolio", "Engagement investigation", "Interventions", "Model & governance"])
 
 with portfolio_tab:
-    rev = st.container(border=True, key="sec_revenue")
-    rev.subheader("Revenue exposure by client")
+    pf = st.container(border=True, key="sec_portfolio")
+    pf.subheader("Revenue exposure by client")
     client_exp = (filtered.groupby("client_name", as_index=False)["risk_adjusted_exposure"].sum()
                   .sort_values("risk_adjusted_exposure", ascending=False).head(15))
     client_exp["Exposure (₦M)"] = client_exp.risk_adjusted_exposure / 1e6
     fig = px.bar(client_exp, y="client_name", x="Exposure (₦M)", orientation="h")
     style_fig(fig, 480).update_layout(yaxis_title=None)
-    rev.plotly_chart(fig, use_container_width=True)
+    pf.plotly_chart(fig, use_container_width=True)
 
-    dist = st.container(border=True, key="sec_riskdist")
-    dist.subheader("Risk distribution")
+    pf.subheader("Risk distribution")
     fig2 = px.histogram(filtered["risk_probability"].fillna(0), nbins=20, labels={"value": "Risk probability"})
     style_fig(fig2, 330).update_layout(showlegend=False)
-    dist.plotly_chart(fig2, use_container_width=True)
+    pf.plotly_chart(fig2, use_container_width=True)
 
 with investigation_tab:
     if filtered.empty:
