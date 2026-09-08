@@ -62,12 +62,13 @@ def inject_css(theme: str) -> dict:
     <style>
     [data-testid="stAppViewContainer"] {{ background:{bg}; color:{text}; }}
     [data-testid="stHeader"] {{ background:transparent; }}
+    [data-testid="stSidebar"], [data-testid="stSidebar"] * {{ color:{text}; }}
     [data-testid="stSidebar"] {{ background:{panel}; border-right:1px solid {border}; }}
     .block-container {{ padding-top:1.1rem; }}
     h1,h2,h3,h4,p,label,span {{ color:{text}; }}
     .brandbar {{ display:flex; align-items:center; gap:14px; margin-bottom:2px; }}
     .brandbar > div {{ display:flex; flex-direction:column; justify-content:center; }}
-    .brandbar .title {{ font-size:1.55rem; font-weight:800; line-height:1.1; }}
+    .brandbar .title {{ font-size:1.55rem; font-weight:800; line-height:1.1; color:{text}; }}
     .brandbar .sub {{ font-size:.85rem; color:{muted}; }}
     .kpi {{ border-radius:14px; padding:14px 16px; background:{card};
             border:1px solid {border}; border-left:6px solid var(--accent,{SKY}); }}
@@ -102,7 +103,7 @@ def style_fig(fig, h=330):
 
 def header():
     st.markdown(
-        f'<div class="brandbar">{LOGO}<div><div class="title">Engagement360</div>'
+        f'<div class="brandbar" style="margin-top:-14px;">{LOGO}<div><div class="title">Engagement360</div>'
         f'<div class="sub">AI-Powered Engagement Health, Early-Warning & Revenue Protection</div>'
         f'</div></div>', unsafe_allow_html=True)
 
