@@ -73,16 +73,20 @@ def inject_css(theme: str) -> dict:
             border:1px solid {border}; border-left:6px solid var(--accent,{SKY}); }}
     .kpi .lab {{ font-size:.76rem; color:{muted}; margin-bottom:4px; letter-spacing:.02em; }}
     .kpi .val {{ font-size:1.5rem; font-weight:800; }}
-    .stFormSubmitButton>button, div.stButton>button {{ border-radius:10px; color:#0F172A !important; }}
-    div.stButton>button[kind="primary"], .stFormSubmitButton>button[kind="primary"] {{ color:#ffffff !important; }}
+    .stFormSubmitButton>button, div.stButton>button {{ border-radius:10px; }}
+    .stFormSubmitButton>button *, div.stButton>button * {{ color:#0F172A !important; }}
+    div.stButton>button[kind="primary"] *, .stFormSubmitButton>button[kind="primary"] * {{ color:#ffffff !important; }}
     .st-key-logincard {{ border:1.5px solid #0EA5E9 !important; border-radius:16px; padding:16px 20px; }}
     </style>""", unsafe_allow_html=True)
     return {"template": template, "muted": muted}
 
 
 # sidebar top: logo + theme toggle (available before and after login)
-st.sidebar.markdown(f'<div class="brandbar">{LOGO}<div class="title" '
-                    f'style="font-size:1.15rem">Engagement360</div></div>', unsafe_allow_html=True)
+_sidebar_logo = LOGO.replace('width="58" height="58"', 'width="34" height="34"')
+st.sidebar.markdown(
+    f'<div class="brandbar" style="margin-top:-12px;">{_sidebar_logo}'
+    f'<div class="title" style="font-size:1.1rem">Engagement360</div></div>',
+    unsafe_allow_html=True)
 theme = st.sidebar.radio("Theme", ["Light", "Dark"], horizontal=True,
                          index=0 if st.session_state.theme == "Light" else 1)
 st.session_state.theme = theme
