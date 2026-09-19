@@ -157,7 +157,7 @@ CREATE INDEX IF NOT EXISTS idx_predictions_engagement_date ON analytics.risk_pre
 
 -- ==============================
 -- GOVERNANCE: blockchain-inspired decision notarization ledger
--- (Module 7 — Data Governance / Data Notarization). Actual runtime tables
+-- Data Governance / Data Notarization, Actual runtime tables
 -- are unprefixed (see core/notarization.py); this entry documents the design.
 -- ==============================
 CREATE TABLE IF NOT EXISTS analytics.governance_ledger (

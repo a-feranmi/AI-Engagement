@@ -1,7 +1,6 @@
 """Persist model outputs to the DB: risk_predictions, revenue_exposure,
 sentiment_scores, risk_drivers; then (re)build the analytics views.
 
-Run:  python -m etl.persist_model_outputs
 """
 import json
 import sys

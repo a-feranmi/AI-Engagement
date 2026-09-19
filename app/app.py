@@ -3,7 +3,7 @@ from __future__ import annotations
 import os
 import streamlit as st
 
-# Bredge Streamlit Cloud secrets -> environment BEFORE the DB layer is imported,
+# Bredge Streamlit Cloud secrets
 # so core.config picks up DB_URL (Neon/Postgres) on deploy. No-op locally.
 try:
     if "DB_URL" in st.secrets:

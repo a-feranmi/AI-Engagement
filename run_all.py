@@ -3,7 +3,7 @@
 Runs each stage as a file path (not `python -m ...`), so it does not depend on
 package/module resolution or PYTHONPATH quirks (works on Windows out of the box).
 Uses the database configured by DB_URL (SQLite by default; set DB_URL for
-Postgres). Run:  python run_all.py
+Postgres).
 """
 from __future__ import annotations
 

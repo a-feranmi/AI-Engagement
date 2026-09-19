@@ -1,9 +1,9 @@
-"""Data Quality Scorecard — Module 7 (Data Governance) applied.
+"""Data Quality Scorecard, Data Governance applied.
 
 Turns the column-level profiling already produced by etl/data_quality.py
 into the four dimensions taught in the Data Quality session: completeness,
 validity, uniqueness and freshness. This is deliberately built on top of the
-existing profile (no new pipeline step) — governance should formalise work
+existing profile (no new pipeline step), governance should formalise work
 already being done, not duplicate it.
 """
 from __future__ import annotations

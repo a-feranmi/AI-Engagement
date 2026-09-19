@@ -2,7 +2,7 @@
 
 The whole project talks to the database through this module, so switching
 between local SQLite and cloud Postgres is a single environment variable
-(DB_URL) — no code changes anywhere else.
+(DB_URL); no code changes anywhere else.
 """
 from __future__ import annotations
 

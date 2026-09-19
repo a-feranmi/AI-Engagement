@@ -1,7 +1,7 @@
 """Governance: a blockchain-inspired decision-notarization ledger.
 
-Module 7 (Data Governance) covers Data Notarization via blockchain. A full
-distributed ledger is overkill for a single-organisation audit trail — what
+Data Governance covers Data Notarization via blockchain. A full
+distributed ledger is overkill for a single-organisation audit trail, what
 Bredge actually needs is the *property* a blockchain gives you: that a past
 record cannot be silently altered or deleted without detection. A SHA-256
 hash chain gives exactly that property with no new infrastructure.
@@ -9,7 +9,7 @@ hash chain gives exactly that property with no new infrastructure.
 Every governed event (a model run, an intervention logged, an outcome
 closed) is appended as a row whose hash depends on its own content AND the
 hash of the row before it. Tampering with, or deleting, any past row changes
-every hash after it — so `verify_chain()` can prove, on demand, whether the
+every hash after it; so `verify_chain()` can prove, on demand, whether the
 full history is intact.
 
 Usage:

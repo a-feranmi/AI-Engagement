@@ -1,8 +1,8 @@
-"""ETL — Load (unified, DB-agnostic).
+"""ETL: Load (unified, DB-agnostic).
 
 Loads every synthetic CSV into the configured database (SQLite or Postgres)
 through the shared engine, and writes a data-quality summary. Replaces the old
-sqlite-only build_local_db.py and the separate load_postgres.py — one path now.
+sqlite-only build_local_db.py and the separate load_postgres.py, one path now.
 
 Run:  python -m etl.load
 """

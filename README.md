@@ -1,6 +1,6 @@
 # BredgePulse
 ### Engagement Health, Early-Warning & Revenue Protection Platform
-*Bredge LLC · MSc Data Science Management — strategic intervention & portfolio project*
+*Bredge LLC · MSc Data Science Management; strategic intervention & portfolio project*
 
 **Live demo:**  [Web app](https://bredgepulse.streamlit.app/)  ·  [Power BI dashboard](https://app.powerbi.com/view?r=eyJrIjoiYWVmOGZhOTMtZTY0YS00MmYyLTlkZTctN2VjNGQ5YjQ3ZTEzIiwidCI6IjE0NWVhMmM0LTQ0NWYtNDdhOC05N2E3LWQ4MjdhYjk4ZTE0ZCJ9)
 
@@ -23,7 +23,7 @@ these signals live apart and never combine into a single, timely decision.
 **BredgePulse** closes that gap. It integrates those fragmented signals into one
 governed decision-intelligence platform that detects deteriorating engagements early,
 explains *why* they are at risk, recommends a human-reviewed intervention, and quantifies
-the financial exposure attached to the risk — turning placement management from a
+the financial exposure attached to the risk turning placement management from a
 **reactive** process into a **predictive and prescriptive** one.
 
 ```
@@ -36,17 +36,17 @@ DATA  →  INSIGHT  →  PREDICTION  →  EXPLANATION  →  ACTION  →  OUTCOME
 
 BredgePulse delivers a complete management cycle:
 
-- **Health monitoring** — a transparent Bredge Engagement Health Score (BEHS) bands every
+- **Health monitoring:** A transparent Bredge Engagement Health Score (BEHS) bands every
   active placement as Healthy, Watch or Critical.
-- **Early-warning prediction** — a machine-learning model estimates the probability that an
+- **Early-warning prediction:** A machine-learning model estimates the probability that an
   engagement will terminate early within the next 90 days.
-- **Root-cause intelligence** — NLP over client feedback surfaces the drivers behind the
+- **Root-cause intelligence:** NLP over client feedback surfaces the drivers behind the
   risk (communication, delivery, timeline, quality, expectations, and so on).
-- **Prescriptive recommendation** — each at-risk engagement receives a recommended next
+- **Prescriptive recommendation:** Each at-risk engagement receives a recommended next
   action with an owner and a time window, for a manager to review and approve.
-- **Revenue protection** — risk is translated into a **Revenue-at-Risk (₦)** figure so
+- **Revenue protection:** Risk is translated into a **Revenue-at-Risk (₦)** figure so
   leadership sees financial exposure, not just counts.
-- **Intervention tracking** — actions and their outcomes are logged, closing the loop and
+- **Intervention tracking:** Actions and their outcomes are logged, closing the loop and
   feeding future learning.
 
 ---
@@ -55,24 +55,24 @@ BredgePulse delivers a complete management cycle:
 
 An end-to-end, reproducible platform:
 
-- **Synthetic data engine** — generates a realistic Bredge-inspired dataset (clients,
+- **Synthetic data engine:** Generates a realistic Bredge-inspired dataset (clients,
   talents, engagements and ~9.5k monthly signal records) with latent health trajectories
   that drive correlated signals and outcomes.
-- **Database** — a relational schema (core entities → monthly signals → analytics layer)
+- **Database:** A relational schema (core entities → monthly signals → analytics layer)
   that runs on **SQLite locally and PostgreSQL in the cloud** through one database layer.
-- **ETL & data quality** — a load pipeline with completeness, validity, uniqueness and
+- **ETL & data quality:** A load pipeline with completeness, validity, uniqueness and
   freshness profiling.
-- **BEHS** — a transparent, management-defined engagement health score.
-- **NLP** — VADER sentiment plus a keyword issue-taxonomy classifier for diagnostics.
-- **Feature engineering** — a temporally safe feature table (features use only information
+- **BEHS:** A transparent, management-defined engagement health score.
+- **NLP:** VADER sentiment plus a keyword issue-taxonomy classifier for diagnostics.
+- **Feature engineering:** A temporally safe feature table (features use only information
   available at prediction time; the target looks forward 90 days).
-- **Risk model** — Logistic Regression and Random Forest, compared and evaluated on a
+- **Risk model:** Logistic Regression and Random Forest, compared and evaluated on a
   grouped temporal holdout, with a recall-first operating point.
-- **Explainability** — SHAP global importance and per-engagement risk drivers.
-- **Analytics marts & Power BI exports** — views and flat exports feeding five dashboard
+- **Explainability:** SHAP global importance and per-engagement risk drivers.
+- **Analytics marts & Power BI exports:** Views and flat exports feeding five dashboard
   pages (executive cockpit, engagement health, root cause, revenue protection,
   intervention effectiveness).
-- **Streamlit application** — an operational workspace to monitor the portfolio,
+- **Streamlit application:** An operational workspace to monitor the portfolio,
   investigate an engagement, simulate what-if scenarios, and log interventions.
 
 ---
@@ -110,7 +110,7 @@ An end-to-end, reproducible platform:
 ```
 
 A single database layer means the same code runs locally on SQLite and in the cloud on
-PostgreSQL — the environment is selected by configuration alone.
+PostgreSQL; the environment is selected by configuration alone.
 
 ---
 
@@ -124,15 +124,15 @@ PostgreSQL — the environment is selected by configuration alone.
 
 ## Results
 
-On a grouped temporal holdout — the newest 25% of engagements held out whole, so no
-engagement appears in both training and test — the early-warning model reaches strong
+On a grouped temporal holdout, the newest 25% of engagements held out whole, so no
+engagement appears in both training and test; the early-warning model reaches strong
 recall with a clearly stated precision–recall trade-off. **Recall is prioritised**: a
 missed at-risk engagement (a false negative) is a lost intervention opportunity and costs
 more than an occasional false alarm. Current metrics are recorded in
 `artifacts/model/metrics.json`; the primary model catches the large majority of at-risk
 engagements at an operating threshold chosen for that goal.
 
-The AI is decision support only — the model detects, explains and recommends, and a human
+The AI is decision support only; the model detects, explains and recommends, and a human
 manager reviews and approves every intervention.
 
 ---
@@ -154,19 +154,16 @@ BredgePulse/
 
 ---
 
-## Data governance (Module 7)
+## Data governance
 
-Where most classmates' projects stop at a dashboard and an app, this one also
-implements the four Module 7 topics as running code, not just as slides:
-
-- **Data quality scorecard** — the existing completeness/validity/uniqueness/
+- **Data quality scorecard:** The existing completeness/validity/uniqueness/
   freshness profiling, graded and shown live in the app.
-- **Blockchain-inspired decision notarization** — every model run, intervention
+- **Blockchain-inspired decision notarization:** Every model run, intervention
   and outcome is SHA-256 hash-chained to the record before it. A **Verify chain
   integrity** button in the app recomputes the whole chain on demand and
   reports the exact record where tampering or corruption occurred, if any.
-- **Ethics, IP & data protection** — synthetic data only, role-based access.
-- **Agile Scrum delivery** — the 12-month roadmap runs as four quarterly
+- **Ethics, IP & data protection:** Synthetic data only, role-based access.
+- **Agile Scrum delivery:** The 12-month roadmap runs as four quarterly
   sprints, each closing with a review against pilot KPIs.
 
 See `docs/governance.md` for the full write-up, including the honest
