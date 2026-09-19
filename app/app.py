@@ -477,7 +477,7 @@ with model_tab:
         st.success(f"Primary early-warning model: {selected_model.replace('_', ' ').title()} · "
                    f"intervention threshold = {metrics['band_threshold']:.2f}")
         st.markdown(f"**Critical interpretation:** {selected_model.replace('_', ' ').title()} is selected "
-                    "because recall is prioritised for early warning — catching an at-risk engagement matters "
+                    "because recall is prioritised for early warning, catching an at-risk engagement matters "
                     "more than an occasional false alarm. The precision-recall trade-off is stated openly, not hidden.")
 
     st.subheader("Governance checklist")
@@ -501,18 +501,18 @@ with model_tab:
     st.subheader("Decision notarization ledger")
     st.caption("Blockchain-inspired audit trail: every model run, intervention and outcome is SHA-256 "
                "hash-chained to the record before it. Altering or deleting a past row breaks every hash "
-               "after it — verifiable on demand, not just claimed.")
+               "after it, verifiable on demand, not just claimed.")
     lc1, lc2 = st.columns([1, 3])
     if lc1.button("Verify chain integrity"):
         result = verify_chain()
         if result["ok"]:
-            lc2.success(f"\u2713 Verified — {result['checked']} records checked, chain intact end-to-end.")
+            lc2.success(f"\u2713 Verified, {result['checked']} records checked, chain intact end-to-end.")
         else:
-            lc2.error(f"\u2717 Chain broken at ledger #{result['broken_at']} — tampering or corruption detected.")
+            lc2.error(f"\u2717 Chain broken at ledger #{result['broken_at']} ; tampering or corruption detected.")
     ledger_df = ledger_tail(12)
     if len(ledger_df):
         show_ledger = ledger_df.copy()
         show_ledger["record_hash"] = show_ledger["record_hash"].astype(str).str[:16] + "…"
         st.dataframe(show_ledger, use_container_width=True, hide_index=True)
     else:
-        st.caption("Ledger is empty — run the pipeline or log an intervention to notarize the first record.")
+        st.caption("Ledger is empty, run the pipeline or log an intervention to notarize the first record.")

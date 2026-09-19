@@ -4,6 +4,7 @@
 
 **Live demo:**  [Web app](https://bredgepulse.streamlit.app/)  ·  [Power BI dashboard](https://app.powerbi.com/view?r=eyJrIjoiYWVmOGZhOTMtZTY0YS00MmYyLTlkZTctN2VjNGQ5YjQ3ZTEzIiwidCI6IjE0NWVhMmM0LTQ0NWYtNDdhOC05N2E3LWQ4MjdhYjk4ZTE0ZCJ9)
 
+
 > All data is fully synthetic and Bredge-inspired. No confidential client data is used.
 
 ---
