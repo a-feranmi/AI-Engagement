@@ -3,7 +3,7 @@ from __future__ import annotations
 import os
 import streamlit as st
 
-# Bredge Streamlit Cloud secrets
+# Bridge Streamlit Cloud secrets -> environment BEFORE the DB layer is imported,
 # so core.config picks up DB_URL (Neon/Postgres) on deploy. No-op locally.
 try:
     if "DB_URL" in st.secrets:
@@ -133,6 +133,12 @@ try:
 except Exception:
     pass
 
+AM_PW = "bredge2026"
+try:
+    AM_PW = st.secrets["auth"]["am_password"]
+except Exception:
+    pass
+
 
 def login_gate():
     if st.session_state.get("auth"):
@@ -151,18 +157,23 @@ def login_gate():
             else:
                 box.error("Incorrect password.")
     elif role == "Account Manager":
-        ams = account_manager_ids()
-        am = box.selectbox("Your account-manager ID", ams) if ams else None
+        am = box.text_input("Your account-manager ID (e.g. AM-001)").strip().upper()
+        pw = box.text_input("Password", type="password")
         if box.button("Sign in", type="primary", use_container_width=True):
-            st.session_state.auth = {"role": "Account Manager", "am": str(am), "name": f"Account Manager {am}"}
-            st.rerun()
+            valid_ids = {a.upper() for a in account_manager_ids()}
+            if not am:
+                box.error("Enter your account-manager ID.")
+            elif am not in valid_ids:
+                box.error("Unrecognized account-manager ID.")
+            elif pw != AM_PW:
+                box.error("Incorrect password.")
+            else:
+                st.session_state.auth = {"role": "Account Manager", "am": am, "name": f"Account Manager {am}"}
+                st.rerun()
     else:
         if box.button("Continue as guest", type="primary", use_container_width=True):
             st.session_state.auth = {"role": "Guest", "am": None, "name": "Guest"}
             st.rerun()
-    box.caption("Demo access - synthetic data. Administrator password: **admin123**. "
-                "Account managers sign in by ID and see only their own clients. "
-                "Guests view the full portfolio read-only.")
     st.stop()
 
 
@@ -392,7 +403,7 @@ with investigation_tab:
         st.caption("AI recommendations are decision support only; a manager must review and approve an intervention.")
 
         st.markdown("### What-if scenario")
-        st.caption("Scenario simulation only — not a causal estimate.")
+        st.caption("Scenario simulation only, not a causal estimate.")
         s1, s2, s3 = st.columns(3)
         perf_uplift = s1.slider("Performance uplift", -10, 15, 0)
         sentiment_uplift = s2.slider("Sentiment uplift", -20, 20, 0)
@@ -488,7 +499,7 @@ with model_tab:
     st.checkbox("Every prediction, intervention and outcome is hash-chained and tamper-evident", value=True, disabled=True)
 
     st.subheader("Data quality scorecard")
-    st.caption("Completeness · validity · uniqueness · freshness — the four dimensions from Module 7 (Data Governance).")
+    st.caption("Completeness · validity · uniqueness · freshness, the four dimensions from Data Governance.")
     try:
         from core.data_quality_scorecard import scorecard, grade
         sc = scorecard()
@@ -501,14 +512,14 @@ with model_tab:
     st.subheader("Decision notarization ledger")
     st.caption("Blockchain-inspired audit trail: every model run, intervention and outcome is SHA-256 "
                "hash-chained to the record before it. Altering or deleting a past row breaks every hash "
-               "after it, verifiable on demand, not just claimed.")
+               "after it; verifiable on demand, not just claimed.")
     lc1, lc2 = st.columns([1, 3])
     if lc1.button("Verify chain integrity"):
         result = verify_chain()
         if result["ok"]:
             lc2.success(f"\u2713 Verified, {result['checked']} records checked, chain intact end-to-end.")
         else:
-            lc2.error(f"\u2717 Chain broken at ledger #{result['broken_at']} ; tampering or corruption detected.")
+            lc2.error(f"\u2717 Chain broken at ledger #{result['broken_at']} , tampering or corruption detected.")
     ledger_df = ledger_tail(12)
     if len(ledger_df):
         show_ledger = ledger_df.copy()

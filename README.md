@@ -7,6 +7,8 @@
 
 > All data is fully synthetic and Bredge-inspired. No confidential client data is used.
 
+**Access:** the web app is role-gated (Administrator, Account Manager, Guest). If you'd like to explore it as an Administrator or Account Manager, reach out to me at **ample.oluwaferanmi26@gmail.com** for credentials.
+
 ---
 
 ## Overview
