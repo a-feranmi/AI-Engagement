@@ -113,7 +113,7 @@ def style_fig(fig, h=330):
 def header():
     st.markdown(
         f'<div class="brandbar" style="margin-top:-14px;">{LOGO}<div><div class="title">BredgePulse</div>'
-        f'<div class="sub">AI-Powered Engagement Health, Early-Warning & Revenue Protection</div>'
+        f'<div class="sub">Engagement Health, Early-Warning & Revenue Protection</div>'
         f'</div></div>', unsafe_allow_html=True)
 
 

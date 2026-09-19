@@ -1,6 +1,8 @@
-# AI-Powered Engagement Health
-### AI-Powered Engagement Health, Early-Warning & Revenue Protection Platform
+# BredgePulse
+### Engagement Health, Early-Warning & Revenue Protection Platform
 *Bredge LLC · MSc Data Science Management — strategic intervention & portfolio project*
+
+**Live demo:**  [Web app](https://bredgepulse.streamlit.app/)  ·  [Power BI dashboard](https://app.powerbi.com/view?r=eyJrIjoiOTQ5OTJlMjctODkyZC00Y2U3LWI5ZGQtMTE5NDExOWQ4OWRiIiwidCI6IjE0NWVhMmM0LTQ0NWYtNDdhOC05N2E3LWQ4MjdhYjk4ZTE0ZCJ9)
 
 > All data is fully synthetic and Bredge-inspired. No confidential client data is used.
 
@@ -18,7 +20,7 @@ The underlying problem is not a lack of data. Bredge has performance reviews, cl
 feedback, project milestones, timesheets, check-in notes and contract information — but
 these signals live apart and never combine into a single, timely decision.
 
-**AI-Powered Engagement Health** closes that gap. It integrates those fragmented signals into one
+**BredgePulse** closes that gap. It integrates those fragmented signals into one
 governed decision-intelligence platform that detects deteriorating engagements early,
 explains *why* they are at risk, recommends a human-reviewed intervention, and quantifies
 the financial exposure attached to the risk — turning placement management from a
@@ -32,7 +34,7 @@ DATA  →  INSIGHT  →  PREDICTION  →  EXPLANATION  →  ACTION  →  OUTCOME
 
 ## What it does
 
-AI-Powered Engagement Health delivers a complete management cycle:
+BredgePulse delivers a complete management cycle:
 
 - **Health monitoring** — a transparent Bredge Engagement Health Score (BEHS) bands every
   active placement as Healthy, Watch or Critical.
@@ -138,7 +140,7 @@ manager reviews and approves every intervention.
 ## Project structure
 
 ```
-AI-Powered Engagement Health/
+BredgePulse/
 ├── core/            configuration + one database engine (SQLite / Postgres)
 ├── data/            synthetic data generator + generated CSVs
 ├── database/        schema + analytics marts (views)
