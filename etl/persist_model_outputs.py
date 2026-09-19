@@ -12,6 +12,7 @@ import pandas as pd
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from core.config import ARTIFACTS, MODEL_DIR, WATCH_THRESHOLD, CRITICAL_THRESHOLD
 from core.db import read_sql, write_df, create_views
+from core.notarization import notarize
 
 
 def main() -> None:
@@ -48,6 +49,8 @@ def main() -> None:
         "critical_predictions": int((preds.risk_band == "Critical").sum()),
     }
     (ARTIFACTS / "output_summary.json").write_text(json.dumps(summary, indent=2))
+    model_version = str(preds["model_version"].iloc[-1]) if len(preds) else "unknown"
+    notarize("model_run", model_version, summary)
     print(json.dumps(summary, indent=2))
 
 

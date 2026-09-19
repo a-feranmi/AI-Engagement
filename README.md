@@ -2,7 +2,7 @@
 ### Engagement Health, Early-Warning & Revenue Protection Platform
 *Bredge LLC · MSc Data Science Management — strategic intervention & portfolio project*
 
-**Live demo:**  [Web app](https://bredgepulse.streamlit.app/)  ·  [Power BI dashboard](https://app.powerbi.com/view?r=eyJrIjoiOTQ5OTJlMjctODkyZC00Y2U3LWI5ZGQtMTE5NDExOWQ4OWRiIiwidCI6IjE0NWVhMmM0LTQ0NWYtNDdhOC05N2E3LWQ4MjdhYjk4ZTE0ZCJ9)
+**Live demo:**  [Web app](https://bredgepulse.streamlit.app/)  ·  [Power BI dashboard](https://app.powerbi.com/view?r=eyJrIjoiYWVmOGZhOTMtZTY0YS00MmYyLTlkZTctN2VjNGQ5YjQ3ZTEzIiwidCI6IjE0NWVhMmM0LTQ0NWYtNDdhOC05N2E3LWQ4MjdhYjk4ZTE0ZCJ9)
 
 > All data is fully synthetic and Bredge-inspired. No confidential client data is used.
 
@@ -151,6 +151,26 @@ BredgePulse/
 ├── tests/           automated checks
 └── run_all.py       one-command full build
 ```
+
+---
+
+## Data governance (Module 7)
+
+Where most classmates' projects stop at a dashboard and an app, this one also
+implements the four Module 7 topics as running code, not just as slides:
+
+- **Data quality scorecard** — the existing completeness/validity/uniqueness/
+  freshness profiling, graded and shown live in the app.
+- **Blockchain-inspired decision notarization** — every model run, intervention
+  and outcome is SHA-256 hash-chained to the record before it. A **Verify chain
+  integrity** button in the app recomputes the whole chain on demand and
+  reports the exact record where tampering or corruption occurred, if any.
+- **Ethics, IP & data protection** — synthetic data only, role-based access.
+- **Agile Scrum delivery** — the 12-month roadmap runs as four quarterly
+  sprints, each closing with a review against pilot KPIs.
+
+See `docs/governance.md` for the full write-up, including the honest
+limitations of the hash-chain approach.
 
 ---
 

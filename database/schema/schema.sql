@@ -154,3 +154,18 @@ CREATE INDEX IF NOT EXISTS idx_performance_engagement_date ON core.performance_r
 CREATE INDEX IF NOT EXISTS idx_feedback_engagement_date ON core.client_feedback(engagement_id, feedback_date);
 CREATE INDEX IF NOT EXISTS idx_checkins_engagement_date ON core.checkins(engagement_id, checkin_date);
 CREATE INDEX IF NOT EXISTS idx_predictions_engagement_date ON analytics.risk_predictions(engagement_id, prediction_date);
+
+-- ==============================
+-- GOVERNANCE: blockchain-inspired decision notarization ledger
+-- (Module 7 — Data Governance / Data Notarization). Actual runtime tables
+-- are unprefixed (see core/notarization.py); this entry documents the design.
+-- ==============================
+CREATE TABLE IF NOT EXISTS analytics.governance_ledger (
+    ledger_id    SERIAL PRIMARY KEY,
+    ts           TIMESTAMP NOT NULL,
+    event_type   VARCHAR(40) NOT NULL,   -- model_run | intervention_logged | intervention_closed
+    ref_id       VARCHAR(64),
+    payload      TEXT NOT NULL,
+    prev_hash    CHAR(64) NOT NULL,
+    record_hash  CHAR(64) NOT NULL       -- SHA-256(ts, event_type, ref_id, payload, prev_hash)
+);

@@ -3,7 +3,7 @@ from __future__ import annotations
 import os
 import streamlit as st
 
-# Bridge Streamlit Cloud secrets -> environment BEFORE the DB layer is imported,
+# Bredge Streamlit Cloud secrets -> environment BEFORE the DB layer is imported,
 # so core.config picks up DB_URL (Neon/Postgres) on deploy. No-op locally.
 try:
     if "DB_URL" in st.secrets:
@@ -30,6 +30,7 @@ if str(ROOT) not in sys.path:
 
 from base.prescriptive.recommendations import recommend
 from core.db import read_sql, exec_sql   # DB-agnostic: SQLite locally, Postgres in the cloud
+from core.notarization import notarize, verify_chain, ledger_tail
 
 METRICS = ROOT / "artifacts" / "model" / "metrics.json"
 
@@ -434,8 +435,11 @@ with interventions_tab:
                     VALUES (:eid, :today, :itype, :owner, :priority, 'Open', :due, NULL, :notes)
                 """, eid=selected_i, today=str(_today), itype=itype, owner=owner,
                      priority=priority, due=str(_today + timedelta(days=int(due_days))), notes=notes)
+                notarize("intervention_logged", selected_i, {
+                    "intervention_type": itype, "owner": owner, "priority": priority,
+                    "due_date": str(_today + timedelta(days=int(due_days))), "notes": notes})
                 st.cache_data.clear()
-                st.success("Intervention logged to the SQL database.")
+                st.success("Intervention logged to the SQL database and notarized in the governance ledger.")
 
     st.subheader("Intervention register")
     ints = current_interventions()
@@ -451,8 +455,10 @@ with interventions_tab:
                 if st.button("Mark completed"):
                     exec_sql("UPDATE interventions SET status='Closed', completed_date=:cd, outcome=:oc WHERE intervention_id=:iid",
                              cd=str(date.today()), oc=f"{outcome}: {note}", iid=int(iid))
+                    notarize("intervention_closed", str(int(iid)), {"outcome": outcome, "note": note,
+                              "completed_date": str(date.today())})
                     st.cache_data.clear()
-                    st.success("Intervention closed and outcome recorded.")
+                    st.success("Intervention closed, outcome recorded, and notarized in the governance ledger.")
                     st.rerun()
     else:
         st.caption("No interventions recorded yet.")
@@ -479,4 +485,34 @@ with model_tab:
     st.checkbox("Role-based access (admin / account manager / guest)", value=True, disabled=True)
     st.checkbox("Synthetic academic data / no confidential client records", value=True, disabled=True)
     st.checkbox("Temporal leakage controls applied in modelling", value=True, disabled=True)
-    st.checkbox("Model version and decision audit trail retained", value=True, disabled=True)
+    st.checkbox("Every prediction, intervention and outcome is hash-chained and tamper-evident", value=True, disabled=True)
+
+    st.subheader("Data quality scorecard")
+    st.caption("Completeness · validity · uniqueness · freshness — the four dimensions from Module 7 (Data Governance).")
+    try:
+        from core.data_quality_scorecard import scorecard, grade
+        sc = scorecard()
+        cols = st.columns(len(sc))
+        for col, (dim, val) in zip(cols, sc.items()):
+            col.metric(dim.title(), f"{val*100:.1f}%", grade(val))
+    except Exception as e:
+        st.caption(f"Data-quality scorecard unavailable: {e}")
+
+    st.subheader("Decision notarization ledger")
+    st.caption("Blockchain-inspired audit trail: every model run, intervention and outcome is SHA-256 "
+               "hash-chained to the record before it. Altering or deleting a past row breaks every hash "
+               "after it — verifiable on demand, not just claimed.")
+    lc1, lc2 = st.columns([1, 3])
+    if lc1.button("Verify chain integrity"):
+        result = verify_chain()
+        if result["ok"]:
+            lc2.success(f"\u2713 Verified — {result['checked']} records checked, chain intact end-to-end.")
+        else:
+            lc2.error(f"\u2717 Chain broken at ledger #{result['broken_at']} — tampering or corruption detected.")
+    ledger_df = ledger_tail(12)
+    if len(ledger_df):
+        show_ledger = ledger_df.copy()
+        show_ledger["record_hash"] = show_ledger["record_hash"].astype(str).str[:16] + "…"
+        st.dataframe(show_ledger, use_container_width=True, hide_index=True)
+    else:
+        st.caption("Ledger is empty — run the pipeline or log an intervention to notarize the first record.")

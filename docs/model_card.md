@@ -21,3 +21,9 @@ See `artifacts/model/metrics.json` for the exact metrics. These are results on s
 
 ## Limitations
 The dataset is synthetic; feature relationships are designed for academic demonstration. Threshold 0.35 is an operational pilot threshold, not a clinically or financially validated cutoff. Model outputs should support, not replace, managerial judgment.
+
+## Governance
+Every prediction batch this model produces is notarized into the
+blockchain-inspired decision ledger (`core/notarization.py`) alongside
+every intervention logged and outcome closed against it — see
+`docs/governance.md` for the full Module 7 (Data Governance) treatment.

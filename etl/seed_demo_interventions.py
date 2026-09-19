@@ -6,6 +6,7 @@ import pandas as pd
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from core.db import read_sql, write_df
+from core.notarization import notarize
 
 
 def main() -> None:
@@ -31,6 +32,7 @@ def main() -> None:
             "outcome": "Risk reduced" if status == "Closed" else None,
         })
     write_df(pd.DataFrame(rows), "interventions")
+    notarize("intervention_seed_batch", "demo", {"rows_seeded": len(rows)})
     print(f"Seeded {len(rows)} demonstration interventions")
 
 
