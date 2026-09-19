@@ -1,6 +1,6 @@
-# MSc Assessment Mapping
+# Mapping
 
-| Required assessment area | Engagement360 evidence |
+| Required assessment area | BredgePulse evidence |
 |---|---|
 | 1. Executive Summary | Strategic gap, intervention, expected business value |
 | 2. Strategic Approach | Descriptive -> Diagnostic -> Predictive -> Prescriptive; CRISP-DM |

@@ -1,10 +1,10 @@
-# Engagement360 — Portfolio Case Study
+# BredgePulse — Portfolio Case Study
 
 ## Problem
 Bredge-inspired placement operations generate multiple engagement-health signals, but those signals are difficult to combine into one timely decision. The strategic gap is therefore not data availability; it is the absence of an integrated predictive engagement-risk capability.
 
 ## Strategic intervention
-Engagement360 is a governed decision-intelligence platform that moves the operating model from reactive issue discovery to proactive intervention:
+BredgePulse is a governed decision-intelligence platform that moves the operating model from reactive issue discovery to proactive intervention:
 
 **Monitor → Diagnose → Predict → Explain → Recommend → Intervene → Measure**
 

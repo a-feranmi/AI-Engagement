@@ -1,4 +1,4 @@
-# Engagement360 Model Card
+# BredgePulse Model Card
 
 ## Objective
 Predict whether an engagement will experience early termination/escalation within the next 90 days using only information available at or before the prediction date.

@@ -1,4 +1,4 @@
-"""Central configuration for Engagement360.
+"""Central configuration for BredgePulse.
 
 Single source of truth for paths, the database URL, the model feature list and
 scoring thresholds. Default DB is a local SQLite file (zero setup); set DB_URL
@@ -22,8 +22,8 @@ for _d in (ARTIFACTS, MODEL_DIR, POWERBI_DIR):
     _d.mkdir(parents=True, exist_ok=True)
 
 # SQLite by default; override with DB_URL for Postgres (Neon / Supabase).
-#   DB_URL=postgresql+psycopg2://USER:PASSWORD@HOST:5432/engagement360
-DB_URL = os.getenv("DB_URL", f"sqlite:///{ARTIFACTS / 'engagement360.sqlite'}")
+#   DB_URL=postgresql+psycopg2://USER:PASSWORD@HOST:5432/bredgepulse
+DB_URL = os.getenv("DB_URL", f"sqlite:///{ARTIFACTS / 'bredgepulse.sqlite'}")
 
 # Model feature list (shared by training, prediction and explainability).
 FEATURES = [

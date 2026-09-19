@@ -4,11 +4,11 @@ import pandas as pd
 import numpy as np
 
 ROOT=Path(__file__).resolve().parent
-DB=ROOT/'artifacts'/'engagement360.sqlite'
+DB=ROOT/'artifacts'/'bredgepulse.sqlite'
 OUT=ROOT/'artifacts'/'eda_report.md'
 conn=sqlite3.connect(DB)
 q=lambda s: pd.read_sql_query(s,conn)
-lines=['# Engagement360 EDA & Business Diagnostic Report','', '## Portfolio overview']
+lines=['# BredgePulse EDA & Business Diagnostic Report','', '## Portfolio overview']
 over=q('select count(*) as engagements, avg(monthly_contract_value) as avg_monthly_value, sum(monthly_contract_value) as total_monthly_value from engagements')
 lines.append(over.to_markdown(index=False))
 health=q('select health_band, count(*) as observations, round(avg(behs),2) as avg_behs from engagement_health group by health_band order by health_band')

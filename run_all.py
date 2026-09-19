@@ -1,4 +1,4 @@
-"""Engagement360 - full build. Runs every stage in dependency order.
+"""BredgePulse - full build. Runs every stage in dependency order.
 
 Runs each stage as a file path (not `python -m ...`), so it does not depend on
 package/module resolution or PYTHONPATH quirks (works on Windows out of the box).
@@ -35,4 +35,4 @@ for i, (label, script) in enumerate(STEPS, 1):
     print(f"\n{'='*68}\n[{i}/{len(STEPS)}] {label}\n{'='*68}")
     subprocess.run([sys.executable, script], cwd=str(ROOT), env=ENV, check=True)
 
-print("\nENGAGEMENT360 BUILD COMPLETE - launch the app with:  streamlit run app/app.py")
+print("\nBREDGEPULSE BUILD COMPLETE - launch the app with:  streamlit run app/app.py")

@@ -33,7 +33,7 @@ from core.db import read_sql, exec_sql   # DB-agnostic: SQLite locally, Postgres
 
 METRICS = ROOT / "artifacts" / "model" / "metrics.json"
 
-st.set_page_config(page_title="Engagement360", page_icon="📈",
+st.set_page_config(page_title="BredgePulse", page_icon="📈",
                    layout="wide", initial_sidebar_state="expanded")
 
 # ----------------------------------------------------------------- branding
@@ -95,7 +95,7 @@ def inject_css(theme: str) -> dict:
 _sidebar_logo = LOGO.replace('width="58" height="58"', 'width="34" height="34"')
 st.sidebar.markdown(
     f'<div class="brandbar" style="margin-top:-12px;">{_sidebar_logo}'
-    f'<div class="title" style="font-size:1.1rem">Engagement360</div></div>',
+    f'<div class="title" style="font-size:1.1rem">BredgePulse</div></div>',
     unsafe_allow_html=True)
 theme = st.sidebar.radio("Theme", ["Light", "Dark"], horizontal=True,
                          index=0 if st.session_state.theme == "Light" else 1)
@@ -112,7 +112,7 @@ def style_fig(fig, h=330):
 
 def header():
     st.markdown(
-        f'<div class="brandbar" style="margin-top:-14px;">{LOGO}<div><div class="title">Engagement360</div>'
+        f'<div class="brandbar" style="margin-top:-14px;">{LOGO}<div><div class="title">BredgePulse</div>'
         f'<div class="sub">AI-Powered Engagement Health, Early-Warning & Revenue Protection</div>'
         f'</div></div>', unsafe_allow_html=True)
 

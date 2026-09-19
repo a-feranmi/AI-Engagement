@@ -1,4 +1,4 @@
-# Engagement360 Methodology
+# BredgePulse Methodology
 
 ## Strategic
 - SWOT / selective PESTLE for context
