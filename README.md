@@ -15,12 +15,12 @@
 
 Bredge LLC places data and technology talent with client organisations. But once a
 consultant is deployed, the **health of that placement is largely invisible** to the
-business — Bredge typically only learns an engagement is failing when the client
+business; Bredge typically only learns an engagement is failing when the client
 terminates the contract. By then the recurring revenue is already lost, the consultant
 is unexpectedly on the bench, and the client relationship is damaged.
 
 The underlying problem is not a lack of data. Bredge has performance reviews, client
-feedback, project milestones, timesheets, check-in notes and contract information — but
+feedback, project milestones, timesheets, check-in notes and contract information, but
 these signals live apart and never combine into a single, timely decision.
 
 **BredgePulse** closes that gap. It integrates those fragmented signals into one
