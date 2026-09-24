@@ -1,6 +1,10 @@
 """Persist model outputs to the DB: risk_predictions, revenue_exposure,
 sentiment_scores, risk_drivers; then (re)build the analytics views.
 
+The build is notarized as one "model_run" ledger entry whose payload carries
+SHA-256 digests of the prediction file, the metrics file and the model itself,
+so any later edit to any single prediction is detectable.
+
 """
 import json
 import sys
@@ -11,7 +15,7 @@ import pandas as pd
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from core.config import ARTIFACTS, MODEL_DIR, WATCH_THRESHOLD, CRITICAL_THRESHOLD
 from core.db import read_sql, write_df, create_views
-from core.notarization import notarize
+from core.notarization import notarize, file_digest
 
 
 def main() -> None:
@@ -49,7 +53,15 @@ def main() -> None:
     }
     (ARTIFACTS / "output_summary.json").write_text(json.dumps(summary, indent=2))
     model_version = str(preds["model_version"].iloc[-1]) if len(preds) else "unknown"
-    notarize("model_run", model_version, summary)
+    selected = json.loads((MODEL_DIR / "metrics.json").read_text())["selected_model"]
+    digests = {
+        "all_predictions_sha256": file_digest(MODEL_DIR / "all_predictions.csv"),
+        "metrics_sha256": file_digest(MODEL_DIR / "metrics.json"),
+        "model_sha256": file_digest(MODEL_DIR / f"{selected}.joblib"),
+    }
+    if drivers.exists():
+        digests["risk_drivers_sha256"] = file_digest(drivers)
+    notarize("model_run", model_version, {**summary, "selected_model": selected, **digests})
     print(json.dumps(summary, indent=2))
 
 

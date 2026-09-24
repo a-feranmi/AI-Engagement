@@ -1,0 +1,42 @@
+table,rule,dimension,rows_checked,rows_failed,pass_rate
+engagements,monthly_contract_value >= 0,range,1200,0,1.0
+engagements,expected_end_date >= start_date,date logic,1200,0,1.0
+engagements,"status in {Active, Terminated}",allowed values,1200,0,1.0
+engagements,client_id exists in clients,referential,1200,0,1.0
+engagements,talent_id exists in talents,referential,1200,0,1.0
+engagements,dates parse,format,1200,0,1.0
+performance_reviews,technical_score between 0 and 100,range,9544,0,1.0
+performance_reviews,delivery_score between 0 and 100,range,9544,0,1.0
+performance_reviews,communication_score between 0 and 100,range,9544,0,1.0
+performance_reviews,overall_score between 0 and 100,range,9544,0,1.0
+performance_reviews,engagement_id exists,referential,9544,0,1.0
+client_feedback,rating between 1 and 5,range,9544,0,1.0
+client_feedback,comment is not empty,completeness,9544,0,1.0
+client_feedback,engagement_id exists,referential,9544,0,1.0
+project_milestones,delay_days >= 0,range,9544,0,1.0
+project_milestones,"status in {Completed, Delayed}",allowed values,9544,0,1.0
+project_milestones,delay_days = completion_date - due_date,consistency,9544,0,1.0
+project_milestones,engagement_id exists,referential,9544,0,1.0
+timesheets,expected_hours > 0,range,9544,0,1.0
+timesheets,utilisation_rate between 0 and 1.5,range,9544,0,1.0
+timesheets,utilisation_rate = actual / expected hours,consistency,9544,0,1.0
+timesheets,engagement_id exists,referential,9544,0,1.0
+engagement_health,performance_health between 0 and 100,range,9544,0,1.0
+engagement_health,client_feedback_health between 0 and 100,range,9544,0,1.0
+engagement_health,milestone_health between 0 and 100,range,9544,0,1.0
+engagement_health,utilisation_health between 0 and 100,range,9544,0,1.0
+engagement_health,sentiment_health between 0 and 100,range,9544,0,1.0
+engagement_health,behs between 0 and 100,range,9544,0,1.0
+engagement_health,behs = weighted sum of components,consistency,9544,0,1.0
+engagement_health,"health_band in {Healthy, Watch, Critical}",allowed values,9544,0,1.0
+engagement_health,"churn_next_90d in {0, 1}",allowed values,9544,0,1.0
+clients,unique on (client_id),uniqueness,60,0,1.0
+talents,unique on (talent_id),uniqueness,500,0,1.0
+engagements,unique on (engagement_id),uniqueness,1200,0,1.0
+placement_outcomes,unique on (engagement_id),uniqueness,1200,0,1.0
+performance_reviews,"unique on (engagement_id, review_date)",uniqueness,9544,0,1.0
+client_feedback,"unique on (engagement_id, feedback_date)",uniqueness,9544,0,1.0
+project_milestones,"unique on (engagement_id, milestone_name)",uniqueness,9544,0,1.0
+timesheets,"unique on (engagement_id, period_start)",uniqueness,9544,0,1.0
+checkins,"unique on (engagement_id, checkin_date)",uniqueness,9544,0,1.0
+engagement_health,"unique on (engagement_id, as_of_date)",uniqueness,9544,0,1.0

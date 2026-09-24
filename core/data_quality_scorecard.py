@@ -15,6 +15,7 @@ import pandas as pd
 
 ROOT = Path(__file__).resolve().parents[1]
 DETAIL = ROOT / "artifacts" / "data_quality_detail.csv"
+RULES = ROOT / "artifacts" / "data_quality_rules.csv"
 DATA = ROOT / "data" / "synthetic"
 
 KEY_COLUMNS = ["engagement_id", "client_id", "talent_id", "as_of_date", "monthly_contract_value"]
@@ -28,20 +29,30 @@ def scorecard() -> dict:
 
     completeness = 1.0 - float(det["null_rate"].mean())
 
-    # Uniqueness is only meaningful for each file's own grain / primary key —
-    # a foreign key (e.g. client_id repeated across many engagements) is
-    # SUPPOSED to repeat, so scoring it here would wrongly penalise the data.
-    # Heuristic: per file, the "_id" column with the most distinct values is
-    # that file's own primary key; only that column is checked for uniqueness.
-    id_cols = det[det["column"].str.endswith("_id")]
-    if len(id_cols):
-        pk_per_file = id_cols.loc[id_cols.groupby("file")["unique"].idxmax()]
-        uniqueness = float((pk_per_file["unique"] / pk_per_file["rows"]).clip(upper=1.0).mean())
-    else:
-        uniqueness = 1.0
+    rules = pd.read_csv(RULES) if RULES.exists() else None
 
-    key_present = det[det["column"].isin(KEY_COLUMNS)]
-    validity = 1.0 - float(key_present["null_rate"].mean()) if len(key_present) else completeness
+    # Uniqueness: duplicates measured on each table's grain (natural key), see
+    # etl/data_quality.py::GRAIN. A foreign key such as engagement_id repeating
+    # across months is correct, so it is never scored on its own.
+    if rules is not None and (rules["dimension"] == "uniqueness").any():
+        u = rules[rules["dimension"] == "uniqueness"]
+        uniqueness = 1.0 - float(u["rows_failed"].sum() / u["rows_checked"].sum())
+    else:
+        id_cols = det[det["column"].str.endswith("_id")]
+        pk_per_file = id_cols.loc[id_cols.groupby("file")["unique"].idxmax()] if len(id_cols) else id_cols
+        uniqueness = float((pk_per_file["unique"] / pk_per_file["rows"]).clip(upper=1.0).mean()) if len(id_cols) else 1.0
+
+    # Validity: share of row-level rule checks passed (ranges, allowed values,
+    # date logic, cross-field consistency, referential integrity); see
+    # etl/data_quality.py::validity_rules. Falls back to key-column presence
+    # only if the rules file has not been generated yet.
+    if rules is not None:
+        v = rules[rules["dimension"] != "uniqueness"]
+        checked = v["rows_checked"].sum()
+        validity = 1.0 - float(v["rows_failed"].sum() / checked) if checked else 1.0
+    else:
+        key_present = det[det["column"].isin(KEY_COLUMNS)]
+        validity = 1.0 - float(key_present["null_rate"].mean()) if len(key_present) else completeness
 
     newest_mtime = 0.0
     for f in DATA.glob("*.csv"):
@@ -55,6 +66,11 @@ def scorecard() -> dict:
         "uniqueness": round(uniqueness, 4),
         "freshness": round(freshness, 4),
     }
+
+
+def rule_results() -> pd.DataFrame:
+    """Per-rule validity results for display (empty if not generated yet)."""
+    return pd.read_csv(RULES) if RULES.exists() else pd.DataFrame()
 
 
 def grade(value: float) -> str:

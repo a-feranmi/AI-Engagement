@@ -1,13 +1,13 @@
 # ETL
 
-Pipeline contract:
+Scripts run in this order from `run_all.py`:
 
-1. Extract synthetic CSV/JSON source files.
-2. Validate schema and business rules.
-3. Clean missing/duplicate/invalid values.
-4. Transform to core entities.
-5. Load PostgreSQL `core` tables.
-6. Run data-quality checks.
-7. Build analytics/features.
+| Step | Script | What it does |
+|---|---|---|
+| Load | `load.py` | Loads every synthetic CSV into the database set by `DB_URL` (SQLite by default, PostgreSQL in the cloud) and writes `artifacts/data_quality_report.csv`. |
+| Data quality | `data_quality.py` | Column profile (`data_quality_detail.csv`) plus 41 rule-based checks (`data_quality_rules.csv`): ranges, allowed values, date logic, cross-field consistency, referential integrity, uniqueness on each table's grain. Feeds `core/data_quality_scorecard.py`. |
+| Persist | `persist_model_outputs.py` | Writes predictions, revenue exposure, sentiment and SHAP drivers to the database, rebuilds the analytics views and notarizes the build with artifact digests. |
+| Seed | `seed_demo_interventions.py` | Seeds 45 demonstration interventions so the management loop is visible. |
+| Export | `export_powerbi.py` | Flat CSVs for the Power BI report (`artifacts/powerbi/`). |
 
-The next implementation task is to add `extract.py`, `transform.py`, `validate.py`, and `load.py` against the synthetic source files.
+Rules mirror the CHECK and FOREIGN KEY constraints in `database/schema/schema.sql`.

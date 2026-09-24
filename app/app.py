@@ -28,11 +28,13 @@ ROOT = Path(__file__).resolve().parents[1]
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
-from base.prescriptive.recommendations import recommend
+from base.prescriptive.recommendations import recommend, parse_drivers
+from core.config import FEATURES, CATEGORICAL
 from core.db import read_sql, exec_sql   # DB-agnostic: SQLite locally, Postgres in the cloud
 from core.notarization import notarize, verify_chain, ledger_tail
 
 METRICS = ROOT / "artifacts" / "model" / "metrics.json"
+FEATURES_CSV = ROOT / "artifacts" / "model_features.csv"
 
 st.set_page_config(page_title="BredgePulse", page_icon="📈",
                    layout="wide", initial_sidebar_state="expanded")
@@ -150,7 +152,7 @@ def login_gate():
     role = box.radio("Access level", ["Administrator", "Account Manager", "Guest (view only)"])
     if role == "Administrator":
         pw = box.text_input("Admin password", type="password")
-        if box.button("Sign in", type="primary", use_container_width=True):
+        if box.button("Sign in", type="primary", width="stretch"):
             if pw == ADMIN_PW:
                 st.session_state.auth = {"role": "Administrator", "am": None, "name": "Bredge Admin"}
                 st.rerun()
@@ -159,7 +161,7 @@ def login_gate():
     elif role == "Account Manager":
         am = box.text_input("Your account-manager ID (e.g. AM-001)").strip().upper()
         pw = box.text_input("Password", type="password")
-        if box.button("Sign in", type="primary", use_container_width=True):
+        if box.button("Sign in", type="primary", width="stretch"):
             valid_ids = {a.upper() for a in account_manager_ids()}
             if not am:
                 box.error("Enter your account-manager ID.")
@@ -171,7 +173,7 @@ def login_gate():
                 st.session_state.auth = {"role": "Account Manager", "am": am, "name": f"Account Manager {am}"}
                 st.rerun()
     else:
-        if box.button("Continue as guest", type="primary", use_container_width=True):
+        if box.button("Continue as guest", type="primary", width="stretch"):
             st.session_state.auth = {"role": "Guest", "am": None, "name": "Guest"}
             st.rerun()
     st.stop()
@@ -233,10 +235,32 @@ def current_interventions() -> pd.DataFrame:
     return read_sql("SELECT * FROM interventions ORDER BY intervention_date DESC")
 
 
-def risk_drivers(engagement_id: str) -> str:
-    d = read_sql("SELECT top_drivers FROM risk_drivers WHERE engagement_id=:eid ORDER BY as_of_date DESC LIMIT 1",
-                 eid=engagement_id)
-    return str(d.iloc[0]["top_drivers"]) if len(d) else "No material driver narrative available."
+def risk_drivers(engagement_id: str) -> tuple[str, str]:
+    """Latest SHAP driver narrative -> (top_drivers, top_driver_detail)."""
+    try:
+        d = read_sql("SELECT top_drivers, top_driver_detail FROM risk_drivers "
+                     "WHERE engagement_id=:eid ORDER BY as_of_date DESC LIMIT 1", eid=engagement_id)
+    except Exception:  # older database without the detail column
+        d = read_sql("SELECT top_drivers FROM risk_drivers WHERE engagement_id=:eid "
+                     "ORDER BY as_of_date DESC LIMIT 1", eid=engagement_id)
+    if not len(d):
+        return "No material driver narrative available.", ""
+    detail = d.iloc[0].get("top_driver_detail", "")
+    return str(d.iloc[0]["top_drivers"]), ("" if pd.isna(detail) else str(detail))
+
+
+@st.cache_resource
+def risk_model():
+    """The selected early-warning pipeline, for model-based what-if scoring."""
+    import joblib
+    meta = json.loads(METRICS.read_text())
+    return joblib.load(ROOT / "artifacts" / "model" / f"{meta['selected_model']}.joblib")
+
+
+@st.cache_data
+def latest_feature_rows() -> pd.DataFrame:
+    f = pd.read_csv(FEATURES_CSV, parse_dates=["as_of_date"])
+    return f.sort_values("as_of_date").groupby("engagement_id").tail(1).set_index("engagement_id")
 
 
 def avg_delay(engagement_id: str) -> float:
@@ -297,8 +321,8 @@ def kpi(col, label, value, accent):
 
 k1, k2, k3, k4, k5 = st.columns(5)
 kpi(k1, "ACTIVE ENGAGEMENTS", f"{len(filtered):,}", SKY)
-kpi(k2, "HEALTHY", f"{healthy:,}", BAND_COLORS["Healthy"])
-kpi(k3, "WATCH", f"{watch:,}", BAND_COLORS["Watch"])
+kpi(k2, "HEALTHY (BEHS)", f"{healthy:,}", BAND_COLORS["Healthy"])
+kpi(k3, "WATCH RISK", f"{watch:,}", BAND_COLORS["Watch"])
 kpi(k4, "CRITICAL RISK", f"{crit:,}", BAND_COLORS["Critical"])
 kpi(k5, "REVENUE-AT-RISK", f"₦{exposure/1e9:,.2f}B", SKY_DARK)
 
@@ -312,7 +336,7 @@ health.columns = ["health_band", "engagements"]
 fig = px.bar(health, x="health_band", y="engagements", text="engagements",
              color="health_band", color_discrete_map=BAND_COLORS)
 style_fig(fig, 330).update_layout(showlegend=False, xaxis_title=None)
-left.plotly_chart(fig, use_container_width=True)
+left.plotly_chart(fig, width="stretch")
 
 right.subheader("Highest-priority engagements")
 top = filtered.sort_values(["risk_probability", "risk_adjusted_exposure"], ascending=False).head(10).copy()
@@ -330,7 +354,7 @@ try:
     show = show.style.map(_band_style, subset=["risk_band"])
 except Exception:
     pass
-right.dataframe(show, use_container_width=True, hide_index=True)
+right.dataframe(show, width="stretch", hide_index=True)
 
 # ----------------------------------------------------------------- tabs
 portfolio_tab, investigation_tab, interventions_tab, model_tab = st.tabs(
@@ -344,12 +368,12 @@ with portfolio_tab:
     client_exp["Exposure (₦M)"] = client_exp.risk_adjusted_exposure / 1e6
     fig = px.bar(client_exp, y="client_name", x="Exposure (₦M)", orientation="h")
     style_fig(fig, 480).update_layout(yaxis_title=None)
-    pf.plotly_chart(fig, use_container_width=True)
+    pf.plotly_chart(fig, width="stretch")
 
     pf.subheader("Risk distribution")
     fig2 = px.histogram(filtered["risk_probability"].fillna(0), nbins=20, labels={"value": "Risk probability"})
     style_fig(fig2, 330).update_layout(showlegend=False)
-    pf.plotly_chart(fig2, use_container_width=True)
+    pf.plotly_chart(fig2, width="stretch")
 
 with investigation_tab:
     if filtered.empty:
@@ -374,12 +398,14 @@ with investigation_tab:
         tlong = trend.melt(id_vars="as_of_date", var_name="metric", value_name="score")
         fig3 = px.line(tlong, x="as_of_date", y="score", color="metric")
         style_fig(fig3, 360).update_layout(yaxis_title="Score")
-        st.plotly_chart(fig3, use_container_width=True)
+        st.plotly_chart(fig3, width="stretch")
 
+        drivers_text, drivers_detail = risk_drivers(selected)
         c1, c2 = st.columns(2)
         with c1:
             st.markdown("### Top risk drivers")
-            for driver in risk_drivers(selected).split(" | "):
+            st.caption("Ranked by SHAP contribution to the model's risk score (log-odds).")
+            for driver in (drivers_detail or drivers_text).split(" | "):
                 st.markdown(f"- {driver}")
         with c2:
             st.markdown("### Recent client feedback")
@@ -390,31 +416,53 @@ with investigation_tab:
                   ON f.engagement_id=s.engagement_id AND f.feedback_date=s.source_date
                 WHERE f.engagement_id=:eid ORDER BY f.feedback_date DESC LIMIT 5
             """, eid=selected)
-            st.dataframe(notes, use_container_width=True, hide_index=True)
+            st.dataframe(notes, width="stretch", hide_index=True)
 
         st.markdown("### AI-assisted intervention recommendation")
         recs = recommend(
             risk_probability=float(row.risk_probability or 0), behs=float(row.behs),
             sentiment_health=float(row.sentiment_health), performance_health=float(row.performance_health),
-            delay_days=avg_delay(selected), feedback_rating=avg_rating(selected))
+            delay_days=avg_delay(selected), feedback_rating=avg_rating(selected),
+            drivers=parse_drivers(drivers_text))
         for rec in recs:
             st.markdown(f"**{rec.priority} · {rec.action}** — {rec.reason}  ")
             st.caption(f"Owner: {rec.owner} · Suggested action window: {rec.due_days} days")
         st.caption("AI recommendations are decision support only; a manager must review and approve an intervention.")
 
         st.markdown("### What-if scenario")
-        st.caption("Scenario simulation only, not a causal estimate.")
+        st.caption("Re-scores the engagement with the live early-warning model after adjusting its "
+                   "latest signals. Scenario simulation only, not a causal estimate.")
         s1, s2, s3 = st.columns(3)
-        perf_uplift = s1.slider("Performance uplift", -10, 15, 0)
-        sentiment_uplift = s2.slider("Sentiment uplift", -20, 20, 0)
+        perf_uplift = s1.slider("Performance uplift (points)", -10, 15, 0)
+        sentiment_uplift = s2.slider("Sentiment uplift (points)", -20, 20, 0)
         delay_reduction = s3.slider("Reduce average delay (days)", 0, 10, 0)
         base_risk = float(row.risk_probability or 0)
-        base_score = float(row.behs)
-        scenario_behs = np.clip(base_score + 0.30*perf_uplift + 0.20*sentiment_uplift + 1.2*delay_reduction, 0, 100)
-        scenario_risk = float(np.clip(base_risk - 0.006*(scenario_behs-base_score), 0.01, 0.99))
+        try:
+            x = latest_feature_rows().loc[[selected]].copy()
+            base_risk = float(risk_model().predict_proba(x[FEATURES + CATEGORICAL])[:, 1][0])
+            for col, delta in (("performance_health", perf_uplift), ("sentiment_health", sentiment_uplift)):
+                new = (x[col] + delta).clip(0, 100)
+                x[f"{col}_delta"] += new - x[col]
+                x[col] = new
+            # Milestone health falls ~5 points per day of delay (its definition in the
+            # data), so a delay reduction is applied through milestone health, capped by
+            # the delay actually present.
+            cut = min(float(delay_reduction), float(x["delay_days"].iloc[0]))
+            new_mh = (x["milestone_health"] + 5 * cut).clip(0, 100)
+            x["milestone_health_delta"] += new_mh - x["milestone_health"]
+            x["milestone_health"] = new_mh
+            scenario_risk = float(risk_model().predict_proba(x[FEATURES + CATEGORICAL])[:, 1][0])
+            method = "Model re-score (Logistic Regression pipeline)"
+        except Exception:
+            base_score = float(row.behs)
+            scenario_behs = np.clip(base_score + 0.25*perf_uplift + 0.20*sentiment_uplift + 1.2*delay_reduction, 0, 100)
+            scenario_risk = float(np.clip(base_risk - 0.006*(scenario_behs-base_score), 0.01, 0.99))
+            method = "Heuristic approximation (model features unavailable)"
         w1, w2 = st.columns(2)
         w1.metric("Current model risk", f"{base_risk*100:.1f}%")
-        w2.metric("Scenario risk", f"{scenario_risk*100:.1f}%", delta=f"{(scenario_risk-base_risk)*100:+.1f} pp")
+        w2.metric("Scenario risk", f"{scenario_risk*100:.1f}%", delta=f"{(scenario_risk-base_risk)*100:+.1f} pp",
+                  delta_color="inverse")
+        st.caption(f"Method: {method}")
 
 with interventions_tab:
     if not CAN_WRITE:
@@ -428,7 +476,8 @@ with interventions_tab:
             recs = recommend(
                 risk_probability=float(rrow.risk_probability or 0), behs=float(rrow.behs),
                 sentiment_health=float(rrow.sentiment_health), performance_health=float(rrow.performance_health),
-                delay_days=avg_delay(selected_i), feedback_rating=avg_rating(selected_i))
+                delay_days=avg_delay(selected_i), feedback_rating=avg_rating(selected_i),
+                drivers=parse_drivers(risk_drivers(selected_i)[0]))
             action_options = [r.action for r in recs] + ["Mentoring", "Escalation", "Scope clarification"]
             with st.form("intervention_form"):
                 a, b, c = st.columns(3)
@@ -455,7 +504,7 @@ with interventions_tab:
     st.subheader("Intervention register")
     ints = current_interventions()
     if len(ints):
-        st.dataframe(ints, use_container_width=True, hide_index=True)
+        st.dataframe(ints, width="stretch", hide_index=True)
         if CAN_WRITE and "intervention_id" in ints.columns:
             open_ids = ints.loc[ints.status.eq("Open"), "intervention_id"].tolist()
             if open_ids:
@@ -483,10 +532,18 @@ with model_tab:
              "F1": vals["f1"], "ROC-AUC": vals["roc_auc"]}
             for name, vals in metrics["results"].items()])
         st.dataframe(mdf.style.format({c: "{:.3f}" for c in mdf.columns if c != "Model"}),
-                     use_container_width=True, hide_index=True)
+                     width="stretch", hide_index=True)
         selected_model = metrics["selected_model"]
         st.success(f"Primary early-warning model: {selected_model.replace('_', ' ').title()} · "
                    f"intervention threshold = {metrics['band_threshold']:.2f}")
+        rob = metrics.get("robustness")
+        if rob:
+            st.markdown(
+                f"**Robustness check ({rob['n_clients']} clients, 5-fold grouped by client):** "
+                f"recall {rob['recall']['mean']:.3f} ± {rob['recall']['std']:.3f} · "
+                f"ROC-AUC {rob['roc_auc']['mean']:.3f} ± {rob['roc_auc']['std']:.3f}. "
+                "No client appears in both training and test folds, so the result does not depend "
+                "on the model having seen a client before.")
         st.markdown(f"**Critical interpretation:** {selected_model.replace('_', ' ').title()} is selected "
                     "because recall is prioritised for early warning, catching an at-risk engagement matters "
                     "more than an occasional false alarm. The precision-recall trade-off is stated openly, not hidden.")
@@ -506,6 +563,12 @@ with model_tab:
         cols = st.columns(len(sc))
         for col, (dim, val) in zip(cols, sc.items()):
             col.metric(dim.title(), f"{val*100:.1f}%", grade(val))
+        from core.data_quality_scorecard import rule_results
+        rules = rule_results()
+        if len(rules):
+            with st.expander(f"Validity & uniqueness rules ({len(rules)} checks, "
+                             f"{int((rules.rows_failed > 0).sum())} with failures)"):
+                st.dataframe(rules, width="stretch", hide_index=True)
     except Exception as e:
         st.caption(f"Data-quality scorecard unavailable: {e}")
 
@@ -524,6 +587,6 @@ with model_tab:
     if len(ledger_df):
         show_ledger = ledger_df.copy()
         show_ledger["record_hash"] = show_ledger["record_hash"].astype(str).str[:16] + "…"
-        st.dataframe(show_ledger, use_container_width=True, hide_index=True)
+        st.dataframe(show_ledger, width="stretch", hide_index=True)
     else:
         st.caption("Ledger is empty, run the pipeline or log an intervention to notarize the first record.")

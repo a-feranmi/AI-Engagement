@@ -4,12 +4,12 @@ Most portfolio projects at this stage stop at a dashboard and an app. This
 project also implements the four Module 7 topics directly, not just as
 slide-ware but as running code:
 
-| Where it lives | What it actually does |
+| Module 7 topic | Where it lives | What it actually does |
 |---|---|---|
-| **Ethics, IP & Data Protection** | `app/app.py` (role-based login), `data/` | Synthetic data only, no confidential client records; role-based access separates Administrator, Account Manager and read-only Guest views. |
-| **Data Quality** | `core/data_quality_scorecard.py` | Formalises the existing profiling (`etl/data_quality.py`) into four graded dimensions: completeness, validity, uniqueness, freshness, shown live in the app's *Model & governance* tab. |
-| **Data Notarization (Blockchain)** | `core/notarization.py` | A SHA-256 hash-chain ledger. Every model run, intervention log and outcome closure is appended as a row whose hash depends on its own content **and** the hash of the row before it. Nothing here needs a distributed network; the one property that matters (tamper-evidence) is exactly what a hash chain gives you. `verify_chain()` recomputes the whole chain on demand and reports the exact row where history was altered, if any. |
-| **Agile Scrum** | `docs/roadmap` / the 12-month plan | The implementation roadmap (Section 5) is delivered as four quarterly sprints (Q1 Foundation → Q2 Visibility → Q3 Intelligence → Q4 Optimisation), each closing with a review against pilot KPIs, a Scrum cadence, not a single big-bang release. |
+| **Ethics, IP & Data Protection** | `app/app.py` (role-based login), `data/` | Synthetic data only, no confidential client records; role-based access separates Administrator, Account Manager and read-only Guest views. An Account Manager sees only their own clients. |
+| **Data Quality** | `etl/data_quality.py`, `core/data_quality_scorecard.py` | 41 rule-based checks mirroring the schema's CHECK and FOREIGN KEY constraints: ranges, allowed values, date logic, cross-field consistency (e.g. BEHS equals its weighted components, utilisation equals actual/expected hours), referential integrity, and uniqueness on each table's grain. Rolled up into four graded dimensions (completeness, validity, uniqueness, freshness) and shown live, with per-rule results, in the app's *Model & governance* tab. |
+| **Data Notarization (Blockchain)** | `core/notarization.py` | A SHA-256 hash-chain ledger. Every model run, intervention log and outcome closure is appended as a row whose hash depends on its own content **and** the hash of the row before it. Each model-run entry also carries SHA-256 digests of `all_predictions.csv`, `metrics.json`, the model file and the risk drivers, so every individual prediction is covered. `verify_chain()` recomputes the whole chain on demand and reports the exact row where history was altered, if any. |
+| **Agile Scrum** | the 12-month roadmap (slides, Section 5) | Four quarterly **releases** (Q1 Foundation → Q2 Visibility → Q3 Intelligence → Q4 Optimisation), each delivered through two-week sprints with sprint reviews and retrospectives, and each closing with a release review against pilot KPIs. |
 
 ## Why a hash chain, not "real" blockchain
 
@@ -51,3 +51,6 @@ reports the exact `ledger_id` where the chain breaks.
 - The Data Quality Scorecard's freshness dimension is a simple file-age proxy
   suitable for a synthetic dataset; a production version would check
   per-source ingestion SLAs instead.
+- A file digest proves a prediction file has not changed since it was
+  notarized; it does not by itself prove the file was produced correctly.
+  That is what the model card, the tests and the reproducible build are for.

@@ -63,20 +63,29 @@ An end-to-end, reproducible platform:
   that drive correlated signals and outcomes.
 - **Database:** A relational schema (core entities → monthly signals → analytics layer)
   that runs on **SQLite locally and PostgreSQL in the cloud** through one database layer.
-- **ETL & data quality:** A load pipeline with completeness, validity, uniqueness and
-  freshness profiling.
+- **ETL & data quality:** A load pipeline plus 41 rule-based checks (ranges, allowed
+  values, date logic, cross-field consistency, referential integrity, uniqueness on each
+  table's grain) rolled up into a completeness / validity / uniqueness / freshness
+  scorecard.
 - **BEHS:** A transparent, management-defined engagement health score.
-- **NLP:** VADER sentiment plus a keyword issue-taxonomy classifier for diagnostics.
+- **NLP:** VADER sentiment, domain-adapted with delivery-risk vocabulary, plus a keyword
+  issue taxonomy applied only to comments that express a concern.
 - **Feature engineering:** A temporally safe feature table (features use only information
   available at prediction time; the target looks forward 90 days).
 - **Risk model:** Logistic Regression and Random Forest, compared and evaluated on a
-  grouped temporal holdout, with a recall-first operating point.
-- **Explainability:** SHAP global importance and per-engagement risk drivers.
+  grouped temporal holdout, with a recall-first operating point, and re-checked with
+  client-grouped cross-validation. Composite and duplicate features are excluded so
+  every coefficient points the business way.
+- **Explainability:** Grouped SHAP. Global driver importance, plus each at-risk
+  engagement's top three drivers, which feed the prescriptive recommendations.
 - **Analytics marts & Power BI exports:** Views and flat exports feeding five dashboard
   pages (executive cockpit, engagement health, root cause, revenue protection,
   intervention effectiveness).
 - **Streamlit application:** An operational workspace to monitor the portfolio,
-  investigate an engagement, simulate what-if scenarios, and log interventions.
+  investigate an engagement, re-score what-if scenarios with the live model, and log
+  interventions.
+- **Jupyter walkthrough:** `notebooks/01_bredgepulse_walkthrough.ipynb` runs the
+  analysis end to end from the committed artifacts, in Jupyter, Anaconda or Google Colab.
 
 ---
 
@@ -121,22 +130,50 @@ PostgreSQL; the environment is selected by configuration alone.
 
 **Python** · **PostgreSQL / SQLite** (SQLAlchemy) · **pandas / NumPy** ·
 **scikit-learn** (Logistic Regression, Random Forest) · **VADER** (NLP) · **SHAP**
-(explainability) · **Power BI** · **Streamlit** · **Git / GitHub**.
+(explainability) · **Plotly / Matplotlib** · **Power BI** · **Streamlit** ·
+**Jupyter / Google Colab** · **pytest** · **Git / GitHub**.
 
 ---
 
 ## Results
 
-On a grouped temporal holdout, the newest 25% of engagements held out whole, so no
-engagement appears in both training and test; the early-warning model reaches strong
-recall with a clearly stated precision–recall trade-off. **Recall is prioritised**: a
-missed at-risk engagement (a false negative) is a lost intervention opportunity and costs
-more than an occasional false alarm. Current metrics are recorded in
-`artifacts/model/metrics.json`; the primary model catches the large majority of at-risk
-engagements at an operating threshold chosen for that goal.
+Grouped temporal holdout: the newest 25% of engagements are held out whole, so no
+engagement appears in both training and test. At the 0.35 intervention threshold:
+
+| Model | Recall | Precision | F1 | ROC-AUC |
+|---|---:|---:|---:|---:|
+| **Logistic Regression (selected)** | **0.892** | 0.410 | 0.562 | 0.927 |
+| Random Forest | 0.864 | 0.483 | 0.620 | 0.932 |
+
+**Recall is prioritised**: a missed at-risk engagement (a false negative) is a lost
+intervention opportunity and costs more than an occasional false alarm.
+
+*Robustness:* re-fitted under 5-fold cross-validation grouped by client (no client in
+both train and test), recall is 0.913 ± 0.024 and ROC-AUC 0.950 ± 0.013.
+
+*Interpretability:* BEHS, overall score, raw delay days (milestone health is derived
+from them) and utilisation health are kept for dashboards but excluded from the model.
+With those mechanically linked copies included, "more delay" received a risk-lowering
+coefficient and ROC-AUC was unchanged. A test (`tests/test_units.py`) now guards
+coefficient directions.
+
+Risk-adjusted revenue exposure across the portfolio: **₦2.46bn**. Exact figures are in
+`artifacts/model/metrics.json` and `artifacts/output_summary.json`.
 
 The AI is decision support only; the model detects, explains and recommends, and a human
 manager reviews and approves every intervention.
+
+## Run it locally
+
+```bash
+pip install -r requirements.txt
+python run_all.py            # full build on local SQLite (leave DB_URL unset)
+streamlit run app/app.py
+python -m pytest tests -q    # tests always use a throw-away SQLite database
+```
+
+Set `DB_URL` (see `.env.example`) to build into PostgreSQL instead. A full build
+**replaces** the tables in that database.
 
 ---
 
@@ -150,8 +187,9 @@ BredgePulse/
 ├── etl/             load, data quality, model persistence, Power BI export
 ├── base/            scoring (BEHS) · nlp · features · models · explainability · prescriptive
 ├── app/             Streamlit operational application
-├── docs/            business case, methodology, model card, Power BI guides, exam mapping
-├── tests/           automated checks
+├── docs/            business case, methodology, model card, governance, architecture, exam mapping
+├── notebooks/       Jupyter / Colab analytical walkthrough
+├── tests/           automated checks (pytest)
 └── run_all.py       one-command full build
 ```
 
@@ -159,15 +197,19 @@ BredgePulse/
 
 ## Data governance
 
-- **Data quality scorecard:** The existing completeness/validity/uniqueness/
-  freshness profiling, graded and shown live in the app.
+- **Data quality scorecard:** 41 rule-based checks rolled up into completeness,
+  validity, uniqueness and freshness, graded and shown live in the app with the
+  per-rule results.
 - **Blockchain-inspired decision notarization:** Every model run, intervention
-  and outcome is SHA-256 hash-chained to the record before it. A **Verify chain
+  and outcome is SHA-256 hash-chained to the record before it. Each model run
+  also records SHA-256 digests of the prediction file, metrics and model, so a
+  change to any single prediction is detectable. A **Verify chain
   integrity** button in the app recomputes the whole chain on demand and
   reports the exact record where tampering or corruption occurred, if any.
 - **Ethics, IP & data protection:** Synthetic data only, role-based access.
 - **Agile Scrum delivery:** The 12-month roadmap runs as four quarterly
-  sprints, each closing with a review against pilot KPIs.
+  releases, each delivered through two-week sprints and closing with a release
+  review against pilot KPIs.
 
 See `docs/governance.md` for the full write-up, including the honest
 limitations of the hash-chain approach.

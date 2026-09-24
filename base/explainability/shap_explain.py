@@ -1,34 +1,49 @@
+"""Global SHAP explanation for the selected early-warning model.
+
+Writes:
+  artifacts/shap_summary.json             top features by mean |SHAP|
+  artifacts/global_feature_importance.json the same, grouped into business drivers
+  artifacts/shap_values.npy               full SHAP matrix (git-ignored)
+
+
+"""
 from __future__ import annotations
-from pathlib import Path
+
 import json
-import joblib
+import sys
+from pathlib import Path
+
 import numpy as np
 import pandas as pd
-import shap
 
-ROOT=Path(__file__).resolve().parents[2]
-MODEL=ROOT/'artifacts'/'model'/'logistic_regression.joblib'
-DATA=ROOT/'artifacts'/'model_features.csv'
-OUT=ROOT/'artifacts'/'shap_summary.json'
-FEATURES=['behs','performance_health','client_feedback_health','milestone_health','utilisation_health','sentiment_health','behs_delta','performance_health_delta','client_feedback_health_delta','milestone_health_delta','utilisation_health_delta','sentiment_health_delta','technical_score','delivery_score','communication_score','overall_score','feedback_rating','feedback_count','delay_days','delayed_milestones','milestone_count','utilisation','utilisation_delta','engagement_age_months','remaining_months','monthly_contract_value','contract_exposure']
+sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
+from core.config import ARTIFACTS
+from base.explainability.shap_core import (compute_shap, grouped_contributions,
+                                           load_features, raw_feature, selected_model_name)
 
 
-def main():
-    model=joblib.load(MODEL)
-    df=pd.read_csv(DATA)
-    sample=df.sample(min(400,len(df)),random_state=42)
-    X=sample[FEATURES+['role']]
-    pre=model.named_steps['pre']; clf=model.named_steps['clf']
-    Xt=pre.transform(X)
-    explainer=shap.LinearExplainer(clf,Xt,feature_perturbation='interventional')
-    vals=explainer.shap_values(Xt)
-    if isinstance(vals,list): vals=vals[1]
-    vals=np.asarray(vals)
-    names=list(pre.get_feature_names_out())
-    mean_abs=np.abs(vals).mean(axis=0)
-    top=sorted([{'feature':n,'mean_abs_shap':float(v)} for n,v in zip(names,mean_abs)],key=lambda x:x['mean_abs_shap'],reverse=True)[:15]
-    OUT.write_text(json.dumps({'n_observations':len(sample),'top_features':top},indent=2))
-    np.save(ROOT/'artifacts'/'shap_values.npy',vals)
-    print('Top SHAP features:')
-    print(pd.DataFrame(top).to_string(index=False))
-if __name__=='__main__':main()
+def main() -> None:
+    df = load_features()
+    vals, names = compute_shap(df)
+
+    mean_abs = np.abs(vals).mean(axis=0)
+    # 'feature' keeps the one-hot level (e.g. role_BI Developer); 'raw_feature' is the source column.
+    top = sorted(({"feature": n.split("__", 1)[-1], "raw_feature": raw_feature(n), "mean_abs_shap": float(v)}
+                  for n, v in zip(names, mean_abs)),
+                 key=lambda d: d["mean_abs_shap"], reverse=True)[:15]
+    (ARTIFACTS / "shap_summary.json").write_text(json.dumps(
+        {"model": selected_model_name(), "n_observations": int(len(df)), "top_features": top}, indent=2))
+
+    groups = grouped_contributions(vals, names).abs().mean().sort_values(ascending=False)
+    (ARTIFACTS / "global_feature_importance.json").write_text(json.dumps(
+        [{"driver": k, "mean_abs_shap": float(v)} for k, v in groups.items()], indent=2))
+
+    np.save(ARTIFACTS / "shap_values.npy", vals)
+    print(f"Top SHAP features ({selected_model_name()}):")
+    print(pd.DataFrame(top)[["feature", "mean_abs_shap"]].to_string(index=False))
+    print("\nBusiness drivers by mean |SHAP|:")
+    print(groups.round(3).to_string())
+
+
+if __name__ == "__main__":
+    main()

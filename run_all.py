@@ -19,7 +19,7 @@ ENV["PYTHONPATH"] = str(ROOT) + os.pathsep + ENV.get("PYTHONPATH", "")
 STEPS = [
     ("Generate synthetic data", "data/generate_synthetic.py"),
     ("ETL load", "etl/load.py"),
-    ("Data-quality profile", "etl/data_quality.py"),
+    ("Data-quality profile + validity rules", "etl/data_quality.py"),
     ("NLP (VADER) sentiment + issues", "base/nlp/score_feedback.py"),
     ("Feature engineering", "base/features/build_features.py"),
     ("Train + evaluate models", "base/models/train_risk_model.py"),
@@ -28,6 +28,7 @@ STEPS = [
     ("Per-engagement risk drivers", "base/explainability/risk_drivers.py"),
     ("Persist model outputs + views", "etl/persist_model_outputs.py"),
     ("Seed demo interventions", "etl/seed_demo_interventions.py"),
+    ("Restore saved database views", "etl/restore_views.py"),
     ("Export Power BI CSVs", "etl/export_powerbi.py"),
 ]
 

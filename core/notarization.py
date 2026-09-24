@@ -99,6 +99,16 @@ def verify_chain() -> dict:
     return {"ok": True, "checked": int(len(rows)), "broken_at": None}
 
 
+def file_digest(path) -> str:
+    """SHA-256 of a file's bytes, used to notarize whole artifacts (e.g. every
+    prediction in all_predictions.csv) with a single ledger entry."""
+    h = hashlib.sha256()
+    with open(path, "rb") as fh:
+        for chunk in iter(lambda: fh.read(1 << 20), b""):
+            h.update(chunk)
+    return h.hexdigest()
+
+
 def ledger_tail(n: int = 15):
     """Most recent n ledger entries, newest first, for display in the app."""
     _ensure_table()

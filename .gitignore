@@ -4,3 +4,4 @@ __pycache__/
 .env
 artifacts/bredgepulse.sqlite
 artifacts/shap_values.npy
+artifacts/saved_views.json

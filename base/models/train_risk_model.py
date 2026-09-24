@@ -10,7 +10,12 @@ both train and test (prevents entity leakage) while still testing on the newest
 placements (temporal realism). Recall is the headline metric: a missed at-risk
 engagement (false negative) is a lost intervention opportunity.
 
-Run:  python -m src.models.train_risk_model
+Robustness check: because one client has many engagements, the selected model
+is also re-fitted under 5-fold GROUPED-BY-CLIENT cross-validation (no client in
+both train and test). This is reported in metrics.json under "robustness" and
+does not change the selected model or its predictions.
+
+Run:  python base/models/train_risk_model.py
 """
 from __future__ import annotations
 
@@ -22,6 +27,8 @@ import joblib
 import numpy as np
 import pandas as pd
 from sklearn.compose import ColumnTransformer
+from sklearn.base import clone
+from sklearn.model_selection import GroupKFold
 from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import OneHotEncoder, StandardScaler
 from sklearn.impute import SimpleImputer
@@ -55,6 +62,20 @@ def _grouped_temporal_split(df: pd.DataFrame, test_frac=0.25):
     test_ids = set(firsts.tail(n_test).index)
     is_test = df["engagement_id"].isin(test_ids)
     return df[~is_test].copy(), df[is_test].copy()
+
+
+def _client_grouped_cv(model, df: pd.DataFrame, n_splits: int = 5) -> dict:
+    """Re-fit the model under GroupKFold by client; report mean and std per metric."""
+    X, y, groups = df[FEATURES + CATEGORICAL], df[TARGET], df["client_id"]
+    folds = []
+    for tr, te in GroupKFold(n_splits=n_splits).split(X, y, groups):
+        m = clone(model).fit(X.iloc[tr], y.iloc[tr])
+        folds.append(_metrics(y.iloc[te], m.predict_proba(X.iloc[te])[:, 1]))
+    out = {"method": f"group_kfold_by_client_{n_splits}_folds", "n_clients": int(groups.nunique())}
+    for k in ("precision", "recall", "f1", "roc_auc"):
+        vals = [f[k] for f in folds]
+        out[k] = {"mean": round(float(np.mean(vals)), 3), "std": round(float(np.std(vals)), 3)}
+    return out
 
 
 def main() -> None:
@@ -100,6 +121,8 @@ def main() -> None:
         if recall_score(yte, (p_best >= thr).astype(int)) >= 0.80:
             op_thr, op_prec = round(float(thr), 3), round(
                 float(precision_score(yte, (p_best >= thr).astype(int), zero_division=0)), 3)
+    robustness = _client_grouped_cv(models[best], df)
+
     meta = {
         "split_method": "grouped_temporal_holdout_newest_25pct_by_engagement",
         "train_rows": len(train), "test_rows": len(test),
@@ -108,11 +131,13 @@ def main() -> None:
         "band_threshold": THRESHOLD, "results": results, "selected_model": best,
         "operating_threshold_for_80pct_recall": op_thr,
         "precision_at_that_threshold": op_prec,
+        "robustness": robustness,
     }
     (MODEL_DIR / "metrics.json").write_text(json.dumps(meta, indent=2))
     print(json.dumps({"selected_model": best, "metrics": results[best],
                       "op_threshold_80_recall": op_thr,
-                      "precision_there": op_prec}, indent=2))
+                      "precision_there": op_prec,
+                      "client_grouped_cv": robustness}, indent=2))
 
 
 if __name__ == "__main__":

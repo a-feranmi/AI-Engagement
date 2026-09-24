@@ -6,7 +6,8 @@ vaderSentiment
 sqlalchemy
 psycopg2-binary
 python-dotenv
-streamlit
+streamlit>=1.46
 plotly
 joblib
 streamlit-autorefresh
+tabulate

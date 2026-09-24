@@ -1,65 +1,81 @@
 {
-  "n_observations": 400,
+  "model": "logistic_regression",
+  "n_observations": 9544,
   "top_features": [
     {
-      "feature": "num__delay_days",
-      "mean_abs_shap": 0.9740612247893935
+      "feature": "client_feedback_health_delta",
+      "raw_feature": "client_feedback_health_delta",
+      "mean_abs_shap": 0.6049325310234616
     },
     {
-      "feature": "num__milestone_health",
-      "mean_abs_shap": 0.7637103545802921
+      "feature": "performance_health",
+      "raw_feature": "performance_health",
+      "mean_abs_shap": 0.584515983488767
     },
     {
-      "feature": "num__client_feedback_health_delta",
-      "mean_abs_shap": 0.5409219116949961
+      "feature": "sentiment_health",
+      "raw_feature": "sentiment_health",
+      "mean_abs_shap": 0.5600125397466041
     },
     {
-      "feature": "num__overall_score",
-      "mean_abs_shap": 0.45490821905879725
+      "feature": "performance_health_delta",
+      "raw_feature": "performance_health_delta",
+      "mean_abs_shap": 0.4456237777805057
     },
     {
-      "feature": "num__behs",
-      "mean_abs_shap": 0.4494107619043801
+      "feature": "engagement_age_months",
+      "raw_feature": "engagement_age_months",
+      "mean_abs_shap": 0.3590228164613422
     },
     {
-      "feature": "num__performance_health_delta",
-      "mean_abs_shap": 0.37612681018356187
+      "feature": "sentiment_health_delta",
+      "raw_feature": "sentiment_health_delta",
+      "mean_abs_shap": 0.3059738836103829
     },
     {
-      "feature": "num__sentiment_health",
-      "mean_abs_shap": 0.3515676289803825
+      "feature": "feedback_rating",
+      "raw_feature": "feedback_rating",
+      "mean_abs_shap": 0.3011202911413142
     },
     {
-      "feature": "num__engagement_age_months",
-      "mean_abs_shap": 0.3458516374989777
+      "feature": "client_feedback_health",
+      "raw_feature": "client_feedback_health",
+      "mean_abs_shap": 0.2964491865607001
     },
     {
-      "feature": "num__behs_delta",
-      "mean_abs_shap": 0.3083878303503653
+      "feature": "milestone_health_delta",
+      "raw_feature": "milestone_health_delta",
+      "mean_abs_shap": 0.1659495106298106
     },
     {
-      "feature": "num__performance_health",
-      "mean_abs_shap": 0.24374911512826025
+      "feature": "role_BI Developer",
+      "raw_feature": "role",
+      "mean_abs_shap": 0.16528719122366797
     },
     {
-      "feature": "num__sentiment_health_delta",
-      "mean_abs_shap": 0.20263629601261024
+      "feature": "remaining_months",
+      "raw_feature": "remaining_months",
+      "mean_abs_shap": 0.1610374956402258
     },
     {
-      "feature": "cat__role_Analytics Engineer",
-      "mean_abs_shap": 0.180822924948258
+      "feature": "role_Analytics Engineer",
+      "raw_feature": "role",
+      "mean_abs_shap": 0.15820462656982606
     },
     {
-      "feature": "num__utilisation_health_delta",
-      "mean_abs_shap": 0.1620134365606162
+      "feature": "utilisation",
+      "raw_feature": "utilisation",
+      "mean_abs_shap": 0.09515424745847353
     },
     {
-      "feature": "num__contract_exposure",
-      "mean_abs_shap": 0.14742459483762516
+      "feature": "role_AI Engineer",
+      "raw_feature": "role",
+      "mean_abs_shap": 0.08784335739186235
     },
     {
-      "feature": "cat__role_BI Developer",
-      "mean_abs_shap": 0.14011177946987988
+      "feature": "milestone_health",
+      "raw_feature": "milestone_health",
+      "mean_abs_shap": 0.07119262606303908
     }
   ]
 }

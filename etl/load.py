@@ -15,7 +15,7 @@ import pandas as pd
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from core.config import DATA_DIR, ARTIFACTS
-from core.db import write_df, dialect
+from core.db import write_df, dialect, save_and_drop_views
 
 SOURCE = {
     "clients": "clients.csv", "talents": "talents.csv",
@@ -28,6 +28,10 @@ SOURCE = {
 
 def main() -> None:
     print(f"Loading into {dialect()} database")
+    dropped = save_and_drop_views()
+    if dropped:
+        print(f"  Saved and dropped {len(dropped)} dependent views (restored at the end of the build): "
+              + ", ".join(dropped))
     quality = []
     for table, fname in SOURCE.items():
         df = pd.read_csv(DATA_DIR / fname)

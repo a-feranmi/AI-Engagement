@@ -7,39 +7,59 @@
   "band_threshold": 0.35,
   "results": {
     "logistic_regression": {
-      "precision": 0.409,
-      "recall": 0.901,
+      "precision": 0.41,
+      "recall": 0.892,
       "f1": 0.562,
       "roc_auc": 0.927,
       "confusion_matrix": [
         [
-          1019,
-          278
+          1024,
+          273
         ],
         [
-          21,
-          192
+          23,
+          190
         ]
       ]
     },
     "random_forest": {
-      "precision": 0.497,
-      "recall": 0.869,
-      "f1": 0.632,
-      "roc_auc": 0.935,
+      "precision": 0.484,
+      "recall": 0.864,
+      "f1": 0.621,
+      "roc_auc": 0.932,
       "confusion_matrix": [
         [
-          1110,
-          187
+          1101,
+          196
         ],
         [
-          28,
-          185
+          29,
+          184
         ]
       ]
     }
   },
   "selected_model": "logistic_regression",
-  "operating_threshold_for_80pct_recall": 0.65,
-  "precision_at_that_threshold": 0.545
+  "operating_threshold_for_80pct_recall": 0.6,
+  "precision_at_that_threshold": 0.528,
+  "robustness": {
+    "method": "group_kfold_by_client_5_folds",
+    "n_clients": 60,
+    "precision": {
+      "mean": 0.378,
+      "std": 0.034
+    },
+    "recall": {
+      "mean": 0.908,
+      "std": 0.011
+    },
+    "f1": {
+      "mean": 0.532,
+      "std": 0.036
+    },
+    "roc_auc": {
+      "mean": 0.95,
+      "std": 0.007
+    }
+  }
 }
